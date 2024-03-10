@@ -21,7 +21,7 @@ export default function Header(){
                         <a href="#" className=" ml-10 text-black hover:text-gray-700 font-medium">Meeting</a>
                     </div>
                     <div className="flex justify-end">
-                        <button className="bg-blue-500 text-black px-4 py-2 rounded font-medium">Sign Up</button>
+                        <button className="text-black px-4 py-2 rounded font-medium">Sign Up</button>
                         <button
                             className="bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Login
                         </button>

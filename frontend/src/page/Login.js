@@ -1,7 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "../component/Header";
 
 const Login = () => {
+    const [email, setEmail]= useState("");
+    const [password, setPassword]= useState("");
+    const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
+
+    const handleInputEmail=(e)=>{
+        setEmail(e.target.value)
+    }
+    const handleInputPassword=(e)=>{
+        setPassword(e.target.value)
+    }
+    const handleSubmit= (e)=>{
+        e.preventDefault();
+            if(email.match(regex)===false) {
+                alert("Please enter correct email form")
+            }else {
+                const  user= {
+                    email: email,
+                    password: password
+                }
+                console.log(user)
+            }
+    }
+
     return (
         <div>
         <Header></Header>
@@ -15,6 +38,8 @@ const Login = () => {
                         <input
                             type="email"
                             id="email"
+                            value={email}
+                            onChange={handleInputEmail}
                             className="w-full px-3 py-2 rounded-lg bg-gray-200 border focus:outline-none focus:ring-indigo-500 focus:ring-1"
                         />
                     </div>
@@ -25,6 +50,8 @@ const Login = () => {
                         <input
                             type="password"
                             id="password"
+                            value={password}
+                            onChange={handleInputPassword}
                             className="w-full px-3 py-2 rounded-lg bg-gray-200 border focus:outline-none focus:ring-indigo-500 focus:ring-1"
                         />
                     </div>
@@ -45,6 +72,7 @@ const Login = () => {
                     </div>
                     <button
                         type="submit"
+                        onClick={handleSubmit}
                         className="w-full px-3 py-2 rounded-lg bg-blue-light text-white font-bold shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
                     >
                         Login
