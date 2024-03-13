@@ -1,7 +1,37 @@
+
 const Recommend = () => {
     return (
     <div>
-        <p>Recommend</p>
+        <div className="grid lg:grid-cols-4 gap-x-42">
+            <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
+                <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
+                <div>
+                    <p className="card-title">Getting started with CSS </p>
+                    <span className="card-author"> Author</span>
+                </div>
+            </a>
+            <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
+                <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
+                <div>
+                    <p className="card-title">Digital Marketing Donechenthenene </p>
+                    <span className="card-author"> Author</span>
+                </div>
+            </a>
+            <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
+                <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
+                <div>
+                    <p className="card-title">Advantage OAuth Security </p>
+                    <span className="card-author"> Author</span>
+                </div>
+            </a>
+            <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
+                <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
+                <div>
+                    <p className="card-title">Copyright Basic: How to protect a protocopy</p>
+                    <span className="card-author"> Author</span>
+                </div>
+            </a>
+        </div>
     </div>
     );
 };
