@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Header from "../component/Header";
+import useAuthContext from "../hook/useAuthContext";
 
 
 export default  function Register(){
@@ -8,6 +9,7 @@ export default  function Register(){
     const [password, setPassword]= useState("");
     const [confirmPassword, setConfirmPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
+    const {dispatch} = useAuthContext();
 
     const  handleInputEmail= (e)=>{
         setEmail(e.target.value);
@@ -40,6 +42,10 @@ export default  function Register(){
                 }
                 // submit api hear with axios
                 console.log(user);
+                // localStorage
+                localStorage.setItem('user', user);
+                dispatch({type: 'LOGIN', payload: user});
+
             } else {
                 alert("Pass word do not match")
             }

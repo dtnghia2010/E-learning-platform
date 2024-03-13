@@ -6,6 +6,13 @@ const Recommend = () => {
             <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
                 <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
                 <div>
+                    <p className="card-title">Getting started with DOnchent </p>
+                    <span className="card-author"> Author</span>
+                </div>
+            </a>
+            <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
+                <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
+                <div>
                     <p className="card-title">Getting started with CSS </p>
                     <span className="card-author"> Author</span>
                 </div>
@@ -13,21 +20,14 @@ const Recommend = () => {
             <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
                 <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
                 <div>
-                    <p className="card-title">Digital Marketing Donechenthenene </p>
+                    <p className="card-title">Getting started with CSS </p>
                     <span className="card-author"> Author</span>
                 </div>
             </a>
             <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
                 <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
                 <div>
-                    <p className="card-title">Advantage OAuth Security </p>
-                    <span className="card-author"> Author</span>
-                </div>
-            </a>
-            <a href="#" className="h-32 sm:h-52 w-40 sm:w-64">
-                <img src="/images/folderImg.png" alt="" className=" hover:shadow-xl"/>
-                <div>
-                    <p className="card-title">Copyright Basic: How to protect a protocopy</p>
+                    <p className="card-title">Getting started with CSS </p>
                     <span className="card-author"> Author</span>
                 </div>
             </a>

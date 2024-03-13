@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import Header from "../component/Header";
+import useAuthContext from "../hook/useAuthContext";
 
 const Login = () => {
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
+    const {dispatch} = useAuthContext();
 
     const handleInputEmail=(e)=>{
         setEmail(e.target.value)
@@ -21,6 +23,9 @@ const Login = () => {
                     email: email,
                     password: password
                 }
+
+                localStorage.setItem('user', user); // set user in local storage
+                dispatch({type: 'LOGIN', payload: user}); // set user in global state
                 console.log(user)
             }
     }
