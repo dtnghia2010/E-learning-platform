@@ -48,26 +48,39 @@
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            {{ form.username }}
+            <input type="text" name="username" class="form-control" placeholder="Enter username...">
+        </div>
+                <div class="input-group mb-2">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" name="first_name" class="form-control" placeholder="Enter first name...">
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" name="last_name" class="form-control" placeholder="Enter last name...">
         </div>
         <div class="input-group mb-2">
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
             </div>
-            {{ form.email }}
+            <input type="email" name="email" class="form-control" placeholder="Enter email...">
         </div>
         <div class="input-group mb-2">
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            {{ form.password1 }}
+            <input type="password" name="password1" class="form-control" placeholder="Enter password...">
         </div>
         <div class="input-group mb-2">
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            {{ form.password2 }}
+            <input type="password" name="password2" class="form-control" placeholder="Re-enter password...">
         </div>
+
         <div>
             <input class="btn login_btn small-btn" type="submit" value="Register Account">
         </div>
