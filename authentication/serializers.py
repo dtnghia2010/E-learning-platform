@@ -4,7 +4,8 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password']
+        #first_name and last_name fields are not compulsory in the User model, as same as phone_number
+        fields = ['id', 'username', 'email', 'password','phone_number','first_name','last_name']
         extra_kwargs = {
             'password': {'write_only': True}
         }
