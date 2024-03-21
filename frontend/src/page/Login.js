@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Header from "../component/Header";
+import Header from "../component/layout/Header";
 import useAuthContext from "../hook/useAuthContext";
 
 const Login = () => {
