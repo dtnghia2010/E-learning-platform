@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/course/CourseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/course/CourseCard.js" afterDir="false" />
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="Front end folder become project in webstorm">
+      <change afterPath="$PROJECT_DIR$/src/component/layout/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/course/Course.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/course/CourseList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -25,14 +32,19 @@
   "associatedIndex": 8
 }]]></component>
   <component name="ProjectId" id="2e1YfXqbyqhOyBOOLTXbqQjexHk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Course__Page",
     "last_opened_file_path": "D:/WebStorm/E - Learning Platform/E-learning-platform/frontend",
     "node.js.detected.package.eslint": "true",
@@ -40,6 +52,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -52,11 +65,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711073655843</updated>
-      <workItem from="1711073657357" duration="4614000" />
+      <workItem from="1711073657357" duration="6624000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: Add course card">
+      <option name="closed" value="true" />
+      <created>1711091272516</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711091272516</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Front end folder become project in webstorm">
+      <option name="closed" value="true" />
+      <created>1711091302690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711091302690</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Add course card" />
+    <MESSAGE value="Front end folder become project in webstorm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front end folder become project in webstorm" />
   </component>
 </project>
