@@ -56,7 +56,11 @@ class UserView(APIView):
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Unauthenticated!')
 
-        user = User.objects.get(id=payload['id'])
+        user = User.objects.filter(id=payload['id']).first()
+
+        if user is None:
+            raise AuthenticationFailed('User not found!')
+
         serializer = UserSerializer(user)
         return Response(serializer.data)
 
