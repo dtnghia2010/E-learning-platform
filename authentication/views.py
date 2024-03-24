@@ -11,7 +11,6 @@ from rest_framework.response import Response
 
 from .models import User
 from .serializers import UserSerializer
-from .models import Course, Document
 
 
 # Create your views here.
