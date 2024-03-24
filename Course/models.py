@@ -5,7 +5,6 @@ from django.db import models
 class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     course_name = models.CharField(max_length=255)
-    document_id = models.IntegerField()
     category_id = models.IntegerField()
 
     def __str__(self):
