@@ -7,6 +7,7 @@ class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     course_name = models.CharField(max_length=255)
     category_id = models.IntegerField()
+    ManyUsers = models.ManyToManyField('User', related_name='courses')
 
     def __str__(self):
         return self.course_name
