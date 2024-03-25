@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import Category
+from authentication.models import User
 
 
 # Create your models here.
@@ -29,3 +30,11 @@ class AnswerList(models.Model):
 
     def __str__(self):
         return self.answer
+
+class QuizzList(models.Model):
+    quizz_id = models.ForeignKey(Quizz, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self
+
