@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("QA", "0001_initial"),
+        ("QandA", "0001_initial"),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 (
                     "question_id",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="QA.qanda"
+                        on_delete=django.db.models.deletion.CASCADE, to="QandA.qanda"
                     ),
                 ),
             ],

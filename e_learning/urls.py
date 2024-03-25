@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('course.urls')),
     path('', include('document.urls')),
     path('', include('quizz.urls')),
-    path('', include('QA.urls')),
+    path('', include('QandA.urls')),
     # path('', include('listOfAnswers.urls'))
 ]

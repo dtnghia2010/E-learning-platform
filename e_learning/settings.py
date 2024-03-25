@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "course",
     "document",
     "quizz",
-    "QA",
+    "QandA",
     "listOfAnswers"
 ]
 

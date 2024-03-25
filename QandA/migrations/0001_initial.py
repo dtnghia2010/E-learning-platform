@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="QA",
+            name="QandA",
             fields=[
                 ("question_id", models.IntegerField(primary_key=True, serialize=False)),
                 ("question", models.TextField()),
