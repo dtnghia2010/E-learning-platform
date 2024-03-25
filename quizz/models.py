@@ -10,6 +10,7 @@ class Quizz(models.Model):
     code = models.CharField(max_length=6, unique=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     chapter_id = models.IntegerField()
+    ManyUser = models.ManyToManyField(User, related_name='quizz')
 
     def __str__(self):
         return self.quizz_name
@@ -31,10 +32,10 @@ class AnswerList(models.Model):
     def __str__(self):
         return self.answer
 
-class QuizzList(models.Model):
-    quizz_id = models.ForeignKey(Quizz, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self
+# class QuizzList(models.Model):
+#     quizz_id = models.ForeignKey(Quizz, on_delete=models.CASCADE)
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self
 
