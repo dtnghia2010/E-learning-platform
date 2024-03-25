@@ -40,11 +40,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "authentication",
-    "course",
-    "document",
     "quizz",
-    "QandA",
-    "listOfAnswers"
+    "category"
 ]
 
 MIDDLEWARE = [
