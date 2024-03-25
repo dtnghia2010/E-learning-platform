@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     "authentication",
     "course",
     "document",
+    "quizz",
+    "QA",
+    "listOfAnswers"
 ]
 
 MIDDLEWARE = [

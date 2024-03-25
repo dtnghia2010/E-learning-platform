@@ -1,11 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
-from rest_framework.response import Response
-from listOfAnswers.models import listOfAnswers
-from listOfAnswers.serializers import listOfAnswersSerializer
+from rest_framework.views import APIView
+from .models import listOfAnswers
+from .serializers import listOfAnswersSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.views import APIView
+
 
 # Create your views here.
 class ListOfAnswersView(APIView):

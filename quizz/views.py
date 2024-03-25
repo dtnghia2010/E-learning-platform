@@ -1,11 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
-from rest_framework.response import Response
-from quizz.models import Quizz
-from quizz.serializers import QuizzSerializer
+from rest_framework.views import APIView
+from .models import Quizz
+from .serializers import QuizzSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.views import APIView
+
 
 # Create your views here.
 class QuizzView(APIView):
