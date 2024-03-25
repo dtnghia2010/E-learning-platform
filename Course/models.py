@@ -32,7 +32,6 @@ class Chapter(models.Model):
 
 class Bookmark(models.Model):
     bookmark_id = models.AutoField(primary_key=True)
-    document = models.ForeignKey(Document, on_delete=models.CASCADE, related_name='bookmarks')
     bookmark = models.BooleanField()
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User')
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE, related_name='chapters')
