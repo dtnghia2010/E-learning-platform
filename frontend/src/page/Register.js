@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Header from "../component/Header";
 import axios from "axios";
-
+import {useNavigate} from "react-router-dom";
 
 
 export default  function Register(){
@@ -11,6 +11,7 @@ export default  function Register(){
     const [mobilePhone, stepPhone]= useState("");
     const [confirmPassword, setConfirmPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
+    const navigator= useNavigate();
 
     const  handleInputEmail= (e)=>{
         setEmail(e.target.value);
@@ -59,7 +60,6 @@ export default  function Register(){
 
         //remove Header custom
         <div>
-            <Header/>
        <div className="flex items-center justify-center  w-full h-screen  bg-gray-100">
         <div className="bg-gray-tone  rounded-lg  px-4 py-10 max-w-sm mx-auto w-full h-screen ">
             <h1 className="text-5xl font-bold text-center mb-6">Sign up</h1>

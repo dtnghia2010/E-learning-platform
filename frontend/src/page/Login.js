@@ -1,31 +1,34 @@
 import React, {useState} from 'react';
 import Header from "../component/Header";
 import axios from "axios";
+import{useNavigate} from "react-router-dom";
 
 const Login = () => {
-    const [email, setEmail]= useState("");
+    const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
+    const navigator= useNavigate();
 
 
-    const handleInputEmail=  (e)=>{
-        setEmail(e.target.value)
+    const handleInputUsername=  (e)=>{
+        setUsername(e.target.value)
     }
     const handleInputPassword=(e)=>{
         setPassword(e.target.value)
     }
     const handleSubmit= async (e)=>{
         e.preventDefault();
-            if(email.match(regex)===false) {
+            if(username.match(regex)===false) {
                 alert("Please enter correct email form")
             }else {
                 const  user= {
-                    email: email,
+                    username: username,
                     password: password
                 }
                 const response=await axios.post("http://127.0.0.1:8000/login/",user)
-                localStorage.setItem('access_token',response.data.access_token); // set user in local storage
-                console.log(user)
+                console.log(response.data)
+                // localStorage.setItem('access_token',response.data.access_token); // set user in local storage
+                navigator("/")
             }
     }
 
@@ -41,8 +44,8 @@ const Login = () => {
                         <input
                             type="email"
                             id="email"
-                            value={email}
-                            onChange={handleInputEmail}
+                            value={username}
+                            onChange={handleInputUsername}
                             className="w-full px-3 py-2 rounded-lg bg-gray-200 border focus:outline-none focus:ring-indigo-500 focus:ring-1"
                         />
                     </div>
