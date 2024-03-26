@@ -1,15 +1,17 @@
 import React, {useState} from "react";
 import Header from "../component/Header";
-import useAuthContext from "../hook/useAuthContext";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 export default  function Register(){
     const [email, setEmail]= useState("");
     const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
+    const [mobilePhone, stepPhone]= useState("");
     const [confirmPassword, setConfirmPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
-    const {dispatch} = useAuthContext();
+    const navigator= useNavigate();
 
     const  handleInputEmail= (e)=>{
         setEmail(e.target.value);
@@ -27,7 +29,7 @@ export default  function Register(){
     }
 
 
-    const handleSubmit=(e)=>{
+    const handleSubmit= async (e)=>{
         e.preventDefault()
         if(email.match(regex)===false){
             alert("Please enter correct email form");
@@ -40,11 +42,10 @@ export default  function Register(){
                     email: email,
                     password: password
                 }
+                const response= await axios.post("http://127.0.0.1:8000/register/",user)
+                console.log(response.data)
                 // submit api hear with axios
-                console.log(user);
-                // localStorage
-                localStorage.setItem('user', user);
-                dispatch({type: 'LOGIN', payload: user});
+                navigator("/login")
 
             } else {
                 alert("Pass word do not match")
@@ -58,6 +59,7 @@ export default  function Register(){
     return (
 
         //remove Header custom
+        <div>
        <div className="flex items-center justify-center  w-full h-screen  bg-gray-100">
         <div className="bg-gray-tone  rounded-lg  px-4 py-10 max-w-sm mx-auto w-full h-screen ">
             <h1 className="text-5xl font-bold text-center mb-6">Sign up</h1>
@@ -140,6 +142,7 @@ export default  function Register(){
             </form>
         </div>
        </div>
+        </div>
 
 
 
