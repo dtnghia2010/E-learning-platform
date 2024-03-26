@@ -1,10 +1,5 @@
 import datetime
 import jwt
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -59,9 +54,15 @@ class UserView(APIView):
         try:
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
 
-        user = User.objects.filter(id=payload['id'].first)
+        user = User.objects.filter(id=payload['id']).first()
+
+        if user is None:
+            raise AuthenticationFailed('User not found!')
+
         serializer = UserSerializer(user)
         return Response(serializer.data)
 

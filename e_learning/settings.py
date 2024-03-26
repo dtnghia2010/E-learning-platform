@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "authentication",
+    "quizz",
+    "category"
     "Course",
     "Document",
     "Chapter",
