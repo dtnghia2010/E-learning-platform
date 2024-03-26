@@ -8,9 +8,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.font-vietnam-pro {
+  font-family: 'Vietnam Pro', sans-serif;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* This sets a shadow with an offset of 2px horizontally and 2px vertically, with a blur radius of 4px and a color with 50% opacity */
+}
+
+.card{
+  @apply h-32 sm:h-40 w-40 sm:w-52 bg-[length:170px_170px] bg-[#6DB9D2]/45 rounded-lg shadow-md flex flex-col p-4 hover:shadow-xl hover:-mt-0.5 relative
+}
+
+.badge{
+  @apply absolute bottom-4 ml-1 p-1 mr-7 bg-auto bg-blue-light uppercase rounded-full
+}
+
+.card-title{
+  @apply text-justify truncate sm:w-64 font-bold text-xl mt-2
+}
+.card-author{
+    @apply bottom-4 ml-1 p-1 mr-7 bg-auto text-opacity-55
 }
