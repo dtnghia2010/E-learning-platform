@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "authentication",
     "quizz",
-    "category"
+    "category",
     "Course",
     "Document",
     "Chapter",
