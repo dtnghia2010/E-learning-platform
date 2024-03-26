@@ -40,10 +40,10 @@ const Login = () => {
                 <p className="font-semibold text-center text-black mt-4 mb-10"> Welcome back, Please log in to your account</p>
                 <form action="#">
                     <div className="mb-6">
-                        <label htmlFor="email" className="text-sm text-gray-700 block mb-2"> Email</label>
+                        <label htmlFor="email" className="text-sm text-gray-700 block mb-2"> User Name</label>
                         <input
-                            type="email"
-                            id="email"
+                            type="username"
+                            id="username"
                             value={username}
                             onChange={handleInputUsername}
                             className="w-full px-3 py-2 rounded-lg bg-gray-200 border focus:outline-none focus:ring-indigo-500 focus:ring-1"
