@@ -4,6 +4,9 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 # Create your models here.
 
+from authentication.models import User
+from django.contrib.auth.models import AbstractUser, Group, Permission
+
 class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     course_name = models.CharField(max_length=255)
@@ -13,11 +16,12 @@ class Course(models.Model):
     def __str__(self):
         return self.course_name
 
+
 class Bookmark(models.Model):
     bookmark_id = models.AutoField(primary_key=True)
     bookmark = models.BooleanField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User')
-    document_id = models.ForeignKey('Document.Document', on_delete=models.CASCADE, related_name='chapters')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookmarks')
+    document_id = models.ForeignKey('Document.Document', on_delete=models.CASCADE, related_name='bookmarks')
 
     def __str__(self):
         return self.bookmark
