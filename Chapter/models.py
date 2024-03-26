@@ -1,6 +1,5 @@
 from django.db import models
 from Document.models import Document
-from Quiz.models import Quiz
 
 # Create your models here.
 class Chapter(models.Model):
