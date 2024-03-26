@@ -1,6 +1,7 @@
 from django.db import models
 from category.models import Category
 from authentication.models import User
+# from Chapter.models import Chapter
 
 
 # Create your models here.
@@ -9,7 +10,7 @@ class Quizz(models.Model):
     quizz_name = models.CharField(max_length=255)
     code = models.CharField(max_length=6, unique=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
-    chapter_id = models.IntegerField()
+    # chapter_id = models.ForeignKey(Chapter, on_delete=models.CASCADE)
     ManyUser = models.ManyToManyField(User, related_name='quizz')
 
     def __str__(self):
