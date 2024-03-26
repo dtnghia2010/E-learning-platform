@@ -82,6 +82,7 @@ WSGI_APPLICATION = "e_learning.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+#E-learning-DB connection
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
