@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import Header from "../component/Header";
+import axios from "axios";
 
 const Login = () => {
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
 
-    const handleInputEmail=(e)=>{
+
+    const handleInputEmail=  (e)=>{
         setEmail(e.target.value)
     }
     const handleInputPassword=(e)=>{
         setPassword(e.target.value)
     }
-    const handleSubmit= (e)=>{
+    const handleSubmit= async (e)=>{
         e.preventDefault();
             if(email.match(regex)===false) {
                 alert("Please enter correct email form")
@@ -21,13 +23,14 @@ const Login = () => {
                     email: email,
                     password: password
                 }
+                const response=await axios.post("http://127.0.0.1:8000/login/",user)
+                localStorage.setItem('access_token',response.data.access_token); // set user in local storage
                 console.log(user)
             }
     }
 
     return (
         <div>
-        <Header></Header>
         <div className="flex items-center justify-center  w-full h-screen  bg-gray-100">
             <div className="bg-gray-tone  rounded-lg  px-4 py-10 max-w-sm mx-auto w-full h-screen ">
                 <h1 className="text-5xl font-bold text-center mb-6">Login</h1>
