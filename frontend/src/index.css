@@ -49,3 +49,7 @@ code {
   margin: 20px 0;
 }
 
+.delete_badge{
+  @apply absolute top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full;
+}
+
