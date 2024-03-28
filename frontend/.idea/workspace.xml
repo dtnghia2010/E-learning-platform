@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="Front end folder become project in webstorm">
-      <change afterPath="$PROJECT_DIR$/src/component/layout/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/course/Course.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/course/CourseList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="[FE]feat: Chapter detail">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +25,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2e1YfXqbyqhOyBOOLTXbqQjexHk" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -39,24 +36,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Course__Page",
-    "last_opened_file_path": "D:/WebStorm/E - Learning Platform/E-learning-platform/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Course__Page&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebStorm/E - Learning Platform/E-learning-platform/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +62,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711073655843</updated>
-      <workItem from="1711073657357" duration="6624000" />
+      <workItem from="1711073657357" duration="6802000" />
+      <workItem from="1711175154014" duration="2535000" />
+      <workItem from="1711239298367" duration="3487000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -83,7 +82,47 @@
       <option name="project" value="LOCAL" />
       <updated>1711091302690</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: get All course">
+      <option name="closed" value="true" />
+      <created>1711093605499</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093605499</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: Router for Course">
+      <option name="closed" value="true" />
+      <created>1711093623986</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093623986</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: Footer">
+      <option name="closed" value="true" />
+      <created>1711093631770</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093631770</updated>
+    </task>
+    <task id="LOCAL-00006" summary="mod: Footer">
+      <option name="closed" value="true" />
+      <created>1711093661302</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093661302</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[FE]feat: Chapter detail">
+      <option name="closed" value="true" />
+      <created>1711258901500</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711258901500</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +131,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Add course card" />
     <MESSAGE value="Front end folder become project in webstorm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Front end folder become project in webstorm" />
+    <MESSAGE value="feat: get All course" />
+    <MESSAGE value="feat: Router for Course" />
+    <MESSAGE value="feat: Footer" />
+    <MESSAGE value="mod: Footer" />
+    <MESSAGE value="[FE]feat: Chapter detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FE]feat: Chapter detail" />
   </component>
 </project>
