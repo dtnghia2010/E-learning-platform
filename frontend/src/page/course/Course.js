@@ -26,7 +26,8 @@ const Course = () => {
                 setLoading(false);
             }
         }
-    })
+        fetchCourse()
+    },[])
 
     if (loading) {
         return <CircularProgress/>
