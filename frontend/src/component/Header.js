@@ -9,7 +9,6 @@ export default function Header(){
         <div>
             <div className="bg-blue-light p-2 flex justify-center">
                 <div className="container mx-auto flex justify-center items-center font-semibold text-lg">
-
                     <div className="text-sm text-gray-600 text-center flex ">
                         Free Courses, Get it now! →
                     </div>

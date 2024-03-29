@@ -16,7 +16,8 @@ module.exports = {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
       "blue-light":'#6DB9D2',
-      "gray-tone":'#e5e7eb'
+      "gray-tone":'#e5e7eb',
+      "yellow-300 ":'#F9F59A'
     },
   },
   plugins: [],
