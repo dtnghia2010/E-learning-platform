@@ -30,7 +30,7 @@ code {
 }
 
 .badge{
-  @apply absolute bottom-4 ml-1 p-1 mr-7 bg-auto bg-blue-light uppercase rounded-full
+  @apply absolute bottom-4 ml-1 p-1 mr-7 bg-auto uppercase rounded-full
 }
 
 .card-title{
