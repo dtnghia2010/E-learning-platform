@@ -10,6 +10,7 @@ import Login from "./page/Login";
 import Register from "./page/Register";
 import HomePage from "./page/HomePage";
 import Lecture from "./component/Lecture/Lecture";
+import Profile from "./page/Profile";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/register" element={<Register/>} />
             <Route exact path="/" element={<HomePage />}/>
             <Route exact path="/lecture" element={<Lecture />}/>
+            <Route exact path="/profile" element={<Profile />}/>
 
         </Routes>
       </BrowserRouter>

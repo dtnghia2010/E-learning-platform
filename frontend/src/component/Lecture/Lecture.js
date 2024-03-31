@@ -3,6 +3,7 @@ import {FcBookmark, FcCheckmark, FcOk} from 'react-icons/fc';
 import { IoBookOutline } from "react-icons/io5";
 import { LuFileEdit } from "react-icons/lu";
 import { FaAngleDown } from "react-icons/fa";
+import Navbar from "../Navbar";
 
 const CoursePage = () => {
     return (
@@ -16,23 +17,7 @@ const CoursePage = () => {
             </div>
         </div>
         <div className=" mx-auto w-screen h-screen">
-        <nav className=" ml-6 flex justify-between items-center py-4">
-            <div className="flex space-x-4">
-                <button
-                    className=" hover:bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Home
-                </button>
-                    <button
-                        className=" hover:bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Courses
-                    </button>
-                    <button
-                        className=" hover:bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Quizzes
-                    </button>
-                </div>
-                <div className="flex items-center space-x-2 w-full max-w-xl">
-                    <input type="search" placeholder="Search..." className=" w-full px-2 py-1 border rounded"/>
-                    <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                </div>
-        </nav>
+        <Navbar />
         <div className="flex w-screen bg-blue-light  ">
                 <div className=" ml-4 w-1/2 bg-blue-100 space-y-2 p-8">
                     <h1 className="text-4xl font-bold text-blue-900">Digital Marketing Done Right!</h1>
