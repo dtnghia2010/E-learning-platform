@@ -6,11 +6,12 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 from authentication.models import User
 from django.contrib.auth.models import AbstractUser, Group, Permission
+from category.models import Category
 
 class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     course_name = models.CharField(max_length=255)
-    category_id = models.IntegerField()
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     ManyUser = models.ManyToManyField('authentication.User', related_name='courses')
 
     def __str__(self):
