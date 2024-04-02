@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "Document",
     "Chapter",
     "question",
-    "answerlist"
+    "answerlist",
 ]
 
 MIDDLEWARE = [
@@ -86,15 +86,16 @@ WSGI_APPLICATION = "e_learning.wsgi.application"
 
 #E-learning-DB connection
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres.icylsumxcdaevwturicr",
-        "PASSWORD": "fGH5nvP7KO0sah0M",
-        "HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
-        "PORT": "5432",
-    }
+   "default": {
+       "ENGINE": "django.db.backends.postgresql",
+       "NAME": "postgres",
+       "USER": "postgres.dbvfehsiwbewquyrgjzv",
+       "PASSWORD": "hRSw6LSXvGIGJa3T",
+       "HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
+       "PORT": "5432",
+   }
 }
+
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
