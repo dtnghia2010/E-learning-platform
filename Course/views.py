@@ -14,19 +14,16 @@ class CourseView(APIView):
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
 
-        try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Authentication token expired!')
-        except jwt.InvalidTokenError:
-            raise AuthenticationFailed('Invalid authentication token!')
-
         courses = Course.objects.filter(category_id=category_id)
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
 
 class createCourse(APIView):
     def post(self, request):
+        token = request.COOKIES.get('jwt')
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+
         print(request.data)
         serializer = CourseSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
