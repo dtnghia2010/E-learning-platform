@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "Course",
     "Document",
     "Chapter",
+    "question",
+    "answerlist"
 ]
 
 MIDDLEWARE = [
@@ -87,8 +89,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
-        "USER": "postgres.dbvfehsiwbewquyrgjzv",
-        "PASSWORD": "hRSw6LSXvGIGJa3T",
+        "USER": "postgres.icylsumxcdaevwturicr",
+        "PASSWORD": "fGH5nvP7KO0sah0M",
         "HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
         "PORT": "5432",
     }
