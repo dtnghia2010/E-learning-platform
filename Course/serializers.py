@@ -6,7 +6,6 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
         fields = ['course_id', 'course_name', 'category_id']
 
-
     def create(self, validated_data):
         instance = self.Meta.model(**validated_data)
         instance.save()
