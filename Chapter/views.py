@@ -22,3 +22,22 @@ class ChapterView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, chapter_id):
+        try:
+            save_chapter = Chapter.objects.get(pk=chapter_id)
+        except Chapter.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = ChapterSerializer(instance=save_chapter, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success": "Chapter '{}' updated successfully".format(save_chapter.chapter_name)})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, chapter_id):
+        try:
+            chapter = Chapter.objects.get(pk=chapter_id)
+            chapter.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Chapter.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
