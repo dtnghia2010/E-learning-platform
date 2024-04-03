@@ -7,7 +7,7 @@ from rest_framework import status
 # Create your views here.
 
 class ChapterView(APIView):
-    def get(self, request, chapter_id):
+    def get(self, request, chapter_id=None):
         if chapter_id:
             chapter = Chapter.objects.get(chapter_id=chapter_id)
             serializer = ChapterSerializer(chapter)
