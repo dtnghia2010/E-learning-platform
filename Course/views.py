@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
 import jwt
+from rest_framework import status
 
 from authentication.models import User
 from .models import Course
@@ -19,7 +19,7 @@ class CourseView(APIView):
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
 
-class createCourse(APIView):
+class CreateCourse(APIView):
     def post(self, request):
         token = request.COOKIES.get('jwt')
         if not token:
@@ -41,4 +41,4 @@ class createCourse(APIView):
 
         course.ManyUser.add(user)
         course.save()
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
