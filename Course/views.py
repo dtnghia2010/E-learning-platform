@@ -6,7 +6,7 @@ from rest_framework import status
 
 from authentication.models import User
 from .models import Course
-from .serializers import CourseSerializer
+from .serializers import CourseSerializer, CourseViewSerializer
 
 
 class CourseView(APIView):
@@ -16,7 +16,7 @@ class CourseView(APIView):
             raise AuthenticationFailed('Unauthenticated!')
 
         courses = Course.objects.filter(category_id=category_id)
-        serializer = CourseSerializer(courses, many=True)
+        serializer = CourseViewSerializer(courses, many=True)
         return Response(serializer.data)
 
 class CreateCourse(APIView):
