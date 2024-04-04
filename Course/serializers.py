@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from .models import Course, Bookmark
-from category.serializers import CategoryNameSerializer
+
 
 class CourseSerializer(serializers.ModelSerializer):
-    category_name = CategoryNameSerializer(source='category',many=False, read_only=True)
+    category_name = serializers.StringRelatedField(source='category_id')
     class Meta:
         model = Course
         fields = ['course_id', 'course_name', 'category_name']
