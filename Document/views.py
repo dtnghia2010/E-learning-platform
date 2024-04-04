@@ -5,14 +5,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Document
-from .serializers import DocumentSerializer
+from .serializers import DocumentDetailSerializer, DocumentSerializer
 
 # Create your views here.
 class DocumentView(APIView):
     def get(self, request, Document_id=None):
         if Document_id:
             document = Document.objects.get(document_id=Document_id)
-            serializer = DocumentSerializer(document)
+            serializer = DocumentDetailSerializer(document)
         else:
             documents = Document.objects.all()
             serializer = DocumentSerializer(documents, many=True)
