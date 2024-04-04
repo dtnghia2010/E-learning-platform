@@ -6,12 +6,25 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Document
 from .serializers import DocumentDetailSerializer, DocumentSerializer
-
+from rest_framework.exceptions import AuthenticationFailed
+import jwt
 # Create your views here.
 class DocumentView(APIView):
     def get(self, request, Document_id=None):
+        token = request.COOKIES.get('jwt')
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
         if Document_id:
-            document = Document.objects.get(document_id=Document_id)
+            document = Document.objects.filter(document_id=Document_id).first()
+            # document = Document.objects.get(document_id=Document_id)
             serializer = DocumentDetailSerializer(document)
         else:
             documents = Document.objects.all()

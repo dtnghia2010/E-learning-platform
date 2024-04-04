@@ -4,5 +4,5 @@ from .views import DocumentView
 
 urlpatterns = [
     path('document/', DocumentView.as_view()),
-    path('document/<int:Document_id>/', DocumentView.as_view()),
+    path('document/documentdetial_id=<int:Document_id>', DocumentView.as_view()),
 ]
