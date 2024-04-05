@@ -41,7 +41,7 @@ class CategoryList(APIView):
 class CategoryDetail(APIView):
     def get_object(self, category_id):
         try:
-            return Category.objects.get(category_id=category_id)
+            return Category.objects.get(pk=category_id)
         except Category.DoesNotExist:
             raise Http404
 
@@ -58,7 +58,11 @@ class CategoryDetail(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, category_id):
-        category = self.get_object(category_id)
+    def delete(self, request, category_id):
+        try:
+            category = Category.objects.get(pk=category_id)
+        except Category.DoesNotExist:
+            return Response({'error': 'Category not found.'}, status=status.HTTP_404_NOT_FOUND)
+
         category.delete()
-        return Response(status=status.HTTP_404_NOT_FOUND)
+        return Response(status=status.HTTP_204_NO_CONTENT)
