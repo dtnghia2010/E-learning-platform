@@ -11,9 +11,10 @@ from rest_framework import serializers
 from .models import Document
 
 class DocumentSerializer(serializers.ModelSerializer):
+    author_name = serializers.CharField(source='user_id.username', read_only=True)
     class Meta:
         model = Document
-        fields = ['document_name','document_id']
+        fields = ['document_name','document_id','author_name']
 
 
 class DocumentAllSerializer(serializers.ModelSerializer):
@@ -27,7 +28,7 @@ class DocumentbyCourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Document
-        fields = ['course_name', 'document_name']
+        fields = ['document_id', 'document_name', ]
 
     def get_document_name(self, obj):
         documents = Document.objects.filter(course_id=obj.course_id)
