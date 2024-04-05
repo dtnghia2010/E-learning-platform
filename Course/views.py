@@ -42,13 +42,6 @@ class CourseDetailView(APIView):
         else:
             return Response({"error": "Course ID is required"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # if Course_id:
-        #     document = Course.objects.filter(document_id=Course_id).first()
-        #     serializer = CourseDetailSerializer(document)
-        # else:
-        #     course = Course.objects.all()
-        #     serializer = CourseSerializer(course, many=True)
-        # return Response({"documents": serializer.data})
 
     def post(self, request):
         serializer = CourseSerializer(data=request.data)
