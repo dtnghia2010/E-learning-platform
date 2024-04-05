@@ -13,7 +13,7 @@ from .models import Document
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
-        fields = ['document_name']
+        fields = ['document_name','document_id']
 
 
 class DocumentAllSerializer(serializers.ModelSerializer):
