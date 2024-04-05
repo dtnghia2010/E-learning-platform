@@ -20,6 +20,8 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class GetAllDocumentsByCourse(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
   def get(self, request, course_id=None):
             if course_id:
                 course = Course.objects.filter(course_id=course_id).first()
