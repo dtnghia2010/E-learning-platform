@@ -15,6 +15,8 @@ from rest_framework.response import Response
 from .models import Document
 from .serializers import DocumentSerializer
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 class GetAllDocumentsByCourse(APIView):
