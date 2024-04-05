@@ -13,12 +13,13 @@ from .models import Document
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
-        fields = "__all__"
+        fields = ['document_name']
+
 
 class DocumentAllSerializer(serializers.ModelSerializer):
      class Meta:
          model = Document
-         fields = ['document_name']
+         fields = "__all__"
 
 class DocumentbyCourseSerializer(serializers.ModelSerializer):
     document_name = serializers.SerializerMethodField()
