@@ -24,26 +24,6 @@ class CourseDetailView(APIView):
         #     raise AuthenticationFailed('Authentication token expired!')
         # except jwt.InvalidTokenError:
         #     raise AuthenticationFailed('Invalid authentication token!')
-        # if course_id:
-        #     try:
-        #         course = Course.objects.get(pk=course_id)
-        #     except Course.DoesNotExist:
-        #         return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
-        #
-        #     documents = Document.objects.filter(course_id=course_id)
-        #     document_serializer = DocumentSerializer(documents, many=True)
-        #
-        #     response_data = {
-        #         "course_id": course.course_id,
-        #         "course_name": course.course_name,
-        #         "category_id": course.category_id,
-        #         "documents": document_serializer.data  # Bao gồm danh sách tài liệu
-        #     }
-        #     return Response(response_data, status=status.HTTP_200_OK)
-        # else:
-        #     courses = Course.objects.all()
-        #     course_serializer = CourseSerializer(courses, many=True)
-        #     return Response({"courses": course_serializer.data}, status=status.HTTP_200_OK)
 
         if course_id is not None:
             try:
