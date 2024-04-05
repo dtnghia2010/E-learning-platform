@@ -5,8 +5,7 @@ from .views import GetAllDocumentsByCourse
 
 
 urlpatterns = [
-    path('alldocument/', DocumentView.as_view()),
+    path('alldocuments/', DocumentView.as_view()),
     path('document/documentdetial_id=<int:Document_id>/', DocumentView.as_view()),
     path('documentbycourse/', GetAllDocumentsByCourse.as_view()),
-
 ]

@@ -1,18 +1,14 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
-import jwt
-from rest_framework import status
-
-from authentication.models import User
 from .models import Course
+from Document.models import Document
+from Document.serializers import DocumentSerializer
 from .serializers import CourseSerializer, CourseViewSerializer
-import datetime
-import jwt
-from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import jwt
+from authentication.models import User
+
 
 
 class CourseView(APIView):
@@ -30,34 +26,6 @@ class CreateCourse(APIView):
         token = request.COOKIES.get('jwt')
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
-# from Document.models import Document
-# from Document.serializers import DocumentSerializer
-# from .models import Course
-# from .serializers import CourseDetailSerializer, CourseSerializer
-# from rest_framework.exceptions import AuthenticationFailed
-# import jwt
-# Create your views here.
-class CourseDetailView(APIView):
-    def get(self, request, Course_id=None, course_id=None):
-        # token = request.COOKIES.get('jwt')
-        # if not token:
-        #     raise AuthenticationFailed('Unauthenticated!')
-
-        # try:
-        #     payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        # except jwt.ExpiredSignatureError:
-        #     raise AuthenticationFailed('Authentication token expired!')
-        # except jwt.InvalidTokenError:
-        #     raise AuthenticationFailed('Invalid authentication token!')
-
-        if course_id is not None:
-            try:
-                course = Course.objects.get(pk=course_id)
-            except Course.DoesNotExist:
-                return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
-
-            documents = Document.objects.filter(course_id=course_id)
-            document_serializer = DocumentSerializer(documents, many=True)
 
         try:
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
@@ -73,6 +41,18 @@ class CourseDetailView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+class CourseDetailView(APIView):
+    def get(self, request, Course_id=None, course_id=None):
+
+        if course_id is not None:
+            try:
+                course = Course.objects.get(pk=course_id)
+            except Course.DoesNotExist:
+                return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
+
+            documents = Document.objects.filter(course_id=course_id)
+            document_serializer = DocumentSerializer(documents, many=True)
+
             response_data = {
                 "course_name": course.course_name,
                 "documents": document_serializer.data  # Danh sách tài liệu của khóa học cụ thể

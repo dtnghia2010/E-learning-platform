@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Course, Bookmark
 from category.models import Category
-
+from Document.serializers import DocumentAllSerializer
 
 class CourseSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(write_only=True)
@@ -23,11 +23,7 @@ class CourseViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = ['course_id', 'course_name','category_id', 'category']
-#
-# class CourseSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Course
-#         fields = '__all__'
+
 
 class CourseDetailSerializer(serializers.ModelSerializer):
     document_name = DocumentAllSerializer(source='chapters',many=True, read_only=True)

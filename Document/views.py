@@ -1,20 +1,12 @@
-import datetime
-import jwt
-from rest_framework import serializers
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
 from django.shortcuts import render
-# from jwt import jwt
-from rest_framework.exceptions import AuthenticationFailed
+from rest_framework import status
+from rest_framework.response import Response
+from .serializers import DocumentSerializer, DocumentDetailSerializer, DocumentbyCourseSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
 from Course.models import Course
-# Create your views here.
 from .models import Document
-from .serializers import DocumentDetailSerializer, DocumentSerializer
 from rest_framework.exceptions import AuthenticationFailed
 import jwt
 # Create your views here.
