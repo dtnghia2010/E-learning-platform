@@ -12,7 +12,7 @@ class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     course_name = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
-    ManyUser = models.ManyToManyField('authentication.User', related_name='courses')
+    User = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses', default=1)
 
     def __str__(self):
         return self.course_name

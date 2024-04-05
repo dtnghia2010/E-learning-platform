@@ -35,10 +35,7 @@ class CreateCourse(APIView):
         user = User.objects.filter(id=payload['id']).first()
 
         print(request.data)
-        serializer = CourseSerializer(data=request.data)
+        serializer = CourseSerializer(data=request.data, context={'user_id': user.id})
         serializer.is_valid(raise_exception=True)
-        course = serializer.save()
-
-        course.ManyUser.add(user)
-        course.save()
+        serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
