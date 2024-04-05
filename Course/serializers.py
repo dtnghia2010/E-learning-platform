@@ -9,6 +9,7 @@ class CourseSerializer(serializers.ModelSerializer):
 class CourseDetailSerializer(serializers.ModelSerializer):
     document_name = DocumentAllSerializer(source='chapters',many=True, read_only=True)
     course_name = serializers.CharField(source='course_id.course_name', read_only=True)
+    author_name = serializers.CharField(source='user_id.username', read_only=True)
     class Meta:
         model = Course
-        fields = ['course_name', 'document_name']
+        fields = ['course_name', 'document_name','author_name']
