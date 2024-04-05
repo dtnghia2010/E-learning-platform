@@ -10,7 +10,7 @@ from .models import Document
 from rest_framework import serializers
 from .models import Document
 
-class Document_Serializer(serializers.ModelSerializer):
+class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
         fields = "__all__"
@@ -20,16 +20,26 @@ class DocumentAllSerializer(serializers.ModelSerializer):
          model = Document
          fields = ['document_name']
 
-
-
-class DocumentSerializer(serializers.ModelSerializer):
-    # author_name = serializers.CharField(source='username.username', read_only=True)
-    course_name = serializers.CharField(source='course_id.course_name', read_only=True)
+class DocumentbyCourseSerializer(serializers.ModelSerializer):
+    document_name = serializers.SerializerMethodField()
+    course_name = serializers.CharField(source='course_id.course_name', read_only=True)  # Sửa ở đây
 
     class Meta:
         model = Document
-        fields = ('document_name', 'course_name')
+        fields = ['course_name', 'document_name']
 
+    def get_document_name(self, obj):
+        documents = Document.objects.filter(course_id=obj.course_id)
+        return [doc.document_name for doc in documents]
+
+# class DocumentSerializer(serializers.ModelSerializer):
+#     # author_name = serializers.CharField(source='username.username', read_only=True)
+#     course_name = serializers.CharField(source='course_id.course_name', read_only=True)
+#
+#     class Meta:
+#         model = Document
+#         fields = ('document_name', 'course_name')
+#
 
          # class GetAllDocumentSerializer(serializers.ModelSerializer):
          #     author_name = serializers.CharField(source='author.username', read_only=True)
