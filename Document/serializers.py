@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Document
-from Chapter.serializers import ChapterNameSerializer
 from Course.models import Course
 from authentication.models import User
 
