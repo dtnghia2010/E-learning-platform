@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
 import jwt
-from django.conf import settings
 from django.db.utils import IntegrityError
+from rest_framework.exceptions import AuthenticationFailed
 
 
 # Create your views here.
@@ -15,13 +15,14 @@ class CategoryList(APIView):
     def get(self, request):
         token = request.COOKIES.get('jwt')
         if not token:
-            return Response({'error': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
+            raise AuthenticationFailed('Unauthenticated!')
+
         try:
-            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
-            return Response({'error': 'Token expired'}, status=status.HTTP_401_UNAUTHORIZED)
-        except jwt.DecodeError:
-            return Response({'error': 'Invalid token'}, status=status.HTTP_401_UNAUTHORIZED)
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
 
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)
