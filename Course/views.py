@@ -14,16 +14,16 @@ import jwt
 # Create your views here.
 class CourseDetailView(APIView):
     def get(self, request, Course_id=None, course_id=None):
-        # token = request.COOKIES.get('jwt')
-        # if not token:
-        #     raise AuthenticationFailed('Unauthenticated!')
+        token = request.COOKIES.get('jwt')
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
 
-        # try:
-        #     payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        # except jwt.ExpiredSignatureError:
-        #     raise AuthenticationFailed('Authentication token expired!')
-        # except jwt.InvalidTokenError:
-        #     raise AuthenticationFailed('Invalid authentication token!')
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
 
         if course_id is not None:
             try:
