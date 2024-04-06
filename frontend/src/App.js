@@ -5,27 +5,28 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Header from "./component/layout/Header";
+import Header from "./component/Header";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import HomePage from "./page/HomePage";
-import CourseList from "./page/course/CourseList";
-import Footer from "./component/layout/Footer";
+import Lecture from "./component/Lecture/Lecture";
+import Profile from "./page/Profile";
 
 function App() {
 
   return (
       <div className="bg-gray-tone">
+          {/*<Header />*/}
       <BrowserRouter>
-          <Header />
         <Routes>
           <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>} />
             <Route exact path="/" element={<HomePage />}/>
-            <Route path="/course" element={<CourseList/>}/>
+            <Route exact path="/lecture" element={<Lecture />}/>
+            <Route exact path="/profile" element={<Profile />}/>
+
         </Routes>
       </BrowserRouter>
-          <Footer/>
       </div>
   )
 }
