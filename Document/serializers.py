@@ -42,7 +42,7 @@ class DocumentbyCourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Document
-        fields = ['document_id', 'document_name', ]
+        fields = ['document_id', 'document_name', 'course_name' ]
 
     def get_document_name(self, obj):
         documents = Document.objects.filter(course_id=obj.course_id)
