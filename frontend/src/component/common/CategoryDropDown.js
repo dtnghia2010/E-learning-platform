@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 import {useEffect, useRef, useState} from "react";
 import {getAllCategory} from "../../util/ApiFunction";
 import {Link} from "react-router-dom";
-import {Alert, CircularProgress} from "@mui/material";
+import {Alert, Box, CircularProgress} from "@mui/material";
 
 const CategoryDropDown = () => {
     const [categories, setCategories] = useState([]);
@@ -79,10 +79,10 @@ const CategoryDropDown = () => {
                     aria-expanded={open ? 'true' : undefined}
                     aria-haspopup="true"
                     onClick={handleToggle}
-                    className="text-black hover:text-gray-700 font-medium"
                 >
                     Courses
                 </Button>
+                <Box style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
                 <Popper
                     open={open}
                     anchorEl={anchorRef.current}
@@ -99,7 +99,7 @@ const CategoryDropDown = () => {
                                     placement === 'bottom-start' ? 'left top' : 'left bottom',
                             }}
                         >
-                            <Paper style={{ zIndex: 9999, backgroundColor: '#ffffff'}}>
+                            <Box className="my-paper" style={{ zIndex: 9999 }}>
                                 <ClickAwayListener onClickAway={handleClose}>
                                     <MenuList
                                         autoFocusItem={open}
@@ -123,10 +123,11 @@ const CategoryDropDown = () => {
                                         )}
                                     </MenuList>
                                 </ClickAwayListener>
-                            </Paper>
+                            </Box>
                         </Grow>
                     )}
                 </Popper>
+                </Box>
             </div>
         </Stack>
     );

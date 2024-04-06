@@ -20,8 +20,8 @@ function App() {
           <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login/>} />
-            <Route path="/register" element={<Register/>} />
+          <Route path="/login" element={<Login style={{ position: 'relative', zIndex: 5 }} />} />
+            <Route path="/register" element={<Register />} />
             <Route exact path="/" element={<HomePage />}/>
             <Route exact path="/lecture" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>

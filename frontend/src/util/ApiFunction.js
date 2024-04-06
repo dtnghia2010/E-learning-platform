@@ -16,7 +16,7 @@ export const apiFunction = axios.create({
 export async function getAllCategory(){
     try{
         const response = await apiFunction.get('/category/', {
-            withCredentials: true,
+            headers: getHeaders()
         });
         return response.data;
     }catch (error){

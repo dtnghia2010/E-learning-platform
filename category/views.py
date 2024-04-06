@@ -13,16 +13,12 @@ from rest_framework.exceptions import AuthenticationFailed
 
 class CategoryList(APIView):
     def get(self, request):
-        token = request.COOKIES.get('jwt')
+
+        token = request.headers.get('Authorization')
+        token = token.split(" ")[1]
+        print(token)
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
-
-        try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Authentication token expired!')
-        except jwt.InvalidTokenError:
-            raise AuthenticationFailed('Invalid authentication token!')
 
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)

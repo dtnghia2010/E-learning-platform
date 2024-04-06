@@ -25,12 +25,13 @@ const Login = () => {
                     username: username,
                     password: password
                 }
-                const response=await axios.post("http://127.0.0.1:8000/login/",user)
+                const response = await axios.post("http://127.0.0.1:8000/login/", user, { withCredentials: true });
                 console.log(response.data)
 
                 if (response.data && response.data.jwt) {
                     // Set the JWT token in a cookie
                     Cookies.set("jwt", response.data.jwt)
+                    console.log(Cookies.get("jwt"))
                 }
                 // localStorage.setItem('access_token',response.data.access_token); // set user in local storage
                 navigator("/")
