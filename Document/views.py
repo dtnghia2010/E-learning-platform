@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
-from .serializers import DocumentSerializer, DocumentDetailSerializer, DocumentbyCourseSerializer
+from .serializers import DocumentSerializer, DocumentDetailSerializer, DocumentbyCourseSerializer, \
+    DocumentSerializerbyCourse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -99,7 +100,7 @@ class GetAllDocumentsByCourse(APIView):
 #         return Response(serializer.data)
 
   def post(self, request):
-        serializer = DocumentSerializer(data=request.data)
+        serializer = DocumentSerializerbyCourse(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -111,7 +112,7 @@ class GetAllDocumentsByCourse(APIView):
             document = Document.objects.get(pk=document_id)
         except Document.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = DocumentSerializer(instance=document, data=request.data, partial=True)
+        serializer = DocumentSerializerbyCourse(instance=document, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response({"success": "Document '{}' updated successfully".format(document.document_name)})
