@@ -17,7 +17,13 @@ module.exports = {
       'bermuda': '#78dcca',
       "blue-light":'#6DB9D2',
       "gray-tone":'#e5e7eb',
-      "yellow-light":'#FFFF8F'
+      "yellow-light":'#FFFF8F',
+      secondary: {
+        100: '#E2E2D5',
+        200: '#888883',
+        300: '#4D4D4C',
+        400: '#222222',
+      },
     },
   },
   plugins: [],
