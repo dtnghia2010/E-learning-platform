@@ -78,8 +78,8 @@ class DocumentView(APIView):
 
 
 class GetAllDocumentsByCourse(APIView):
-  authentication_classes = [TokenAuthentication]
-  permission_classes = [IsAuthenticated]
+  # authentication_classes = [TokenAuthentication]
+  # permission_classes = [IsAuthenticated]
   def get(self, request, course_id=None):
             if course_id:
                 course = Course.objects.filter(course_id=course_id).first()
