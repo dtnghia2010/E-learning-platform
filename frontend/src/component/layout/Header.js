@@ -1,4 +1,6 @@
 import useAuthContext from "../../hook/useAuthContext";
+import CategoryDropDown from "../common/CategoryDropDown";
+import {Link} from "react-router-dom";
 
 
 export default function Header(){
@@ -17,8 +19,9 @@ export default function Header(){
             </div>
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
                 <div className="flex justify-between items-center p-4 ">
-                    <a href="#" className=" ml-10 text-black hover:text-gray-700 font-medium">Home</a>
-                    <a href="#" className=" ml-10 text-black hover:text-gray-700 font-medium">Courses</a>
+                    <a href="" className=" ml-10 text-black hover:text-gray-700 font-medium">Home</a>
+                    <div className="ml-10"><CategoryDropDown/></div>
+
                     <a href="#" className=" ml-10 text-black hover:text-gray-700 font-medium">Quizzes</a>
                 </div>
                 <div className="flex justify-end">
@@ -29,10 +32,14 @@ export default function Header(){
                             placeholder="Search..." type="text" name="search"/>
                     </div> }
                     {!user &&<div>
-                    <button className="text-black px-4 py-2 rounded font-medium">Sign Up</button>
-                    <button
-                        className="bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Login
-                    </button>
+
+                            <button className="text-black px-4 py-2 rounded font-medium">Sign Up</button>
+
+
+                            <button
+                                className="bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Login
+                            </button>
+
                     </div> }
                 </div>
             </nav>

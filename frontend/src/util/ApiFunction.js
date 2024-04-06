@@ -4,26 +4,30 @@ export const getHeaders = () => {
     const token = localStorage.getItem("access_token");
     return {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
     }
 
 }
 
 export const apiFunction = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'http://127.0.0.1:8000',
 });
 
 export async function getAllCategory(){
     try{
-        const response = await apiFunction.get('/category',{
-            headers: getHeaders()}
-        );
+        const response = await apiFunction.get('/category/', {
+            withCredentials: true,
+        });
         console.log(response.data);
         return response.data;
     }catch (error){
         console.error(error);
         throw new Error('Error fetching category');
     }
+}
+
+export async function getCourseByCategory(categoryId){
+
 }
 
 export async function getCourses(){

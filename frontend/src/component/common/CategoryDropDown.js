@@ -79,6 +79,7 @@ const CategoryDropDown = () => {
                     aria-expanded={open ? 'true' : undefined}
                     aria-haspopup="true"
                     onClick={handleToggle}
+                    className="text-black hover:text-gray-700 font-medium"
                 >
                     Courses
                 </Button>
@@ -98,7 +99,7 @@ const CategoryDropDown = () => {
                                     placement === 'bottom-start' ? 'left top' : 'left bottom',
                             }}
                         >
-                            <Paper>
+                            <Paper style={{ zIndex: 9999, backgroundColor: '#ffffff'}}>
                                 <ClickAwayListener onClickAway={handleClose}>
                                     <MenuList
                                         autoFocusItem={open}
@@ -115,9 +116,9 @@ const CategoryDropDown = () => {
                                             </MenuItem>
                                         ): (
                                             categories.map((category) => (
-                                            <Link to={""}>
+
                                                 <MenuItem key={category.category_id} value={category.category_name}>{category.category_name}</MenuItem>
-                                            </Link>
+
                                             ))
                                         )}
                                     </MenuList>
