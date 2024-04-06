@@ -5,10 +5,12 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Header from "./component/Header";
+import Header from "./component/layout/Header";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import HomePage from "./page/HomePage";
+import CourseList from "./page/course/CourseList";
+import Footer from "./component/layout/Footer";
 import Lecture from "./component/Lecture/Lecture";
 import Profile from "./page/Profile";
 
@@ -16,8 +18,9 @@ function App() {
 
   return (
       <div className="bg-gray-tone">
-          {/*<Header />*/}
+          <Header />
       <BrowserRouter>
+          <Header />
         <Routes>
           <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>} />
@@ -25,8 +28,10 @@ function App() {
             <Route exact path="/lecture" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>
 
+            <Route path="/course" element={<CourseList/>}/>
         </Routes>
       </BrowserRouter>
+          <Footer/>
       </div>
   )
 }

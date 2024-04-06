@@ -1,5 +1,10 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+<<<<<<<<< Temporary merge branch 1
+# Editor-based HTTP Client requests
+/httpRequests/
+=========
 # GitHub Copilot persisted chat sessions
 /copilot/chatSessions
+>>>>>>>>> Temporary merge branch 2
