@@ -27,8 +27,8 @@ export async function getAllCategory(){
 
 export async function getCourseByCategory(categoryId){
     try{
-        const response = await apiFunction.get(`/allcoursesbycategory_id=${categoryId}>`, {
-          withCredentials: true,
+        const response = await apiFunction.get('/allcoursesbycategory_id='+categoryId+'/', {
+          headers: getHeaders()
         })
         console.log(response.data);
         return response.data;

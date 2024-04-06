@@ -1,10 +1,11 @@
 import {useEffect, useState} from "react";
-import {getCourses} from "../../util/ApiFunction";
+import {getCourseByCategory, getCourses} from "../../util/ApiFunction";
 import CourseCard from "./CourseCard";
 import {Alert, CircularProgress, Pagination} from "@mui/material";
+import {useParams} from "react-router-dom";
 
 const Course = () => {
-    const [course, setCourse] = useState({});
+    const [course, setCourse] = useState([]);
 
     const [currentPage, setCurrentPage] = useState(1);
     const [coursePerPage] = useState(8);
@@ -14,11 +15,13 @@ const Course = () => {
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
+    const {category_id} = useParams();
+
     useEffect(() => {
         const fetchCourse = async () => {
             setLoading(true);
             try {
-                const response = await getCourses();
+                const response = await getCourseByCategory(category_id);
                 setCourse(response);
                 setLoading(false);
             } catch (error) {
