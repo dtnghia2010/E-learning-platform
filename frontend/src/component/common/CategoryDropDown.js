@@ -116,9 +116,9 @@ const CategoryDropDown = () => {
                                             </MenuItem>
                                         ): (
                                             categories.map((category) => (
-
-                                                <MenuItem key={category.category_id} value={category.category_name}>{category.category_name}</MenuItem>
-
+                                                <Link to={`/course/${category.category_id}`} >
+                                                    <MenuItem key={category.category_id} value={category.category_name}>{category.category_name}</MenuItem>
+                                                </Link>
                                             ))
                                         )}
                                     </MenuList>

@@ -19,7 +19,7 @@ from authentication.models import User
 
 class CourseView(APIView):
     def get(self, request, category_id):
-        token = request.COOKIES.get('jwt')
+        token = request.headers.get('Authorization')
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
 

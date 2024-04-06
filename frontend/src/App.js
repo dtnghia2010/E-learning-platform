@@ -12,19 +12,24 @@ import Lecture from "./component/Lecture/Lecture";
 import Profile from "./page/Profile";
 import Header from "./component/layout/Header";
 import Footer from "./component/layout/Footer";
+import CourseList from "./component/course/CourseList";
+import CategoryDropDown from "./component/common/CategoryDropDown";
 
 function App() {
 
   return (
       <div className="bg-gray-tone">
-          <Header />
+
       <BrowserRouter>
+          <Header />
         <Routes>
           <Route path="/login" element={<Login style={{ position: 'relative', zIndex: 5 }} />} />
             <Route path="/register" element={<Register />} />
             <Route exact path="/" element={<HomePage />}/>
             <Route exact path="/lecture" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>
+            <Route path="/course/:category_id" element={<CourseList />} />
+            <Route path="/category" element={<CategoryDropDown />} />
         </Routes>
       </BrowserRouter>
           <Footer/>
