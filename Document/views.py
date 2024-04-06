@@ -8,6 +8,8 @@ from rest_framework import status
 from Course.models import Course
 from .models import Document
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 import jwt
 # Create your views here.
 class DocumentView(APIView):
@@ -75,6 +77,8 @@ class DocumentView(APIView):
 
 
 class GetAllDocumentsByCourse(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
   def get(self, request, course_id=None):
             if course_id:
                 course = Course.objects.filter(course_id=course_id).first()

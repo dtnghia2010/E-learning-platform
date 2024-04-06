@@ -89,13 +89,12 @@ DATABASES = {
    "default": {
        "ENGINE": "django.db.backends.postgresql",
        "NAME": "postgres",
-       "USER": "postgres.jnkvmwupyvmrrhahwnca",
-       "PASSWORD": "ABakxxJzXERHHZiE",
+       "USER": "postgres.gsfbmheuijvfvldbzsrd",
+       "PASSWORD": "f2gPXshnW8v38ep4",
        "HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
        "PORT": "5432",
    }
 }
-
 
 
 CORS_ORIGIN_ALLOW_ALL = False
@@ -121,7 +120,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+       'http://localhost:3000',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

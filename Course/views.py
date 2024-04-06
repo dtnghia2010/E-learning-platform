@@ -7,6 +7,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 import jwt
+from Document.models import Document
+from Document.serializers import DocumentSerializer
+from .models import Course
+from .serializers import CourseDetailSerializer, CourseSerializer
+from rest_framework.exceptions import AuthenticationFailed
+import jwt
 from authentication.models import User
 
 
@@ -43,6 +49,16 @@ class CreateCourse(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 class CourseDetailView(APIView):
     def get(self, request, Course_id=None, course_id=None):
+        token = request.COOKIES.get('jwt')
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
 
         if course_id is not None:
             try:
