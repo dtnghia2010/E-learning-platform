@@ -38,15 +38,16 @@ export async function getCourseByCategory(categoryId){
     }
 }
 
-export async function getCourses(){
-    try {
-        const response = await apiFunction.get('/courses',{
+export async function getDocumentsbyCourse(courseId){
+    try{
+        const response = await apiFunction.get('/course_detail/'+courseId+'/', {
             headers: getHeaders()
-        });
+        })
+        console.log(response.data);
         return response.data;
     }catch (error){
         console.error(error);
-        throw new Error('Error fetching courses');
+        throw new Error('Error fetching courses by category');
     }
 }
 

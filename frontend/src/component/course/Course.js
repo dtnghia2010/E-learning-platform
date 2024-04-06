@@ -53,7 +53,7 @@ const Course = () => {
     const renderCourse = () => {
         const startIndex = (currentPage - 1) * coursePerPage;
         const endIndex = startIndex + coursePerPage;
-        return course.slice(startIndex, endIndex).map((course) => <CourseCard key={course.id} course={course}/>);
+        return course.slice(startIndex, endIndex).map((course) => <CourseCard key={course.course_id} course={course}/>);
     }
 
     return (

@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: success taking course">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: final touching course card">
+      <change afterPath="$PROJECT_DIR$/src/component/document/Document.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/document/DocumentCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/document/DocumentList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Course/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Document/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Document/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/course/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/course/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/course/CourseCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/course/CourseCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ApiFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ApiFunction.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +191,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712423404093</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix: padding the course, fetch id">
+      <option name="closed" value="true" />
+      <created>1712424064307</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712424064307</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: final touching course card">
+      <option name="closed" value="true" />
+      <created>1712424519322</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712424519322</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +228,8 @@
     <MESSAGE value="fix: opacity dropdown" />
     <MESSAGE value="fix: finish touch for function Category dropdown" />
     <MESSAGE value="feat: success taking course" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: success taking course" />
+    <MESSAGE value="fix: padding the course, fetch id" />
+    <MESSAGE value="feat: final touching course card" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: final touching course card" />
   </component>
 </project>
