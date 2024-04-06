@@ -1,7 +1,7 @@
 from rest_framework.exceptions import AuthenticationFailed
 from .models import Course
 from Document.models import Document
-from Document.serializers import DocumentSerializer
+from Document.serializers import DocumentSerializer, DocumentSerializerbyCourse
 from .serializers import CourseSerializer, CourseViewSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -67,7 +67,7 @@ class CourseDetailView(APIView):
                 return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
 
             documents = Document.objects.filter(course_id=course_id)
-            document_serializer = DocumentSerializer(documents, many=True)
+            document_serializer = DocumentSerializerbyCourse(documents, many=True)
 
             response_data = {
                 "course_name": course.course_name,
