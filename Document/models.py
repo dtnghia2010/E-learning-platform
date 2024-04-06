@@ -9,6 +9,6 @@ class Document(models.Model):
     document_name = models.CharField(max_length=255)
     description = models.TextField()
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='documents')
-    user_id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, default=1)
+    user_id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE)
     def __str__(self):
         return self.document_name
