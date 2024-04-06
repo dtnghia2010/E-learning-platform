@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useEffect} from "react";
 import {FcBookmark, FcCheckmark, FcOk} from 'react-icons/fc';
 import { IoBookOutline } from "react-icons/io5";
@@ -7,9 +7,14 @@ import { FaAngleDown } from "react-icons/fa";
 import Navbar from "../Navbar";
 import {getDocumentDetails} from "../../util/ApiFunction";
 
-const CoursePage = () => {
-    const  handleGetData=()=>{
-        console.log(getDocumentDetails(2))
+const DocumentPage = () => {
+    const [document, setDocument]= useState({})
+    const  handleGetData= async ()=>{
+        const  res= await getDocumentDetails(2);
+        setDocument(res.documents)
+        console.log(res.documents)
+        console.log(document)
+        console.log(document.author_name)
     }
 
     useEffect(() => {
@@ -29,8 +34,8 @@ const CoursePage = () => {
         <Navbar />
         <div className="flex w-screen bg-blue-light  ">
                 <div className=" ml-4 w-1/2 bg-blue-100 space-y-2 p-8">
-                    <h1 className="text-4xl font-bold text-blue-900">Digital Marketing Done Right!</h1>
-                    <p className="text-blue-800">Created by KC Tan</p>
+                    <h1 className="text-4xl font-bold text-blue-900">{document.document_name}</h1>
+                    <p className="text-blue-800">{document.author_name}</p>
                     <button className="bg-yellow-light   hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded inline-flex items-center">
                         <FcBookmark className="mr-2"/> Bookmark
                     </button>
@@ -94,4 +99,4 @@ const CoursePage = () => {
     );
 };
 
-export default CoursePage;
+export default DocumentPage;

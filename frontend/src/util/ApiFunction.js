@@ -10,8 +10,7 @@ export const getHeaders = () => {
 }
 
 export const apiFunction = axios.create({
-    baseURL: 'http://localhost:8000',
-    withCredentials:true
+    baseURL: 'http://127.0.0.1:8000'
 });
 
 export async function getAllCategory(){
@@ -67,7 +66,7 @@ export async function deleteBookmark(courseId){
 export  async function  getDocumentDetails(documentId){
     try{
         console.log(getHeaders())
-        const response= await apiFunction.get(`/document/documentdetail_id=1/`,{
+        const response= await apiFunction.get(`/document/documentdetail_id=2/`,{
             headers:getHeaders()
         })
         return response.data
