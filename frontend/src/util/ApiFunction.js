@@ -13,6 +13,19 @@ export const apiFunction = axios.create({
     baseURL: 'http://localhost:8000',
 });
 
+export async function getAllCategory(){
+    try{
+        const response = await apiFunction.get('/category',{
+            headers: getHeaders()}
+        );
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching category');
+    }
+}
+
 export async function getCourses(){
     try {
         const response = await apiFunction.get('/courses',{
