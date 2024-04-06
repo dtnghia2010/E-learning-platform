@@ -18,7 +18,6 @@ export async function getAllCategory(){
         const response = await apiFunction.get('/category/', {
             withCredentials: true,
         });
-        console.log(response.data);
         return response.data;
     }catch (error){
         console.error(error);
@@ -27,7 +26,16 @@ export async function getAllCategory(){
 }
 
 export async function getCourseByCategory(categoryId){
-
+    try{
+        const response = await apiFunction.get(`/allcoursesbycategory_id=${categoryId}>`, {
+          withCredentials: true,
+        })
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching courses by category');
+    }
 }
 
 export async function getCourses(){

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import Cookies from "js-cookie";
 import axios from "axios";
 import{useNavigate} from "react-router-dom";
 
@@ -30,7 +30,7 @@ const Login = () => {
 
                 if (response.data && response.data.jwt) {
                     // Set the JWT token in a cookie
-                    document.cookie = `jwt=${response.data.jwt}; path=/; SameSite=None; Secure`;
+                    Cookies.set("jwt", response.data.jwt)
                 }
                 // localStorage.setItem('access_token',response.data.access_token); // set user in local storage
                 navigator("/")
