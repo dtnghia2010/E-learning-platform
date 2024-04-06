@@ -79,9 +79,19 @@ class DocumentView(APIView):
 
 
 class GetAllDocumentsByCourse(APIView):
-  authentication_classes = [TokenAuthentication]
-  permission_classes = [IsAuthenticated]
+  # authentication_classes = [TokenAuthentication]
+  # permission_classes = [IsAuthenticated]
   def get(self, request, course_id=None):
+            token = request.COOKIES.get('jwt')
+            if not token:
+                raise AuthenticationFailed('Unauthenticated!')
+            try:
+                payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+            except jwt.ExpiredSignatureError:
+                raise AuthenticationFailed('Authentication token expired!')
+            except jwt.InvalidTokenError:
+                raise AuthenticationFailed('Invalid authentication token!')
+
             if course_id:
                 course = Course.objects.filter(course_id=course_id).first()
                 serializer = DocumentbyCourseSerializer(course.documents.all(), many=True)
