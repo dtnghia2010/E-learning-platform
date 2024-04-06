@@ -10,7 +10,7 @@ class CourseSerializer(serializers.ModelSerializer):
     # user_id = serializers.IntegerField(source='user_id', read_only=True)
     class Meta:
         model = Course
-        fields = ['course_id', 'course_name', 'category_name', 'user_id']
+        fields = ['course_id', 'course_name', 'category_name']
 
     def create(self, validated_data):
         category_name = validated_data.pop('category_name')
