@@ -89,7 +89,7 @@ DATABASES = {
    "default": {
        "ENGINE": "django.db.backends.postgresql",
        "NAME": "postgres",
-       "USER": "postgres.gsfbmheuijvfvldbzsrd",
+       "USER": "postgres.ysbbxenerybcxihslvfk",
        "PASSWORD": "f2gPXshnW8v38ep4",
        "HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
        "PORT": "5432",
