@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Header from "./component/Header";
+import Navbar from "./component/Navbar";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import HomePage from "./page/HomePage";

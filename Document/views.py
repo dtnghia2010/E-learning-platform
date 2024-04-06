@@ -24,12 +24,16 @@ from rest_framework.exceptions import AuthenticationFailed
 # Create your views here.
 class DocumentView(APIView):
     def get(self, request, Document_id=None):
-        token = request.COOKIES.get('jwt')
+        print(request)
+        token:str = request.headers.get('Authorization')
+        accessToken: str= token.split(" ")[1]
+        # accessToken=
+        print(accessToken)
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
 
         try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+            payload = jwt.decode(accessToken, 'secret', algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Authentication token expired!')
         except jwt.InvalidTokenError:

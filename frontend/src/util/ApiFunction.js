@@ -11,6 +11,7 @@ export const getHeaders = () => {
 
 export const apiFunction = axios.create({
     baseURL: 'http://localhost:8000',
+    withCredentials:true
 });
 
 export async function getAllCategory(){
@@ -60,5 +61,19 @@ export async function deleteBookmark(courseId){
     }catch (error){
         console.error(error);
         throw new Error('Error deleting bookmarked course');
+    }
+}
+
+export  async function  getDocumentDetails(documentId){
+    try{
+        console.log(getHeaders())
+        const response= await apiFunction.get(`/document/documentdetail_id=1/`,{
+            headers:getHeaders()
+        })
+        return response.data
+
+    }catch (e){
+        console.log( e)
+        throw  new Error("ERROR for getting documents details")
     }
 }
