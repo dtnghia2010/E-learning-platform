@@ -12,6 +12,15 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 import jwt
+
+from .serializers import DocumentSerializer, DocumentbyCourseSerializer
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Document
+from .serializers import DocumentSerializer
+from rest_framework.exceptions import AuthenticationFailed
+
 # Create your views here.
 class DocumentView(APIView):
     def get(self, request, Document_id=None):
@@ -68,18 +77,10 @@ class DocumentView(APIView):
             )
 
 
-# from .serializers import DocumentSerializer, DocumentbyCourseSerializer
-#
-# from rest_framework.views import APIView
-# from rest_framework.response import Response
-# from .models import Document
-# from .serializers import DocumentSerializer
-# from rest_framework.exceptions import AuthenticationFailed
-
 
 class GetAllDocumentsByCourse(APIView):
-  # authentication_classes = [TokenAuthentication]
-  # permission_classes = [IsAuthenticated]
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
   def get(self, request, course_id=None):
             if course_id:
                 course = Course.objects.filter(course_id=course_id).first()
