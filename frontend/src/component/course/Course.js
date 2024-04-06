@@ -30,7 +30,7 @@ const Course = () => {
             }
         }
         fetchCourse()
-    },[])
+    },[category_id])
 
     if (loading) {
         return <CircularProgress/>
@@ -60,7 +60,7 @@ const Course = () => {
         <>
             <div className=" container mx-auto px-4">
 
-                <div className="flex flex-wrap -mx-1 lg:-mx-4">
+                <div className="grid lg:grid-cols-5 gap-x-38 gap-y-20">
                     {renderCourse()}
                 </div>
 
