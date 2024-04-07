@@ -37,9 +37,18 @@ class LoginView(APIView):
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
+        # token = jwt.encode(payload, 'secret', algorithm='HS256')
+        # response = Response()
+        # response.set_cookie(key='jwt', value=token, httponly=True)
+        # response.data = {
+        #     'jwt': token
+        # }
         token = jwt.encode(payload, 'secret', algorithm='HS256')
         response = Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)
+        response['Authorization'] = f'Bearer {token}'  # Set token in the header
+        # headers = {
+        #     'Authorization': f'Bearer {token}'
+        # }
         response.data = {
             'jwt': token
         }
@@ -48,9 +57,15 @@ class LoginView(APIView):
 
 class UserView(APIView):
     def get(self, request):
-        token = request.COOKIES.get('jwt')
-        if not token:
-            raise AuthenticationFailed('Unauthenticated!')
+        # token = request.COOKIES.get('jwt')
+        #         # if not token:
+        #         #     raise AuthenticationFailed('Unauthenticated!')
+
+        auth_header = request.headers.get('Authorization')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            # print(auth_header)
+            raise AuthenticationFailed('unauthenticated!')
+        token = auth_header.split(' ')[1]
 
         try:
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])

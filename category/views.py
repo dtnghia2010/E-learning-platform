@@ -13,9 +13,31 @@ from rest_framework.exceptions import AuthenticationFailed
 
 class CategoryList(APIView):
     def get(self, request):
-        token = request.COOKIES.get('jwt')
-        if not token:
+        # print(request)
+        # token: str = request.headers.get('Authorization')
+        # accessToken: str = token.split(" ")[1]
+        # print(accessToken)
+
+        # token = request.COOKIES.get('jwt')
+        # if not token:
+        #     raise AuthenticationFailed('Unauthenticated!')
+
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
+
+        token = auth_header.split(' ')[1]
+
+        # token = request.headers.get('Authorization')
+        # if not token:
+        #     raise AuthenticationFailed('Unauthenticated!')
+
+        # auth_header = request.headers.get('Authorization')
+        # if not auth_header or not auth_header.startswith('Bearer '):
+        #     print(auth_header)
+        #     raise AuthenticationFailed('Unauthenticated!')
+        # token = auth_header.split(' ')[1]
 
         try:
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
