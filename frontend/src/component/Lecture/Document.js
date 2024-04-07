@@ -9,9 +9,11 @@ import {getDocumentDetails} from "../../util/ApiFunction";
 
 const DocumentPage = () => {
     const [document, setDocument]= useState({})
+    const [chapter, setChapter]= useState([])
     const  handleGetData= async ()=>{
         const  res= await getDocumentDetails(2);
         setDocument(res.documents)
+        setChapter(res.documents.chapters_info)
         console.log(res.documents)
         console.log(document)
         console.log(document.author_name)
@@ -63,33 +65,22 @@ const DocumentPage = () => {
                     </div>
                     <div className="w-1/2 p-8">
                         <ul className="list-none space-y-4">
+                            {chapter.map((element, index)=>(
                             <li>
                                 <div className=" flex items-center bg-yellow-light border border-blue-900 rounded p-4">
-                                    <FaAngleDown className="mr-2" /> <h2 className="text-3xl font-bold text-blue-900">Lecture 1</h2>
+                                    <FaAngleDown className="mr-2" /> <h2 className="text-3xl font-bold text-blue-900">Lecture {index+1}</h2>
                                 </div>
                                 <div className="border   border-blue-900 rounded p-4">
                                     <div className="flex items-center">
-                                        <IoBookOutline className="mr-2 text-2xl"/><a href="" className="text-blue-800 text-2xl">The First Thing</a>
+                                        <IoBookOutline className="mr-2 text-2xl"/><a href="" className="text-blue-800 text-2xl" onClick={()=>{console.log("click")}}>{element.chapter_name}</a>
                                     </div>
                                     <div className="flex items-center">
                                         <LuFileEdit className="mr-2 text-2xl"/> <p className="text-blue-800 text-2xl">Test</p>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div className=" flex items-center bg-yellow-light border border-blue-900 rounded p-4">
-                                    <FaAngleDown className="mr-2"/>  <h2
-                                    className="text-3xl font-bold text-blue-900">Lecture 2</h2>
-                                </div>
-                                <div className="border   border-blue-900 rounded p-4">
-                                    <div className="flex items-center">
-                                        <IoBookOutline className="mr-2 text-2xl"/><p className="text-blue-800 text-2xl">Search Engine Marketing</p>
-                                    </div>
-                                    <div className="flex items-center">
-                                    <LuFileEdit className="mr-2 text-2xl" /> <p className="text-blue-800 text-2xl">Test</p>
-                                    </div>
-                                </div>
-                            </li>
+                            ))}
+
                         </ul>
                     </div>
                 </section>
