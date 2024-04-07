@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: final touching course card">
-      <change afterPath="$PROJECT_DIR$/src/component/document/Document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/document/DocumentCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/document/DocumentList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Course/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Document/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Document/views.py" afterDir="false" />
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: route for document">
+      <change afterPath="$PROJECT_DIR$/src/component/common/FlyoutLink.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/course/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/course/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ApiFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ApiFunction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/CategoryDropDown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/CategoryContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/HomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +77,7 @@
       <workItem from="1711073657357" duration="6802000" />
       <workItem from="1711175154014" duration="2535000" />
       <workItem from="1711239298367" duration="3487000" />
+      <workItem from="1712456352222" duration="8122000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -207,7 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712424519322</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: Get document by course ID">
+      <option name="closed" value="true" />
+      <created>1712426550248</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712426550248</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: document page">
+      <option name="closed" value="true" />
+      <created>1712426581295</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712426581295</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +246,9 @@
     <MESSAGE value="feat: success taking course" />
     <MESSAGE value="fix: padding the course, fetch id" />
     <MESSAGE value="feat: final touching course card" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: final touching course card" />
+    <MESSAGE value="feat: Get document by course ID" />
+    <MESSAGE value="feat: document page" />
+    <MESSAGE value="feat: route for document" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: route for document" />
   </component>
 </project>

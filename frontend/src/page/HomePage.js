@@ -6,8 +6,8 @@ import zIndex from "@mui/material/styles/zIndex";
 const HomePage = () => {
     const {userState} = useAuthContext();
     return (
-        <div className="container mx-auto flex flex-col justify-start font-vietnam-pro px-36 py-6">
-            {!userState && <div className="flex items-center drop-shadow-2xl text-5xl" style={{zIndex:1}}>Let's start
+        <div className="mx-auto flex flex-col justify-start font-vietnam-pro px-36 py-6">
+            {!userState && <div className="drop-shadow-2xl text-5xl">Let's start
                 learning, Thang cute</div> }
             {!userState && <div className="mt-12">
                 <div className="pb-3">

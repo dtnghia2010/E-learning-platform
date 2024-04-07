@@ -1,6 +1,7 @@
 import useAuthContext from "../../hook/useAuthContext";
-import CategoryDropDown from "../common/CategoryDropDown";
+import CategoryContent from "../common/CategoryContent";
 import {Link} from "react-router-dom";
+import FlyoutLink from "../common/FlyoutLink";
 
 
 export default function Header(){
@@ -19,10 +20,11 @@ export default function Header(){
             </div>
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
                 <div className="flex justify-between items-center p-4 ">
-                    <a href="" className=" ml-10 text-black hover:text-gray-700 font-medium">Home</a>
-                    <div className="ml-10"><CategoryDropDown/></div>
+                    <FlyoutLink children="Home" href="/"/>
 
-                    <a href="#" className=" ml-10 text-black hover:text-gray-700 font-medium">Quizzes</a>
+                    <FlyoutLink children="Course" FlyoutContent={<CategoryContent/>}/>
+
+                    <FlyoutLink children="Quizz" href="/quizz"/>
                 </div>
                 <div className="flex justify-end">
                     {user && <div>
