@@ -7,6 +7,7 @@ import {useParams} from "react-router-dom";
 const Course = () => {
     const [course, setCourse] = useState([]);
 
+
     const [currentPage, setCurrentPage] = useState(1);
     const [coursePerPage] = useState(8);
     const [category, setCategory] = useState("");
@@ -23,6 +24,7 @@ const Course = () => {
             try {
                 const response = await getCourseByCategory(category_id);
                 setCourse(response);
+                setCategory(response[0].category);
                 setLoading(false);
             } catch (error) {
                 setError(error.message);
@@ -58,9 +60,12 @@ const Course = () => {
 
     return (
         <>
-            <div className=" container mx-auto px-4">
+            <div className=" container mx-auto px-36">
+                <div className="drop-shadow-2xl text-5xl pb-4">
+                    Category > {category}
+                </div>
 
-                <div className="grid lg:grid-cols-5 gap-x-38 gap-y-20">
+                <div className="grid lg:grid-cols-4 gap-x-42 gap-y-20">
                     {renderCourse()}
                 </div>
 

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: route for document">
-      <change afterPath="$PROJECT_DIR$/src/component/common/FlyoutLink.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/common/CategoryDropDown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/CategoryContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/course/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/course/Course.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/document/Document.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/document/Document.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

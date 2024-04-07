@@ -61,7 +61,10 @@ const Document = () => {
 
     return (
         <>
-            <div className=" container mx-auto px-4">
+            <div className=" container mx-auto px-36">
+                <div className="drop-shadow-2xl text-5xl pb-10">
+                    Course > {course}
+                </div>
 
                 <div className="grid lg:grid-cols-4 gap-x-42 gap-y-20">
                     {renderDocuments()}
