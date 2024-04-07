@@ -88,15 +88,15 @@ class UserView(APIView):
         serializer = UserSerializer(user)
         return Response(serializer.data)
 
+#logout is uneccessary since we aren't using cookie
 
-class LogoutView(APIView):
-    def post(self, request):
-        response = Response()
-        response.delete_cookie('jwt')
-        response.data = {
-            'message': 'success'
-        }
-        return response
+#
+# class LogoutView(APIView):
+#     def post(self, request):
+#         response = Response()
+#         response.delete_cookie('jwt')
+#         response.data = { 'message': 'success' }
+#         return response
 # def registerPage(request):
 #     if request.user.is_authenticated:
 #         return redirect('home')
