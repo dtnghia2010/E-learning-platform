@@ -61,10 +61,16 @@ class UserView(APIView):
         #         # if not token:
         #         #     raise AuthenticationFailed('Unauthenticated!')
 
-        auth_header = request.headers.get('Authorization')
+        # auth_header = request.headers.get('Authorization')
+        # if not auth_header or not auth_header.startswith('Bearer '):
+        #     # print(auth_header)
+        #     raise AuthenticationFailed('unauthenticated!')
+        # token = auth_header.split(' ')[1]
+
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
         if not auth_header or not auth_header.startswith('Bearer '):
-            # print(auth_header)
-            raise AuthenticationFailed('unauthenticated!')
+            print(auth_header)
+            raise AuthenticationFailed('Unauthenticated!')
         token = auth_header.split(' ')[1]
 
         try:

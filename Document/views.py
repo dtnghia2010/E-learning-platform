@@ -24,9 +24,12 @@ from rest_framework.exceptions import AuthenticationFailed
 # Create your views here.
 class DocumentView(APIView):
     def get(self, request, Document_id=None):
-        token = request.COOKIES.get('jwt')
-        if not token:
+
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
 
         try:
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
@@ -82,9 +85,11 @@ class GetAllDocumentsByCourse(APIView):
   # authentication_classes = [TokenAuthentication]
   # permission_classes = [IsAuthenticated]
   def get(self, request, course_id=None):
-            token = request.COOKIES.get('jwt')
-            if not token:
+            auth_header = request.META.get('HTTP_AUTHORIZATION')
+            if not auth_header or not auth_header.startswith('Bearer '):
+                print(auth_header)
                 raise AuthenticationFailed('Unauthenticated!')
+            token = auth_header.split(' ')[1]
             try:
                 payload = jwt.decode(token, 'secret', algorithms=['HS256'])
             except jwt.ExpiredSignatureError:
