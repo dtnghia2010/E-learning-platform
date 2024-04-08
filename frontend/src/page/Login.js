@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Cookies from "js-cookie";
+import Header from "../component/Header";
 import axios from "axios";
 import{useNavigate} from "react-router-dom";
 
@@ -25,15 +25,10 @@ const Login = () => {
                     username: username,
                     password: password
                 }
-                const response = await axios.post("http://127.0.0.1:8000/login/", user, { withCredentials: true });
+                const response=await axios.post("http://127.0.0.1:8000/login/",user)
                 console.log(response.data)
-
-                if (response.data && response.data.jwt) {
-                    // Set the JWT token in a cookie
-                    Cookies.set("jwt", response.data.jwt)
-                    console.log(Cookies.get("jwt"))
-                }
-                // localStorage.setItem('access_token',response.data.access_token); // set user in local storage
+                localStorage.setItem('access_token',response.data.jwt); // set user in local storage
+                localStorage.setItem('userId', response.data.userId);
                 navigator("/")
             }
     }

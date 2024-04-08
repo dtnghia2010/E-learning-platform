@@ -1,11 +1,20 @@
 import React from 'react';
+import {useEffect} from "react";
 import {FcBookmark, FcCheckmark, FcOk} from 'react-icons/fc';
 import { IoBookOutline } from "react-icons/io5";
 import { LuFileEdit } from "react-icons/lu";
 import { FaAngleDown } from "react-icons/fa";
 import Navbar from "../Navbar";
+import {getDocumentDetails} from "../../util/ApiFunction";
 
 const CoursePage = () => {
+    const  handleGetData=()=>{
+        console.log(getDocumentDetails(2))
+    }
+
+    useEffect(() => {
+        handleGetData()
+    }, []);
     return (
         <div>
         <div className="bg-blue-light p-2 flex justify-center">
