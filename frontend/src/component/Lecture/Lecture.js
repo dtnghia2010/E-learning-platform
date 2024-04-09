@@ -1,10 +1,9 @@
 import React from 'react';
 import {useEffect} from "react";
-import {FcBookmark, FcCheckmark, FcOk} from 'react-icons/fc';
+import {FcBookmark, FcOk} from 'react-icons/fc';
 import { IoBookOutline } from "react-icons/io5";
 import { LuFileEdit } from "react-icons/lu";
 import { FaAngleDown } from "react-icons/fa";
-import Navbar from "../Navbar";
 import {getDocumentDetails} from "../../util/ApiFunction";
 
 const CoursePage = () => {
@@ -26,7 +25,6 @@ const CoursePage = () => {
             </div>
         </div>
         <div className=" mx-auto w-screen h-screen">
-        <Navbar />
         <div className="flex w-screen bg-blue-light  ">
                 <div className=" ml-4 w-1/2 bg-blue-100 space-y-2 p-8">
                     <h1 className="text-4xl font-bold text-blue-900">Digital Marketing Done Right!</h1>
