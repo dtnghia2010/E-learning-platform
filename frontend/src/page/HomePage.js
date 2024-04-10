@@ -1,7 +1,6 @@
 import Recent from "../component/Recent";
 import Recommend from "../component/Recommend";
 import useAuthContext from "../hook/useAuthContext";
-import zIndex from "@mui/material/styles/zIndex";
 
 const HomePage = () => {
     const {userState} = useAuthContext();

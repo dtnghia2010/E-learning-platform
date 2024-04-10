@@ -34,13 +34,16 @@ export default function Header(){
                             placeholder="Search..." type="text" name="search"/>
                     </div> }
                     {!user &&<div>
-
+                        <Link to={"/register"}>
                             <button className="text-black px-4 py-2 rounded font-medium">Sign Up</button>
+                        </Link>
 
 
+                        <Link to={"/login"}>
                             <button
                                 className="bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Login
                             </button>
+                        </Link>
 
                     </div> }
                 </div>

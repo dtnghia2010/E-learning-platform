@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: final touch breadcrum">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: bug header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/HomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +75,11 @@
       <workItem from="1712456352222" duration="8122000" />
       <workItem from="1712497865902" duration="607000" />
       <workItem from="1712548360178" duration="228000" />
+      <workItem from="1712672904250" duration="133000" />
+      <workItem from="1712673906324" duration="6000" />
+      <workItem from="1712674745199" duration="9000" />
+      <workItem from="1712717295558" duration="512000" />
+      <workItem from="1712718156718" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -226,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712477149516</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix: bug header">
+      <option name="closed" value="true" />
+      <created>1712673004332</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712673004332</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +268,7 @@
     <MESSAGE value="feat: document page" />
     <MESSAGE value="feat: route for document" />
     <MESSAGE value="feat: final touch breadcrum" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: final touch breadcrum" />
+    <MESSAGE value="fix: bug header" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: bug header" />
   </component>
 </project>
