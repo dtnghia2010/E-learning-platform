@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: bug header">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/HomePage.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2e1YfXqbyqhOyBOOLTXbqQjexHk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Course__Page&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebStorm/E - Learning Platform/E-learning-platform/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="" />
+      <created>1711073655843</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711073655843</updated>
+      <workItem from="1711073657357" duration="6802000" />
+      <workItem from="1711175154014" duration="2535000" />
+      <workItem from="1711239298367" duration="3487000" />
+      <workItem from="1712456352222" duration="8122000" />
+      <workItem from="1712497865902" duration="607000" />
+      <workItem from="1712548360178" duration="228000" />
+      <workItem from="1712672904250" duration="133000" />
+      <workItem from="1712673906324" duration="6000" />
+      <workItem from="1712674745199" duration="9000" />
+      <workItem from="1712717295558" duration="512000" />
+      <workItem from="1712718156718" duration="311000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: Add course card">
+      <option name="closed" value="true" />
+      <created>1711091272516</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711091272516</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Front end folder become project in webstorm">
+      <option name="closed" value="true" />
+      <created>1711091302690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711091302690</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: get All course">
+      <option name="closed" value="true" />
+      <created>1711093605499</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093605499</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: Router for Course">
+      <option name="closed" value="true" />
+      <created>1711093623986</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093623986</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: Footer">
+      <option name="closed" value="true" />
+      <created>1711093631770</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093631770</updated>
+    </task>
+    <task id="LOCAL-00006" summary="mod: Footer">
+      <option name="closed" value="true" />
+      <created>1711093661302</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711093661302</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[FE]feat: Chapter detail">
+      <option name="closed" value="true" />
+      <created>1711258901500</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711258901500</updated>
+    </task>
+    <task id="LOCAL-00008" summary="?">
+      <option name="closed" value="true" />
+      <created>1712399402552</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712399402552</updated>
+    </task>
+    <task id="LOCAL-00009" summary="config">
+      <option name="closed" value="true" />
+      <created>1712414517667</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712414517667</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: cookies handle">
+      <option name="closed" value="true" />
+      <created>1712416557101</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712416557101</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: cookies handle">
+      <option name="closed" value="true" />
+      <created>1712418972868</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712418972868</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: opacity dropdown">
+      <option name="closed" value="true" />
+      <created>1712421552762</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712421552762</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: finish touch for function Category dropdown">
+      <option name="closed" value="true" />
+      <created>1712422943450</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712422943451</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: success taking course">
+      <option name="closed" value="true" />
+      <created>1712423404092</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712423404093</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: padding the course, fetch id">
+      <option name="closed" value="true" />
+      <created>1712424064307</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712424064307</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: final touching course card">
+      <option name="closed" value="true" />
+      <created>1712424519322</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712424519322</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: Get document by course ID">
+      <option name="closed" value="true" />
+      <created>1712426550248</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712426550248</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: document page">
+      <option name="closed" value="true" />
+      <created>1712426581295</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712426581295</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: final touch breadcrum">
+      <option name="closed" value="true" />
+      <created>1712477149516</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1712477149516</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix: bug header">
+      <option name="closed" value="true" />
+      <created>1712673004332</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712673004332</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Add course card" />
+    <MESSAGE value="Front end folder become project in webstorm" />
+    <MESSAGE value="feat: get All course" />
+    <MESSAGE value="feat: Router for Course" />
+    <MESSAGE value="feat: Footer" />
+    <MESSAGE value="mod: Footer" />
+    <MESSAGE value="[FE]feat: Chapter detail" />
+    <MESSAGE value="?" />
+    <MESSAGE value="[FE]feat: Category dropdown" />
+    <MESSAGE value="config" />
+    <MESSAGE value="fix: cookies handle" />
+    <MESSAGE value="fix: opacity dropdown" />
+    <MESSAGE value="fix: finish touch for function Category dropdown" />
+    <MESSAGE value="feat: success taking course" />
+    <MESSAGE value="fix: padding the course, fetch id" />
+    <MESSAGE value="feat: final touching course card" />
+    <MESSAGE value="feat: Get document by course ID" />
+    <MESSAGE value="feat: document page" />
+    <MESSAGE value="feat: route for document" />
+    <MESSAGE value="feat: final touch breadcrum" />
+    <MESSAGE value="fix: bug header" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: bug header" />
+  </component>
+</project>

@@ -5,9 +5,9 @@ import useAuthContext from "../hook/useAuthContext";
 const HomePage = () => {
     const {userState} = useAuthContext();
     return (
-        <div className="container mx-auto flex flex-col justify-start font-vietnam-pro px-36 py-6" >
-            {!userState && <header className="flex items-center drop-shadow-2xl text-5xl">Let's start
-                learning, Thang cute</header> }
+        <div className="mx-auto flex flex-col justify-start font-vietnam-pro px-36 py-6">
+            {!userState && <div className="drop-shadow-2xl text-5xl">Let's start
+                learning, Thang cute</div> }
             {!userState && <div className="mt-12">
                 <div className="pb-3">
                     <header className="text-2xl">Recently viewed</header>

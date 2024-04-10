@@ -50,6 +50,7 @@ class LoginView(APIView):
         #     'Authorization': f'Bearer {token}'
         # }
         response.data = {
+            'userId':user.id,
             'jwt': token
         }
         return response
