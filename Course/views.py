@@ -19,9 +19,12 @@ from authentication.models import User
 
 class CourseView(APIView):
     def get(self, request, category_id):
-        token = request.headers.get('Authorization')
-        if not token:
+
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
 
         courses = Course.objects.filter(category_id=category_id)
         serializer = CourseViewSerializer(courses, many=True)
@@ -29,9 +32,12 @@ class CourseView(APIView):
 
 class CreateCourse(APIView):
     def post(self, request):
-        token = request.COOKIES.get('jwt')
-        if not token:
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
+
+        token = auth_header.split(' ')[1]
 
         try:
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
@@ -49,9 +55,11 @@ class CreateCourse(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 class CourseDetailView(APIView):
     def get(self, request, Course_id=None, course_id=None):
-        token = request.headers.get('Authorization')
-        if not token:
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
 
 
         if course_id is not None:
