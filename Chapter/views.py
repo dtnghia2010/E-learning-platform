@@ -47,6 +47,11 @@ class ChapterView(APIView):
 
 class createChapter(APIView):
     def post(self, request, Document_id):
+        # auth_header = request.META.get('HTTP_AUTHORIZATION')
+        # if not auth_header or not auth_header.startswith('Bearer '):
+        #     print(auth_header)
+        #     raise AuthenticationFailed('Unauthenticated!')
+
         mutable_data = request.data.copy()  # Convert QueryDict to dictionary
         mutable_data['document_id'] = Document_id # Add document to data
         # print(mutable_data)
