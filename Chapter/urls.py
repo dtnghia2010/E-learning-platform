@@ -5,5 +5,5 @@ from .views import createChapter
 urlpatterns = [
     path('chapter/', ChapterView.as_view()),
     path('chapter/<int:chapter_id>/', ChapterView.as_view()),
-    path('chapter/create/', createChapter.as_view()),
+    path('createChapter/', createChapter.as_view()),
 ]
