@@ -3,14 +3,14 @@ from .models import Chapter
 from Document.models import Document
 from quizz.models import Quizz
 class ChapterSerializer(serializers.ModelSerializer):
-    document_name = serializers.CharField(write_only=True)
+    document_id = serializers.CharField()
     class Meta:
         model = Chapter
-        fields = ['chapter_id', 'chapter_name', 'content', 'code', 'document_name']
+        fields = ['chapter_id', 'chapter_name', 'content', 'code', 'document_id']
 
     def create(self, validated_data):
-        document_name = validated_data.pop('document_name')
-        document = Document.objects.get(document_name=document_name)
+        document_id = validated_data.pop('document_id')
+        document = Document.objects.get(document_id=document_id)
         code = validated_data.get('code')
         quizz = Quizz.objects.get(code=code)
         instance = self.Meta.model(document_id=document, quizz_id=quizz, **validated_data)
