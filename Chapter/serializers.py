@@ -7,6 +7,7 @@ class ChapterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chapter
         fields = ['chapter_id', 'chapter_name', 'content', 'code', 'document_id']
+    #     input data only includes chapter_name, content, code
 
     def create(self, validated_data):
         document_id = validated_data.pop('document_id')
