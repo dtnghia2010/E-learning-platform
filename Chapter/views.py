@@ -41,3 +41,11 @@ class ChapterView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Chapter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+class ChapterCreateView(APIView):
+    def post(self, request):
+        serializer = ChapterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success": "Chapter created successfully", "data": serializer.data}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
