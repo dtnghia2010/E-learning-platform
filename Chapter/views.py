@@ -4,6 +4,8 @@ from .serializers import ChapterSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.exceptions import AuthenticationFailed
+import jwt
 # Create your views here.
 
 class ChapterView(APIView):
@@ -41,3 +43,17 @@ class ChapterView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Chapter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+class createChapter(APIView):
+    def post(self, request):
+        # auth_header = request.META.get('HTTP_AUTHORIZATION')
+        # if not auth_header or not auth_header.startswith('Bearer '):
+        #     print(auth_header)
+        #     raise AuthenticationFailed('Unauthenticated!')
+
+        print(request.data)
+        serializer = ChapterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
