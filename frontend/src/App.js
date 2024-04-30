@@ -13,6 +13,7 @@ import Profile from "./page/Profile";
 import Header from "./component/layout/Header";
 import Footer from "./component/layout/Footer";
 import CourseList from "./component/course/CourseList";
+import CreateLecture from "./page/CreateLecture"
 
 import DocumentList from "./component/document/DocumentList";
 
@@ -36,6 +37,7 @@ function App() {
             <Route exact path="/profile" element={<Profile />}/>
 
             <Route path="/header" element={<Header />}/>
+            <Route path="/create_lecture" element={<CreateLecture/>}/>
 
 
 

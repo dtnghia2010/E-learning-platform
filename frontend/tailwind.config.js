@@ -18,6 +18,7 @@ module.exports = {
       "blue-light":'#6DB9D2',
       "gray-tone":'#e5e7eb',
       "yellow-light":'#FFFF8F',
+      "yellow-tone":"#ecfccb",
       secondary: {
         100: '#E2E2D5',
         200: '#888883',
