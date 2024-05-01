@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from .serializers import DocumentSerializer, DocumentDetailSerializer, DocumentbyCourseSerializer, \
-    DocumentSerializerbyCourse
+    DocumentSerializerbyCourse, DocumentCreateSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -46,13 +46,6 @@ class DocumentView(APIView):
             documents = Document.objects.all()
             serializer = DocumentSerializer(documents, many=True)
         return Response({"documents": serializer.data})
-
-    def post(self, request):
-        serializer = DocumentSerializer(data=request.data)
-        if (serializer.is_valid()):
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, Document_id):
         try:
@@ -134,8 +127,27 @@ class GetAllDocumentsByCourse(APIView):
 
 
 class CreateDocument(APIView):
-    def post(self, request):
-        serializer = DocumentSerializer(data=request.data)
+    def post(self, request, course_id):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        user_id = payload['id']
+
+        data = request.data.copy()
+        data['course_id'] = course_id
+        data['user_id'] = user_id
+        print(f"User1: {user_id}")
+        serializer = DocumentCreateSerializer(data=data, context={'request': data, 'view': self})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

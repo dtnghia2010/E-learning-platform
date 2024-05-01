@@ -9,5 +9,5 @@ urlpatterns = [
     path('alldocuments/', DocumentView.as_view()),
     path('document/documentdetail_id=<int:Document_id>/', DocumentView.as_view()),
     path('documentbycourse/', GetAllDocumentsByCourse.as_view()),
-    path('createnewdocument/', CreateDocument.as_view()),
+    path('course/<int:course_id>/createdocument/', CreateDocument.as_view()),
 ]

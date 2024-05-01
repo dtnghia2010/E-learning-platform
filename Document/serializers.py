@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Document
 from Course.models import Course
 from authentication.models import User
-
+from django.shortcuts import get_object_or_404
 
 from Chapter.serializers import ChapterNameAndIDSerializer
 
@@ -47,6 +47,22 @@ class DocumentbyCourseSerializer(serializers.ModelSerializer):
     def get_document_name(self, obj):
         documents = Document.objects.filter(course_id=obj.course_id)
         return [doc.document_name for doc in documents]
+
+class DocumentCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Document
+        fields = ['document_id', 'document_name', 'description', 'course_id', 'user_id']
+
+    def create(self, validated_data):
+        print(validated_data)
+        course_name = validated_data.pop('course_id', None)
+        username = validated_data.pop('user_id', None)
+        course = get_object_or_404(Course, course_name=course_name)
+        user = get_object_or_404(User, username=username)
+
+        return Document.objects.create(course_id=course, user_id=user, **validated_data)
+
+
 
 # class DocumentSerializer(serializers.ModelSerializer):
 #     # author_name = serializers.CharField(source='username.username', read_only=True)
