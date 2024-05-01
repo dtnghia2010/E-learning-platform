@@ -24,8 +24,6 @@ from rest_framework.exceptions import AuthenticationFailed
 # Create your views here.
 class DocumentView(APIView):
     def get(self, request, Document_id=None):
-
-
         auth_header = request.META.get('HTTP_AUTHORIZATION')
         if not auth_header or not auth_header.startswith('Bearer '):
             print(auth_header)
@@ -34,7 +32,7 @@ class DocumentView(APIView):
         token = auth_header.split(' ')[1]
 
         try:
-            payload = jwt.decode(accessToken, 'secret', algorithms=['HS256'])
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Authentication token expired!')
         except jwt.InvalidTokenError:
@@ -107,16 +105,6 @@ class GetAllDocumentsByCourse(APIView):
                 serializer = DocumentbyCourseSerializer([doc for course in courses for doc in course.documents.all()],
                                                         many=True)
             return Response({"documents": serializer.data})
-# class GetAllDocumentsByCourse(APIView):
-#     def get(self, request, course_id=None):
-#         if course_id:
-#             documents = Document.objects.filter(course_id=course_id)
-#             serializer = DocumentSerializer(documents, many=True)
-#         else:
-#             documents = Document.objects.all()
-#             serializer = DocumentSerializer(documents, many=True)
-#         return Response(serializer.data)
-
   def post(self, request):
         serializer = DocumentSerializerbyCourse(data=request.data)
         if serializer.is_valid():
@@ -143,3 +131,12 @@ class GetAllDocumentsByCourse(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Document.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+class CreateDocument(APIView):
+    def post(self, request):
+        serializer = DocumentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
