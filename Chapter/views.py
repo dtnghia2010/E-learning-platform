@@ -52,9 +52,8 @@ class createChapter(APIView):
             print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
 
-        mutable_data = request.data.copy()  # Convert QueryDict to dictionary
-        mutable_data['document_id'] = Document_id # Add document to data
-        # print(mutable_data)
+        mutable_data = request.data.copy()
+        mutable_data['document_id'] = Document_id
         serializer = ChapterSerializer(data=mutable_data)
         if serializer.is_valid():
             serializer.save()
