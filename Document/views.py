@@ -34,7 +34,7 @@ class DocumentView(APIView):
         token = auth_header.split(' ')[1]
 
         try:
-            payload = jwt.decode(accessToken, 'secret', algorithms=['HS256'])
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Authentication token expired!')
         except jwt.InvalidTokenError:
