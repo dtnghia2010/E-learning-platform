@@ -6,5 +6,4 @@ urlpatterns = [
     path('allcoursesbycategory_id=<int:category_id>/', CourseView.as_view()),
     path('createcourse/', CreateCourse.as_view()),
     path('course_detail/<int:course_id>/', CourseDetailView.as_view()),
-
 ]
