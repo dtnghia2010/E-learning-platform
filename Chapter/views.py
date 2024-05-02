@@ -47,16 +47,9 @@ class ChapterView(APIView):
 
 class CreateChapter(APIView):
     def post(self, request,document_id):
-        # auth_header = request.META.get('HTTP_AUTHORIZATION')
-        # if not auth_header or not auth_header.startswith('Bearer '):
-        #     raise AuthenticationFailed('Unauthenticated!')
-        # token = auth_header.split(' ')[1]
-        # try:
-        #     payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        # except jwt.ExpiredSignatureError:
-        #     raise AuthenticationFailed('Authentication token expired!')
-        # except jwt.InvalidTokenError:
-        #     raise AuthenticationFailed('Invalid authentication token!')
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            raise AuthenticationFailed('Unauthenticated!')
 
         data = request.data.copy()
         data['document_id'] = document_id
