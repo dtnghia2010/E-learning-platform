@@ -25,7 +25,8 @@ class ChapterCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         document_id = validated_data.pop('document_id')
         document = Document.objects.get(document_id=document_id)
-        code = validated_data.pop('code')
+        code = validated_data.get('code')
+        print(code)
         quizz = Quizz.objects.get(code=code)
         instance = self.Meta.model(document_id=document, quizz_id=quizz, **validated_data)
         instance.save()
