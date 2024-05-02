@@ -1,37 +1,39 @@
-from django.shortcuts import get_object_or_404
 from rest_framework import serializers
-
+from .models import Chapter
 from Document.models import Document
 from quizz.models import Quizz
-from .models import Chapter
-
 class ChapterSerializer(serializers.ModelSerializer):
+    document_id = serializers.CharField()
     class Meta:
         model = Chapter
-        fields = "__all__"
+        fields = ['chapter_id', 'chapter_name', 'content', 'code', 'document_id']
+    #     input data only includes chapter_name, content, code
+
+    def create(self, validated_data):
+        document_id = validated_data.pop('document_id')
+        document = Document.objects.get(document_id=document_id)
+        code = validated_data.get('code')
+        quizz = Quizz.objects.get(code=code)
+        instance = self.Meta.model(document_id=document, quizz_id=quizz, **validated_data)
+        instance.save()
+        return instance
 
 class ChapterNameAndIDSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chapter
         fields = ['chapter_id','chapter_name']
 
-class ChapterCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Chapter
-        fields = ['chapter_name', 'content', 'code']
-
-    def create(self, validated_data):
-        return Chapter.objects.create(**validated_data)
 
 class ChapterCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Chapter
-        fields = ['chapter_id', 'chapter_name', 'content', 'code', 'quizz_id', 'document_id']
+        class Meta:
+            model = Chapter
+            fields = ['chapter_id', 'chapter_name', 'content', 'code', 'document_id', 'quizz_id']
 
-    def create(self, validated_data):
-        quizz_id = validated_data.pop('quizz_id', None)
-        document_id = validated_data.pop('document_id', None)
-        quizz = get_object_or_404(Quizz, quizz_id=quizz_id)
-        document = get_object_or_404(Document, document_id=document_id)
-
-        return Chapter.objects.create(quizz_id=quizz, document_id=document, **validated_data)
+        def create(self, validated_data):
+            document_id = validated_data.pop('document_id')
+            document = Document.objects.get(document_id=document_id)
+            code = validated_data.pop('code')
+            quizz = Quizz.objects.get(code=code)
+            instance = self.Meta.model(document_id=document, quizz_id=quizz, **validated_data)
+            instance.save()
+            return instance
