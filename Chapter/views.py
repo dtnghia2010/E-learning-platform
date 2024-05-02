@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from google.auth import jwt
+from rest_framework.exceptions import AuthenticationFailed
+
 from .models import Chapter
-from .serializers import ChapterSerializer
+from .serializers import ChapterSerializer, ChapterCreateSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -42,10 +45,22 @@ class ChapterView(APIView):
         except Chapter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-class ChapterCreateView(APIView):
+class CreateChapter(APIView):
     def post(self, request):
-        serializer = ChapterSerializer(data=request.data)
+        # auth_header = request.META.get('HTTP_AUTHORIZATION')
+        # if not auth_header or not auth_header.startswith('Bearer '):
+        #     raise AuthenticationFailed('Unauthenticated!')
+        # token = auth_header.split(' ')[1]
+        # try:
+        #     payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        # except jwt.ExpiredSignatureError:
+        #     raise AuthenticationFailed('Authentication token expired!')
+        # except jwt.InvalidTokenError:
+        #     raise AuthenticationFailed('Invalid authentication token!')
+
+        data = request.data.copy()
+        serializer = ChapterCreateSerializer(data=data, context={'request': request, 'view': self})
         if serializer.is_valid():
             serializer.save()
-            return Response({"success": "Chapter created successfully", "data": serializer.data}, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
