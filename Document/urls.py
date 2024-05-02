@@ -3,6 +3,7 @@ from django.urls import path
 from .views import DocumentView
 from .views import GetAllDocumentsByCourse
 from .views import CreateDocument
+from .views import UpdateDocument
 
 
 urlpatterns = [
@@ -10,4 +11,5 @@ urlpatterns = [
     path('document/documentdetail_id=<int:Document_id>/', DocumentView.as_view()),
     path('documentbycourse/', GetAllDocumentsByCourse.as_view()),
     path('course/<int:course_id>/createdocument/', CreateDocument.as_view()),
+    path('updateDocument/<int:Document_id>/', UpdateDocument.as_view())
 ]

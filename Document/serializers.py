@@ -51,7 +51,7 @@ class DocumentbyCourseSerializer(serializers.ModelSerializer):
 class DocumentCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
-        fields = ['document_id', 'document_name', 'description', 'course_id', 'user_id']
+        fields = ['document_id', 'course_id', 'document_name', 'description', 'user_id']
 
     def create(self, validated_data):
         print(validated_data)
@@ -63,38 +63,6 @@ class DocumentCreateSerializer(serializers.ModelSerializer):
         return Document.objects.create(course_id=course, user_id=user, **validated_data)
 
 
-
-# class DocumentSerializer(serializers.ModelSerializer):
-#     # author_name = serializers.CharField(source='username.username', read_only=True)
-#     course_name = serializers.CharField(source='course_id.course_name', read_only=True)
-#
-#     class Meta:
-#         model = Document
-#         fields = ('document_name', 'course_name')
-#
-
-         # class GetAllDocumentSerializer(serializers.ModelSerializer):
-         #     author_name = serializers.CharField(source='author.username', read_only=True)
-         #     from rest_framework import serializers
-
-         # class GetAllDocumentSerializer(serializers.ModelSerializer):
-         #         author_name = serializers.CharField(source='author.username', read_only=True)
-         #         course_name = serializers.CharField(source='course.name', read_only=True)
-         #
-         #         class Meta:
-         #             model = Document
-         #             fields = ('document_name', 'author_name', 'course_name')
-         #
-         #         def __init__(self, *args, course_id=None, **kwargs):
-         #             super(GetAllDocumentSerializer, self).__init__(*args, **kwargs)
-         #             if course_id is not None:
-         #                 self.fields['document_name'].queryset = Document.objects.filter(course_id=course_id)
-         #
-         #         def to_representation(self, instance):
-         #             data = super().to_representation(instance)
-         #             user = User.objects.get(id=instance.course.created_by_id)
-         #             data['course_creator'] = user.username
-         #             return data
 
 
 
