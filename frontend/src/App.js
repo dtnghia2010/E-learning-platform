@@ -15,14 +15,16 @@ import Footer from "./component/layout/Footer";
 import CourseList from "./component/course/CourseList";
 
 import DocumentList from "./component/document/DocumentList";
+import CreateDocument from "./page/CreateDocument";
 
 function App() {
 
   return (
-      <div className="bg-gray-tone">
+      <div className="bg-gray-tone flex flex-col min-h-screen">
 
       <BrowserRouter>
           <Header />
+          <main className="flex-grow">
         <Routes>
           <Route path="/login" element={<Login style={{ position: 'relative', zIndex: 5 }} />} />
             <Route path="/register" element={<Register />} />
@@ -31,17 +33,19 @@ function App() {
             <Route path="/course/:category_id" element={<CourseList />} />
 
             <Route path="/document/:course_id" element={<DocumentList/>} />
+            <Route path="/addDocument" element={<CreateDocument/>} />
 
             <Route exact path="/lecture" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>
 
-            <Route path="/header" element={<Header />}/>
+
 
 
 
 
 
         </Routes>
+              </main>
       </BrowserRouter>
           <Footer/>
       </div>
