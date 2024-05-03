@@ -6,7 +6,7 @@ import {StepperContext} from "../../context/StepperContext";
 
 const Selector = ({handleObjectInputChange, newObject, data, input}) => {
     // the new object will be the newobject.categoryname/documentname
-    const   {newDocument, setNewDocument} = useContext(StepperContext);
+    // const   {newDocument, setNewDocument} = useContext(StepperContext);
 
     const [objectName, setObjectName] = useState([]);
     const [showNewObjectInput, setShowNewObjectInput] = useState(false);
@@ -31,11 +31,7 @@ const Selector = ({handleObjectInputChange, newObject, data, input}) => {
             setNewObjectName("")
             setShowNewObjectInput(false)
 
-            // Update the context
-            setNewDocument({
-                ...newDocument,
-                [input]: newObjectName
-            });
+
         }
     }
 

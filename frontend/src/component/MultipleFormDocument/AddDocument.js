@@ -18,14 +18,8 @@ const AddDocument = () => {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            // const categories = await getAllCategory();
-            const categories = [
-                { category_id: 1, category_name: 'Math' },
-                { category_id: 2, category_name: 'Science' },
-                { category_id: 3, category_name: 'English' },
-                // Add more categories as needed
-            ];
-            setCategories(categories);
+            const resData = await getAllCategory();
+            setCategories(resData);
         };
 
         fetchCategories();
@@ -35,18 +29,9 @@ const AddDocument = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             if (selectedCategory) {
-                // const courses = await getCourseByCategory(selectedCategory.category_id);
-                const courses = [
-                    { course_id: 1, course_name: 'Algebra', category_id: 1 },
-                    { course_id: 2, course_name: 'Geometry', category_id: 1 },
-                    { course_id: 3, course_name: 'Physics', category_id: 2 },
-                    { course_id: 4, course_name: 'Chemistry', category_id: 2 },
-                    { course_id: 5, course_name: 'Grammar', category_id: 3 },
-                    { course_id: 6, course_name: 'Literature', category_id: 3 },
+                const resData = await getCourseByCategory(selectedCategory.category_id);
 
-                    // Add more courses as needed
-                ];
-                setCourses(courses);
+                setCourses(resData);
             }
         };
 
@@ -55,26 +40,37 @@ const AddDocument = () => {
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setNewDocument({
-            ...newDocument,
-            [name]: value
-        });
 
         if (name === 'category') {
-            setSelectedCategory(value);
-            setNewDocument({
-                ...newDocument,
-                category_name: value
-            });
-        }
+            // Find the selected category object from the categories array
+            const selectedCategory = categories.find(category => category.category_name === value);
 
-        if (name === 'course') {
+            if (selectedCategory) {
+                // Update the newDocument state with the new category name and id
+                setNewDocument({
+                    ...newDocument,
+                    category_name: selectedCategory.category_name,
+                    category_id: selectedCategory.category_id
+                });
+
+                // Set the selectedCategory state
+                setSelectedCategory(selectedCategory);
+            }
+        } else if (name === 'course') {
             // Update the newDocument state with the new course value
             setNewDocument({
                 ...newDocument,
                 course_name: value
             });
+        } else {
+            // For other inputs, just update the newDocument state
+            setNewDocument({
+                ...newDocument,
+                [name]: value
+            });
         }
+        console.log(newDocument)
+        console.log(selectedCategory)
     }
 
 
