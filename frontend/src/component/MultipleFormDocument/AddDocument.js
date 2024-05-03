@@ -30,8 +30,7 @@ const AddDocument = () => {
         const fetchCourses = async () => {
             if (selectedCategory) {
                 const resData = await getCourseByCategory(selectedCategory.category_id);
-
-                setCourses(resData);
+                    setCourses(resData);
             }
         };
 
@@ -58,9 +57,12 @@ const AddDocument = () => {
             }
         } else if (name === 'course') {
             // Update the newDocument state with the new course value
+            const selectedCourse = courses.find(course => course.course_name === value);
+
             setNewDocument({
                 ...newDocument,
-                course_name: value
+                course_name: selectedCourse.course_name,
+                course_id: selectedCourse.course_id
             });
         } else {
             // For other inputs, just update the newDocument state

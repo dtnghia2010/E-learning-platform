@@ -9,15 +9,16 @@ import {StepperContext} from "../context/StepperContext";
 const CreateDocument = () => {
 
     const [currentStep, setCurrentStep] = useState(1);
-    const [newDocument, setNewDocument] = useState([
+    const [newDocument, setNewDocument] = useState(
         {
             category_name: "",
+            category_id: "",
             course_name: "",
+            course_id: "",
             document_name: "",
             description: "",
-            chapters: []
         }
-    ]);
+    );
 
     const [finalDocument, setFinalDocument] = useState([]);
 

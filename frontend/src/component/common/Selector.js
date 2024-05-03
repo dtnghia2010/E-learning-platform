@@ -4,7 +4,7 @@ import {Box, Divider, FormControl, Input, InputLabel, MenuItem, OutlinedInput} f
 import Select from "@mui/material/Select";
 import {StepperContext} from "../../context/StepperContext";
 
-const Selector = ({handleObjectInputChange, newObject, data, input}) => {
+const Selector = ({handleObjectInputChange, newObject = "", data, input}) => {
     // the new object will be the newobject.categoryname/documentname
     // const   {newDocument, setNewDocument} = useContext(StepperContext);
 
@@ -17,7 +17,7 @@ const Selector = ({handleObjectInputChange, newObject, data, input}) => {
             const names = data.map(item => item[`${input}_name`]);
             setObjectName(names);
         } else {
-            setObjectName([]);
+            setObjectName(["Add new"]);
         }
     }, [data, input]);
 
@@ -37,7 +37,7 @@ const Selector = ({handleObjectInputChange, newObject, data, input}) => {
 
     return (
         <div className="flex items-start justify-start mx-3">
-            {objectName.length >0 && (
+            {objectName.length >=0 && (
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
                         {/*<InputLabel id="object-label" >Select {input} ... </InputLabel>*/}
