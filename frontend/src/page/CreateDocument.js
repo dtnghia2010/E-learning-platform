@@ -20,8 +20,6 @@ const CreateDocument = () => {
         }
     );
 
-    const [finalDocument, setFinalDocument] = useState([]);
-
 
     const steps = [
         "Details",
@@ -63,9 +61,7 @@ const CreateDocument = () => {
                 <div>
                     <StepperContext.Provider value={{
                         newDocument,
-                        setNewDocument,
-                        finalDocument,
-                        setFinalDocument
+                        setNewDocument
                     }}>
                         {displayStep(currentStep)}
                     </StepperContext.Provider>

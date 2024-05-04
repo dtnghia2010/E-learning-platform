@@ -1,10 +1,18 @@
 import {useContext, useEffect, useState} from "react";
 
-import {Box, Divider, FormControl, Input, InputLabel, MenuItem, OutlinedInput} from "@mui/material";
+import {
+    Alert,
+    Box,
+    CircularProgress,
+    Divider,
+    FormControl,
+    MenuItem,
+    OutlinedInput
+} from "@mui/material";
 import Select from "@mui/material/Select";
 import {StepperContext} from "../../context/StepperContext";
 
-const Selector = ({handleObjectInputChange, newObject = "", data, input}) => {
+const Selector = ({handleObjectInputChange, newObject = "", data, input, loading, error}) => {
     // the new object will be the newobject.categoryname/documentname
     // const   {newDocument, setNewDocument} = useContext(StepperContext);
 
@@ -31,7 +39,6 @@ const Selector = ({handleObjectInputChange, newObject = "", data, input}) => {
             setNewObjectName("")
             setShowNewObjectInput(false)
 
-
         }
     }
 
@@ -57,9 +64,18 @@ const Selector = ({handleObjectInputChange, newObject = "", data, input}) => {
                             sx={{width: { sm: '200px', md: '400px' }, height: 30, backgroundColor: "#EBF8FF",  }}
                         >
                             <MenuItem value="" disabled>Select {input}...</MenuItem>
+                            {/*{error && (<MenuItem>*/}
+                            {/*    <Alert severity={"error"}>{error}</Alert>*/}
+                            {/*</MenuItem>)}*/}
+                            {/*{loading ?(*/}
+                            {/*    <MenuItem>*/}
+                            {/*        <CircularProgress />*/}
+                            {/*    </MenuItem>*/}
+                            {/*): (*/}
                             {objectName.map((type,index) => (
                                 <MenuItem key={index} value={type}>{type}</MenuItem>
                             ))}
+                            {/*)}*/}
                             <Divider style={{backgroundColor: '#171717'}}/>
                             <MenuItem value="Add new">Add new</MenuItem>
                         </Select>

@@ -13,13 +13,21 @@ const AddDocument = () => {
     const [courses, setCourses] = useState([]);
     const [categories, setCategories] = useState([]);
 
-    const [success, setSuccess] = useState("");
+    const [loading, setLoading] = useState(null);
     const [error, setError] = useState("");
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const resData = await getAllCategory();
-            setCategories(resData);
+            setLoading(true);
+            try{
+                const resData = await getAllCategory();
+                setCategories(resData);
+                setLoading(false)
+                setError('')
+            }catch (e) {
+                setError(e.message);
+            }
+
         };
 
         fetchCategories();
@@ -28,14 +36,26 @@ const AddDocument = () => {
 
     useEffect(() => {
         const fetchCourses = async () => {
-            if (selectedCategory) {
-                const resData = await getCourseByCategory(selectedCategory.category_id);
+            setLoading(true);
+            try{
+                if (selectedCategory) {
+                    const resData = await getCourseByCategory(selectedCategory.category_id);
                     setCourses(resData);
+                    setLoading(false)
+                    setError('')
+                }
+            }catch (e){
+                setError(e.message)
             }
         };
 
         fetchCourses();
     }, [selectedCategory]);
+
+
+    // useEffect(() => {
+    //     console.log(newDocument)
+    // }, [newDocument])
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -71,9 +91,10 @@ const AddDocument = () => {
                 [name]: value
             });
         }
-        console.log(newDocument)
-        console.log(selectedCategory)
     }
+
+    // console.log(newDocument)
+    // console.log(selectedCategory)
 
 
     return (
@@ -94,6 +115,8 @@ const AddDocument = () => {
                                 newObject={newDocument.category_name}
                                 data={categories}
                                 input={"category"}
+                                loading={loading}
+                                error={error}
                             />
                         </TableCell>
                     </TableRow>

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="api get">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: connect API fetch, but still get error state of 2 addDocument and selector.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/MultipleFormDocument/AddDocument.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MultipleFormDocument/AddDocument.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/common/Selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/Selector.js" afterDir="false" />
@@ -94,7 +94,8 @@
       <workItem from="1714569520699" duration="6609000" />
       <workItem from="1714577988178" duration="1712000" />
       <workItem from="1714613989000" duration="15669000" />
-      <workItem from="1714754909768" duration="2545000" />
+      <workItem from="1714754909768" duration="2640000" />
+      <workItem from="1714787366979" duration="3436000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -272,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714755146915</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat: connect API fetch, but still get error state of 2 addDocument and selector.">
+      <option name="closed" value="true" />
+      <created>1714760380041</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1714760380041</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +312,7 @@
     <MESSAGE value="fix: bug header" />
     <MESSAGE value="fix: link login register in navbar" />
     <MESSAGE value="api get" />
-    <option name="LAST_COMMIT_MESSAGE" value="api get" />
+    <MESSAGE value="feat: connect API fetch, but still get error state of 2 addDocument and selector." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: connect API fetch, but still get error state of 2 addDocument and selector." />
   </component>
 </project>
