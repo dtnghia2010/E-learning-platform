@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Document
 from Course.models import Course
 from authentication.models import User
-
+from django.shortcuts import get_object_or_404
 
 from Chapter.serializers import ChapterNameAndIDSerializer
 
@@ -48,37 +48,21 @@ class DocumentbyCourseSerializer(serializers.ModelSerializer):
         documents = Document.objects.filter(course_id=obj.course_id)
         return [doc.document_name for doc in documents]
 
-# class DocumentSerializer(serializers.ModelSerializer):
-#     # author_name = serializers.CharField(source='username.username', read_only=True)
-#     course_name = serializers.CharField(source='course_id.course_name', read_only=True)
-#
-#     class Meta:
-#         model = Document
-#         fields = ('document_name', 'course_name')
-#
+class DocumentCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Document
+        fields = ['document_id', 'course_id', 'document_name', 'description', 'user_id']
 
-         # class GetAllDocumentSerializer(serializers.ModelSerializer):
-         #     author_name = serializers.CharField(source='author.username', read_only=True)
-         #     from rest_framework import serializers
+    def create(self, validated_data):
+        print(validated_data)
+        course_name = validated_data.pop('course_id', None)
+        username = validated_data.pop('user_id', None)
+        course = get_object_or_404(Course, course_name=course_name)
+        user = get_object_or_404(User, username=username)
 
-         # class GetAllDocumentSerializer(serializers.ModelSerializer):
-         #         author_name = serializers.CharField(source='author.username', read_only=True)
-         #         course_name = serializers.CharField(source='course.name', read_only=True)
-         #
-         #         class Meta:
-         #             model = Document
-         #             fields = ('document_name', 'author_name', 'course_name')
-         #
-         #         def __init__(self, *args, course_id=None, **kwargs):
-         #             super(GetAllDocumentSerializer, self).__init__(*args, **kwargs)
-         #             if course_id is not None:
-         #                 self.fields['document_name'].queryset = Document.objects.filter(course_id=course_id)
-         #
-         #         def to_representation(self, instance):
-         #             data = super().to_representation(instance)
-         #             user = User.objects.get(id=instance.course.created_by_id)
-         #             data['course_creator'] = user.username
-         #             return data
+        return Document.objects.create(course_id=course, user_id=user, **validated_data)
+
+
 
 
 
