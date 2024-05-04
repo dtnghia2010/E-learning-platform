@@ -15,7 +15,7 @@ const Stepper = ({steps, currentStep}) => {
                     ...newSteps[count],
                     highlighted: true,
                     selected : true,
-                    completed:true
+                    completed: false
                 }
                 count ++;
             }
@@ -94,7 +94,7 @@ const Stepper = ({steps, currentStep}) => {
                     <motion.div
                         className="absolute -bottom-4 w-56 h-2 bg-blue-light bg-opacity-100 rounded-full flex-auto"
                         initial={{scaleX: 0, originX: 0}}
-                        animate={{scaleX: step.completed ? 1 : 0}}
+                        animate={{scaleX: step.selected ? 1 : 0}}
                         transition={{duration: 0.3, ease: "easeOut"}}
                     >
                         {/* Display line */}
