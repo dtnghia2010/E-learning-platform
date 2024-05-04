@@ -1,4 +1,11 @@
+import {useContext} from "react";
+import {StepperContext} from "../../context/StepperContext";
+
 const StepperControl = ({handleClick, currentStep, steps}) => {
+
+    const {newDocument, setNewDocument} = useContext(StepperContext);
+
+
     return (
         <div className="container flex justify-around mt-4 mb-8">
             {/*back button*/}

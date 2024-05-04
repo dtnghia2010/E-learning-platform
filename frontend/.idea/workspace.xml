@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: connect API fetch, but still get error state of 2 addDocument and selector.">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: done with newDocument context">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/MultipleFormDocument/AddDocument.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MultipleFormDocument/AddDocument.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/common/Selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/Selector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/Stepper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/Stepper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/StepperControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/StepperControl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CreateDocument.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CreateDocument.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ApiFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ApiFunction.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +99,9 @@
       <workItem from="1714613989000" duration="15669000" />
       <workItem from="1714754909768" duration="2640000" />
       <workItem from="1714787366979" duration="3436000" />
+      <workItem from="1714803055739" duration="8075000" />
+      <workItem from="1714821016818" duration="741000" />
+      <workItem from="1714833830115" duration="2257000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -281,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714760380041</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fix: done with newDocument context">
+      <option name="closed" value="true" />
+      <created>1714803629615</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1714803629615</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +327,7 @@
     <MESSAGE value="fix: link login register in navbar" />
     <MESSAGE value="api get" />
     <MESSAGE value="feat: connect API fetch, but still get error state of 2 addDocument and selector." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: connect API fetch, but still get error state of 2 addDocument and selector." />
+    <MESSAGE value="fix: done with newDocument context" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: done with newDocument context" />
   </component>
 </project>

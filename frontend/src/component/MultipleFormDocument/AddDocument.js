@@ -2,7 +2,7 @@ import {StepperContext} from "../../context/StepperContext";
 import {useContext, useEffect, useState} from "react";
 import {Divider, Table, TableBody, TableCell, TableRow} from "@mui/material";
 import Selector from "../common/Selector";
-import {getAllCategory, getCourseByCategory} from "../../util/ApiFunction";
+import {createCourse, getAllCategory, getCourseByCategory} from "../../util/ApiFunction";
 
 
 
@@ -13,19 +13,23 @@ const AddDocument = () => {
     const [courses, setCourses] = useState([]);
     const [categories, setCategories] = useState([]);
 
-    const [loading, setLoading] = useState(null);
-    const [error, setError] = useState("");
+    const [loadingCategory, setLoadingCategory] = useState("");
+    const [errorCategory, setErrorCategory] = useState("");
+
+    const [loadingCourse, setLoadingCourse] = useState("");
+    const [errorCourse, setErrorCourse] = useState("");
 
     useEffect(() => {
         const fetchCategories = async () => {
-            setLoading(true);
+            setLoadingCategory(true);
             try{
                 const resData = await getAllCategory();
                 setCategories(resData);
-                setLoading(false)
-                setError('')
+                setLoadingCategory(false)
+                setErrorCategory('')
             }catch (e) {
-                setError(e.message);
+                setErrorCategory(e.message);
+                setLoadingCategory(false)
             }
 
         };
@@ -36,26 +40,22 @@ const AddDocument = () => {
 
     useEffect(() => {
         const fetchCourses = async () => {
-            setLoading(true);
-            try{
                 if (selectedCategory) {
-                    const resData = await getCourseByCategory(selectedCategory.category_id);
-                    setCourses(resData);
-                    setLoading(false)
-                    setError('')
+                    setLoadingCourse(true);
+                    try{
+                        const resData = await getCourseByCategory(selectedCategory.category_id);
+                        setCourses(resData);
+                        setLoadingCourse(false)
+                        setErrorCourse('')
+                    }catch (e){
+                        setErrorCourse(e.message)
+                        setLoadingCourse(false)
+                    }
                 }
-            }catch (e){
-                setError(e.message)
-            }
         };
 
         fetchCourses();
     }, [selectedCategory]);
-
-
-    // useEffect(() => {
-    //     console.log(newDocument)
-    // }, [newDocument])
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -93,8 +93,23 @@ const AddDocument = () => {
         }
     }
 
-    // console.log(newDocument)
-    // console.log(selectedCategory)
+    const handleAddCourse = async (newCourseName) => {
+       const course = {
+           category_name: newDocument.category_name,
+           course_name: newCourseName
+       }
+
+       try {
+            const newCourse = await createCourse(course);
+            setNewDocument({
+                ...newDocument,
+                course_name: newCourse.course_name,
+                course_id: newCourse.course_id
+            });
+       }catch (e){
+           setErrorCourse(e.message)
+       }
+    }
 
 
     return (
@@ -115,8 +130,8 @@ const AddDocument = () => {
                                 newObject={newDocument.category_name}
                                 data={categories}
                                 input={"category"}
-                                loading={loading}
-                                error={error}
+                                loading={loadingCategory}
+                                error={errorCategory}
                             />
                         </TableCell>
                     </TableRow>
@@ -134,6 +149,9 @@ const AddDocument = () => {
                                 newObject={newDocument.course_name}
                                 data={courses}
                                 input={"course"}
+                                loading={loadingCourse}
+                                error={errorCourse}
+                                handleSubmit={handleAddCourse}
                             />
                         </TableCell>
                     </TableRow>

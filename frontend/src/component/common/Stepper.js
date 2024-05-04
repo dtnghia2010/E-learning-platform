@@ -1,5 +1,6 @@
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import { motion } from "framer-motion";
+import {StepperContext} from "../../context/StepperContext";
 
 const Stepper = ({steps, currentStep}) => {
     const [newStep, setNewStep] = useState([]);
@@ -60,6 +61,8 @@ const Stepper = ({steps, currentStep}) => {
         const current = updateStep(currentStep - 1, stepRef.current)
         setNewStep(current)
     }, [steps, currentStep])
+
+
 
     const displaySteps = newStep.map((step, index) => {
         return( (

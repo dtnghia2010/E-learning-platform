@@ -5,6 +5,7 @@ import AddChapter from "../component/MultipleFormDocument/AddChapter";
 import Done from "../component/MultipleFormDocument/Done";
 import {useState} from "react";
 import {StepperContext} from "../context/StepperContext";
+import {createDocument} from "../util/ApiFunction";
 
 const CreateDocument = () => {
 
@@ -40,7 +41,39 @@ const CreateDocument = () => {
         }
     }
 
+    const handleNext = async () => {
+        if (currentStep === 1) {
+            // Prepare the document data
+            const documentData = {
+                document_name: newDocument.document_name,
+                description: newDocument.description
+            };
+
+            try {
+                // Call the createDocument API function
+                const newDoc = await createDocument(documentData, newDocument.course_id);
+
+                // Update the newDocument state with the response data
+                setNewDocument({
+                    ...newDocument,
+                    document_id: newDoc.document_id,
+                    course_id: newDoc.course_id,
+                    document_name: newDoc.document_name,
+                    description: newDoc.description,
+                    user_id: newDoc.user_id
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    };
+
     const handleClick = (direction) => {
+
+        if (direction === "next") {
+            handleNext();
+        }
+
         let newStep = currentStep;
         direction === "next" ? newStep++ : newStep--;
 
@@ -49,6 +82,10 @@ const CreateDocument = () => {
     }
 
     return (
+        <StepperContext.Provider value={{
+            newDocument,
+            setNewDocument
+        }}>
         <div className="flex-col mx-8 justify-center pb-4">
             <h1>Share your documents to every one</h1>
             <div className="container mt-5">
@@ -59,12 +96,7 @@ const CreateDocument = () => {
 
             {/*    Display component    */}
                 <div>
-                    <StepperContext.Provider value={{
-                        newDocument,
-                        setNewDocument
-                    }}>
                         {displayStep(currentStep)}
-                    </StepperContext.Provider>
                 </div>
 
 
@@ -76,6 +108,7 @@ const CreateDocument = () => {
                 steps = {steps}
             />
         </div>
+        </StepperContext.Provider>
     );
 };
 
