@@ -50,7 +50,7 @@ class CreateChapter(APIView):
         auth_header = request.META.get('HTTP_AUTHORIZATION')
         if not auth_header or not auth_header.startswith('Bearer '):
             raise AuthenticationFailed('Unauthenticated!')
-
+        print(request.data)
         data = request.data.copy()
         data['document_id'] = document_id
         serializer = ChapterCreateSerializer(data=data)
