@@ -19,6 +19,7 @@ from authentication.models import User
 
 class CourseView(APIView):
     def get(self, request, category_id):
+
         auth_header = request.META.get('HTTP_AUTHORIZATION')
         if not auth_header or not auth_header.startswith('Bearer '):
             print(auth_header)
@@ -54,19 +55,12 @@ class CreateCourse(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 class CourseDetailView(APIView):
     def get(self, request, Course_id=None, course_id=None):
-
         auth_header = request.META.get('HTTP_AUTHORIZATION')
         if not auth_header or not auth_header.startswith('Bearer '):
             print(auth_header)
             raise AuthenticationFailed('Unauthenticated!')
         token = auth_header.split(' ')[1]
 
-        try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Authentication token expired!')
-        except jwt.InvalidTokenError:
-            raise AuthenticationFailed('Invalid authentication token!')
 
         if course_id is not None:
             try:

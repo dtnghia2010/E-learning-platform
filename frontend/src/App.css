@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.my-paper {
+  background-color: rgba(255, 255, 255, 1) !important;
+}

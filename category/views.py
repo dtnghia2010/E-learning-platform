@@ -13,6 +13,7 @@ from rest_framework.exceptions import AuthenticationFailed
 
 class CategoryList(APIView):
     def get(self, request):
+
         # print(request)
         # token: str = request.headers.get('Authorization')
         # accessToken: str = token.split(" ")[1]
@@ -45,6 +46,7 @@ class CategoryList(APIView):
             raise AuthenticationFailed('Authentication token expired!')
         except jwt.InvalidTokenError:
             raise AuthenticationFailed('Invalid authentication token!')
+
 
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)

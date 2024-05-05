@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Header from "../component/Header";
 import axios from "axios";
 import{useNavigate} from "react-router-dom";
 
@@ -27,7 +26,8 @@ const Login = () => {
                 }
                 const response=await axios.post("http://127.0.0.1:8000/login/",user)
                 console.log(response.data)
-                // localStorage.setItem('access_token',response.data.access_token); // set user in local storage
+                localStorage.setItem('access_token',response.data.jwt); // set user in local storage
+                localStorage.setItem('userId', response.data.userId);
                 navigator("/")
             }
     }
