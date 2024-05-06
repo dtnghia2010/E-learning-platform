@@ -188,3 +188,25 @@ class UpdateDocument(APIView):
             })
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class DocumentViewByUser(APIView):
+    def get(self, request, user_id=None):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        user = User.objects.filter(id=payload['id']).first()
+
+        print(request.data)
+        document = Document.objects.filter(user_id=user.id)
+        serializer = DocumentViewByUserSerializer(document, many=True)
+        return Response(serializer.data)
