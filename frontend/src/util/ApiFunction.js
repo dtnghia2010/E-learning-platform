@@ -89,3 +89,42 @@ export  async function  getDocumentDetails(documentId){
         throw  new Error("ERROR for getting documents details")
     }
 }
+
+export async function createCourse(course){
+    try {
+        const response = await apiFunction.post('/createcourse/', course, {
+            headers: getHeaders()
+        });
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error creating course');
+    }
+}
+
+export async function createDocument(document, course_id){
+    try {
+        const response = await apiFunction.post('/course/'+course_id+'/createdocument/', document, {
+            headers: getHeaders()
+        });
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error creating document');
+    }
+}
+
+export const createChapter= async  (documentId, newChapter)=>{
+    try{
+        const response = await apiFunction.post(`/document/${documentId}/createchapter/`,newChapter,{
+            headers: getHeaders()
+        } )
+        console.log(response.data)
+        return response.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}

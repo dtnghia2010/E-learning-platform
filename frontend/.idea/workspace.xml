@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: bug header">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/HomePage.js" afterDir="false" />
-    </list>
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: a little adjust from stepper" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +41,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -61,6 +58,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebStorm\E - Learning Platform\E-learning-platform\frontend\src\component\MultipleFormDocument" />
+      <recent name="D:\WebStorm\E - Learning Platform\E-learning-platform\frontend\src\page" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -79,7 +82,18 @@
       <workItem from="1712673906324" duration="6000" />
       <workItem from="1712674745199" duration="9000" />
       <workItem from="1712717295558" duration="512000" />
-      <workItem from="1712718156718" duration="311000" />
+      <workItem from="1712718156718" duration="1392000" />
+      <workItem from="1714460155994" duration="1053000" />
+      <workItem from="1714546889886" duration="9846000" />
+      <workItem from="1714568497599" duration="804000" />
+      <workItem from="1714569520699" duration="6609000" />
+      <workItem from="1714577988178" duration="1712000" />
+      <workItem from="1714613989000" duration="15669000" />
+      <workItem from="1714754909768" duration="2640000" />
+      <workItem from="1714787366979" duration="3436000" />
+      <workItem from="1714803055739" duration="8075000" />
+      <workItem from="1714821016818" duration="741000" />
+      <workItem from="1714833830115" duration="2781000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -241,15 +255,62 @@
       <option name="project" value="LOCAL" />
       <updated>1712673004332</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fix: link login register in navbar">
+      <option name="closed" value="true" />
+      <created>1712718489521</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1712718489521</updated>
+    </task>
+    <task id="LOCAL-00022" summary="api get">
+      <option name="closed" value="true" />
+      <created>1714755146914</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1714755146915</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat: connect API fetch, but still get error state of 2 addDocument and selector.">
+      <option name="closed" value="true" />
+      <created>1714760380041</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1714760380041</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix: done with newDocument context">
+      <option name="closed" value="true" />
+      <created>1714803629615</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1714803629615</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: create document done">
+      <option name="closed" value="true" />
+      <created>1714836743203</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1714836743203</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix: a little adjust from stepper">
+      <option name="closed" value="true" />
+      <created>1714837205636</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1714837205636</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Add course card" />
-    <MESSAGE value="Front end folder become project in webstorm" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="feat: get All course" />
     <MESSAGE value="feat: Router for Course" />
     <MESSAGE value="feat: Footer" />
@@ -269,6 +330,12 @@
     <MESSAGE value="feat: route for document" />
     <MESSAGE value="feat: final touch breadcrum" />
     <MESSAGE value="fix: bug header" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: bug header" />
+    <MESSAGE value="fix: link login register in navbar" />
+    <MESSAGE value="api get" />
+    <MESSAGE value="feat: connect API fetch, but still get error state of 2 addDocument and selector." />
+    <MESSAGE value="fix: done with newDocument context" />
+    <MESSAGE value="feat: create document done" />
+    <MESSAGE value="fix: a little adjust from stepper" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: a little adjust from stepper" />
   </component>
 </project>

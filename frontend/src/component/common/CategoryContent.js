@@ -48,7 +48,7 @@ const CategoryContent = () => {
                         </MenuItem>
                     ): (
                         categories.map((category) => (
-                            <Link to={`/course/${category.category_id}`} >
+                            <Link key={category.category_id} to={`/course/${category.category_id}`} >
                                 <MenuItem key={category.category_id} value={category.category_name}>{category.category_name}</MenuItem>
                             </Link>
                         ))
