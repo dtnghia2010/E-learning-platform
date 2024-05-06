@@ -153,6 +153,6 @@ class DeleteChapter(APIView):
         try:
             chapter = Chapter.objects.get(chapter_id=chapter_id)
             chapter.delete()
-            return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response({"message": "Chapter '{}' deleted successfully".format(chapter.chapter_name)}, status=status.HTTP_204_NO_CONTENT)
         except Chapter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
