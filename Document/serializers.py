@@ -61,14 +61,14 @@ class DocumentCreateSerializer(serializers.ModelSerializer):
         user = get_object_or_404(User, username=username)
 
         return Document.objects.create(course_id=course, user_id=user, **validated_data)
+class DocumentNameAndIDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Document
+        fields = ['document_name', 'document_id']
 
 class DocumentViewByUserSerializer(serializers.ModelSerializer):
     course_name = serializers.CharField(source='course_id.course_name', read_only=True)
     class Meta:
         model = Document
-        fields = ['document_name', 'course_name', 'description']
-
-
-
-
+        fields = ['document_name', 'document_id', 'course_name']
 
