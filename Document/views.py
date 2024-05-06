@@ -188,7 +188,7 @@ class UpdateDocument(APIView):
             })
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class DocumentViewByUser(APIView):
+class GetAllDocumentsByUser(APIView):
     def get(self, request, user_id=None):
         auth_header = request.META.get('HTTP_AUTHORIZATION')
         if not auth_header or not auth_header.startswith('Bearer '):

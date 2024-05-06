@@ -4,7 +4,7 @@ from .views import DocumentView
 from .views import GetAllDocumentsByCourse
 from .views import CreateDocument
 from .views import UpdateDocument
-from .views import DocumentViewByUser
+from .views import GetAllDocumentsByUser
 
 
 urlpatterns = [
@@ -14,5 +14,5 @@ urlpatterns = [
     path('documentbycourse/', GetAllDocumentsByCourse.as_view()),
     path('course/<int:course_id>/createdocument/', CreateDocument.as_view()),
     path('updateDocument/<int:Document_id>/', UpdateDocument.as_view()),
-    path('alldocumentbyuser/', DocumentViewByUser.as_view())
+    path('getAllDocumentsByUser/', GetAllDocumentsByUser.as_view()),
 ]
