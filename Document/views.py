@@ -209,7 +209,7 @@ class DeleteDocument(APIView):
         try:
             document = Document.objects.get(document_id=Document_id)
             document.delete()
-            return Response({"message": "Document with id `{}` has been deleted.".format(document.document_name)}, status=204)
+            return Response({"message": "Document `{}` has been deleted.".format(document.document_name)}, status=204)
         except Document.DoesNotExist:
             return Response(
                 status=status.HTTP_404_NOT_FOUND
