@@ -1,23 +1,54 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReading} from 'react-icons/fc';
-import { AiOutlineFileText } from 'react-icons/ai';
 import Navbar from "../component/Navbar";
-import {FaAngleDown} from "react-icons/fa";
-import {IoBookOutline} from "react-icons/io5";
-import {LuFileEdit} from "react-icons/lu";
+import {getDocumentByUser} from "../util/ApiFunction";
+import Header from "../component/layout/Header";
+import {Alert, CircularProgress, MenuItem} from "@mui/material";
 
 const Profile = () => {
+
+    const [documents, setDocuments] = useState([]);
+
+    const [loading, setLoading] = useState('');
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        const fetchDocument = async () => {
+            setLoading(true);
+            try {
+                const resData = await getDocumentByUser();
+
+                setDocuments(resData);
+                setLoading(false);
+                setError(false)
+            } catch (error) {
+                setError(error);
+            }
+        }
+
+        fetchDocument();
+    },[])
+
+    const handleDelete = async (documentId) => {
+        setLoading(true)
+        try{
+            const response = await getDocumentByUser(documentId);
+
+            setDocuments(documents.filter(document => document.document_id !== documentId));
+            setLoading(false);
+            setError(false);
+        }catch (e){
+            setError(e.message)
+        }
+    }
+
+    const handleUpdate = async (documentId) => {
+        //switch to update document page
+    }
+
     return (
         <div>
-            <div className="bg-blue-light p-2 flex justify-center">
-                <div className="container mx-auto flex justify-center items-center font-semibold text-lg">
-                    <div className="text-sm text-gray-600 text-center flex ">
-                        Free Courses, Get it now! →
-                    </div>
-
-                </div>
-            </div>
-            <Navbar/>
+           <Header/>
             <div className=" flex justify-around w-screen bg-blue-light  items-center p-8">
                 <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg">
                     <FcBusinessman className="text-4xl"/>
@@ -32,20 +63,27 @@ const Profile = () => {
                     <span className="mt-2 text-lg">5 Uploads</span>
                 </div>
             </div>
+
             <div className="  flex-col items-center justify-center w-screen bg-white p-6">
                 <div className="mb-4 flex-col-reverse justify-center items-center ">
                     <div className="space-y-1">
                         <h2 className="text-xl font-bold mb-1">Lectures of taylor123</h2>
                         <h4 className="  mb-1">Name</h4>
-                        {["IELTS Writing Made Easy", "IELTS Speaking Made Easy", "IELTS Reading Made Easy"].map((item, index) => (
-                            <div key={index} className="flex justify-between items-center">
-                                <a href="" className="text-gray-700">{item}</a>
-                                <div className="flex items-center space-x-1">
-                                    <FcEditImage className="cursor-pointer"/>
-                                    <FcFullTrash className="cursor-pointer"/>
-                                </div>
+                        {error && (
+                            <Alert severity="error">{error}</Alert>
+                        )}
+                        {loading ? (
+                            <div className="flex justify-center items-center"><CircularProgress /></div>
+                        ): (documents.map((document) => (
+                        <div key={document.document_id} className="flex justify-between items-center">
+                            <a href="" className="text-gray-700">{document.document_name}</a>
+                            <div className="flex items-center space-x-1">
+                                <FcEditImage onClick={() =>handleUpdate(document.document_id)} className="cursor-pointer"/>
+                                <FcFullTrash onClick={() => handleDelete(document.document_id)} className="cursor-pointer"/>
                             </div>
-                        ))}
+                        </div>
+                        ))
+                        )}
                     </div>
                     <div className="space-y-1 mt-2">
                         <h2 className="text-xl font-bold mb-1">Quizzes of taylor123</h2>

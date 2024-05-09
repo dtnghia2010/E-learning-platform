@@ -115,3 +115,27 @@ export async function createDocument(document, course_id){
         throw new Error('Error creating document');
     }
 }
+
+export async function getDocumentByUser(){
+    try {
+        const response = await apiFunction.get('/userdocuments/', {
+            headers: getHeaders()
+        });
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching user documents');
+    }
+}
+
+export async function deleteDocument(documentId){
+    try {
+        const response = await apiFunction.delete(`/deleteDocument/${documentId}/`, {
+            headers: getHeaders()
+        });
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error deleting document');
+    }
+}
