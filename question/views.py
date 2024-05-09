@@ -6,11 +6,7 @@ from .serializers import QuestionSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
 import jwt
-from rest_framework import status
-from django.http import Http404
 
 class QuestionListByQuizz(APIView):
     def get(self, request, quizz_id = None):
