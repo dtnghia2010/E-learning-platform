@@ -116,6 +116,19 @@ export async function createDocument(document, course_id){
     }
 }
 
+export const createChapter= async  (documentId, newChapter)=>{
+    try{
+        const response = await apiFunction.post(`/document/${documentId}/createchapter/`,newChapter,{
+            headers: getHeaders()
+        } )
+        console.log(response.data)
+        return response.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+
 export async function getDocumentByUser(){
     try {
         const response = await apiFunction.get('/userdocuments/', {

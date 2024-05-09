@@ -5,7 +5,7 @@ import AddChapter from "../component/MultipleFormDocument/AddChapter";
 import Done from "../component/MultipleFormDocument/Done";
 import {useState} from "react";
 import {StepperContext} from "../context/StepperContext";
-import {createDocument} from "../util/ApiFunction";
+import {createChapter, createDocument} from "../util/ApiFunction";
 
 const CreateDocument = () => {
 
@@ -20,11 +20,18 @@ const CreateDocument = () => {
             description: "",
         }
     );
+    const [newChapter, setNewChapter]=useState({
+        chapter_id:"",
+        chapter_name:"",
+        code:"",
+        content:"",
+        document_id:""
+    })
 
 
     const steps = [
         "Details",
-        "Content",
+        "Chapters",
         "Done"
     ];
 
@@ -52,7 +59,7 @@ const CreateDocument = () => {
             try {
                 // Call the createDocument API function
                 const newDoc = await createDocument(documentData, newDocument.course_id);
-
+                console.log(newDoc)
                 // Update the newDocument state with the response data
                 setNewDocument({
                     ...newDocument,

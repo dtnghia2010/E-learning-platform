@@ -31,3 +31,4 @@ class ChapterCreateSerializer(serializers.ModelSerializer):
         instance = self.Meta.model(document_id=document, quizz_id=quizz, **validated_data)
         instance.save()
         return instance
+

@@ -3,7 +3,7 @@ import {StepperContext} from "../../context/StepperContext";
 
 const StepperControl = ({handleClick, currentStep, steps}) => {
 
-    const {newDocument, setNewDocument} = useContext(StepperContext);
+
 
 
     return (

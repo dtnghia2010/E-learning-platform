@@ -16,6 +16,7 @@ import CourseList from "./component/course/CourseList";
 
 import DocumentList from "./component/document/DocumentList";
 import CreateDocument from "./page/CreateDocument";
+import UpdateDocument from "./page/UpdateDocument'";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
 
             <Route exact path="/lecture" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>
+            <Route exact path="/update_document" element={<UpdateDocument />}/>
 
 
 
