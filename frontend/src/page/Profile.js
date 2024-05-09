@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReading} from 'react-icons/fc';
 import Navbar from "../component/Navbar";
-import {getDocumentByUser} from "../util/ApiFunction";
+import {deleteDocument, getDocumentByUser} from "../util/ApiFunction";
 import Header from "../component/layout/Header";
 import {Alert, CircularProgress, MenuItem} from "@mui/material";
+import useDocumentContext from "../hook/useDocumentContext";
 
 const Profile = () => {
-
-    const [documents, setDocuments] = useState([]);
+    const {documents, dispatch} = useDocumentContext();
 
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
@@ -18,11 +18,12 @@ const Profile = () => {
             try {
                 const resData = await getDocumentByUser();
 
-                setDocuments(resData);
+                dispatch({type: "GET_DOCUMENTS",payload: resData});
                 setLoading(false);
                 setError(false)
             } catch (error) {
                 setError(error);
+                setLoading(false)
             }
         }
 
@@ -32,13 +33,14 @@ const Profile = () => {
     const handleDelete = async (documentId) => {
         setLoading(true)
         try{
-            const response = await getDocumentByUser(documentId);
+             await deleteDocument(documentId);
+            dispatch({type: "DELETE_DOCUMENT",payload: documentId});
 
-            setDocuments(documents.filter(document => document.document_id !== documentId));
             setLoading(false);
             setError(false);
         }catch (e){
             setError(e.message)
+            setLoading(false)
         }
     }
 
@@ -48,7 +50,6 @@ const Profile = () => {
 
     return (
         <div>
-           <Header/>
             <div className=" flex justify-around w-screen bg-blue-light  items-center p-8">
                 <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg">
                     <FcBusinessman className="text-4xl"/>
@@ -70,7 +71,7 @@ const Profile = () => {
                         <h2 className="text-xl font-bold mb-1">Lectures of taylor123</h2>
                         <h4 className="  mb-1">Name</h4>
                         {error && (
-                            <Alert severity="error">{error}</Alert>
+                            <Alert severity="error">{error.message}</Alert>
                         )}
                         {loading ? (
                             <div className="flex justify-center items-center"><CircularProgress /></div>

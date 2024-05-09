@@ -131,7 +131,7 @@ export const createChapter= async  (documentId, newChapter)=>{
 
 export async function getDocumentByUser(){
     try {
-        const response = await apiFunction.get('/userdocuments/', {
+        const response = await apiFunction.get('/getAllDocumentsByUser/', {
             headers: getHeaders()
         });
         return response.data;
