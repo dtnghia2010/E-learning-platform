@@ -210,3 +210,29 @@ class GetAllDocumentsByUser(APIView):
         document = Document.objects.filter(user_id=user.id)
         serializer = DocumentViewByUserSerializer(document, many=True)
         return Response(serializer.data)
+
+class DeleteDocument(APIView):
+    def delete(self, request, Document_id):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        user_id = payload['id']
+
+        try:
+            document = Document.objects.get(document_id=Document_id)
+            document.delete()
+            return Response({"message": "Document `{}` has been deleted.".format(document.document_name)}, status=204)
+        except Document.DoesNotExist:
+            return Response(
+                status=status.HTTP_404_NOT_FOUND
+            )
