@@ -1,19 +1,17 @@
 import {useContext, useEffect, useState} from "react";
 import {Divider, Table, TableBody, TableCell, TableRow} from "@mui/material";
-import Selector from "../common/Selector";
+
 import {
-    createCourse,
-    getAllCategory,
-    getCourseByCategory,
+    getChapter,
     getDocumentDetails,
     updateDocument
 } from "../../util/ApiFunction";
 
 
 
-const AddDocument = (documentId) => {
+const EditChapter = (chapterId) => {
 
-    const [document, setDocument]=useState({
+    const [chapter, setDocument]=useState({
         course_id:"",
         document_name:"",
         description:""
@@ -27,14 +25,9 @@ const AddDocument = (documentId) => {
 
     const handleGetDocument=async ()=>{
         try{
-            const data= await getDocumentDetails(documentId);
+            const data= await getChapter(27);
             console.log(data.documents)
-            const fetchedDocument= {
-                course_id:data.documents.course_id,
-                document_name: data.documents.document_name,
-                description:data.documents.description
-            }
-            setDocument(fetchedDocument)
+
         }catch (e) {
             console.log(e)
         }
@@ -43,7 +36,7 @@ const AddDocument = (documentId) => {
     const handleUpdateDocuent= async ()=>{
 
         console.log(document)
-        const updatedResponse=await  updateDocument(documentId,document);
+        const updatedResponse=await  updateDocument(chapterId,document);
         console.log(updatedResponse)
     }
     useEffect(()=>{
@@ -106,4 +99,4 @@ const AddDocument = (documentId) => {
     );
 };
 
-export default AddDocument;
+export default EditChapter;

@@ -1,14 +1,12 @@
-import Stepper from "../component/common/Stepper";
-import StepperControl from "../component/common/StepperControl";
-import AddDocument from "../component/MultipleFormDocument/AddDocument";
-import AddChapter from "../component/MultipleFormDocument/AddChapter";
-import Done from "../component/MultipleFormDocument/Done";
+import Stepper from "../../component/common/Stepper";
+import StepperControl from "../../component/common/StepperControl";
 import {useState} from "react";
-import EditDocument from "../component/document/EditDocument";
-// import {StepperContext} from "../context/StepperContext";
+import EditDocument from "../../component/document/EditDocument";
+import {UpdateDone} from "./UpdateDone";
 
 
-const UpdateDocument = () => {
+
+const UpdateDocument = (documentId) => {
 
     const [currentStep, setCurrentStep] = useState(1);
 
@@ -22,9 +20,9 @@ const UpdateDocument = () => {
     const displayStep = (step) => {
         switch (step) {
             case 1:
-                return <EditDocument/>
+                return <EditDocument documentId={documentId}/>
             case 2:
-                return <Done/>
+                return <UpdateDone/>
             default:
                 return null
         }

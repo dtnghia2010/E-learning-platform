@@ -79,7 +79,7 @@ export async function deleteBookmark(courseId){
 export  async function  getDocumentDetails(documentId){
     try{
         console.log(getHeaders())
-        const response= await apiFunction.get(`/document/documentdetail_id=1/`,{
+        const response= await apiFunction.get(`/document/documentdetail_id=${documentId}/`,{
             headers:getHeaders()
         })
         return response.data
@@ -129,6 +129,31 @@ export const createChapter= async  (documentId, newChapter)=>{
     }
 }
 
+export  const getChapter= async (chapterId)=>{
+    try{
+        const response= await apiFunction.get(`/chapter/${chapterId}/`,{
+            headers:getHeaders()
+        })
+        console.log(response)
+        return response.data
+
+    }catch (e){
+        console.log(e)
+    }
+}
+
+export const updateDocument= async (documentId, updatedDocument)=>{
+    try{
+        const response =await apiFunction.put(`/updateDocument/${documentId}/`,updatedDocument,{
+            headers: getHeaders()
+        })
+        return response.data
+    }catch (e) {
+        console.log(e)
+        throw e
+    }
+}
+
 export async function getDocumentByUser(){
     try {
         const response = await apiFunction.get('/getAllDocumentsByUser/', {
@@ -150,5 +175,15 @@ export async function deleteDocument(documentId){
     }catch (error){
         console.error(error);
         throw new Error('Error deleting document');
+    }
+}
+export  async function updateChapter(chapterId, updatedChapter){
+    try{
+        const response= await apiFunction.delete(`/updateChapter/${chapterId}/`,updatedChapter,{
+            headers:getHeaders()
+        })
+        return response.data;
+    }catch (e) {
+        console.log(e)
     }
 }
