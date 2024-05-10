@@ -24,7 +24,7 @@ class DocumentDetailSerializer(serializers.ModelSerializer):
     author_name = serializers.CharField(source='user_id.username', read_only=True)
     class Meta:
         model = Document
-        fields = ['course_name', 'document_name', 'author_name', 'description', 'chapters_info']
+        fields = ['course_id', 'course_name', 'document_name', 'author_name', 'description', 'chapters_info']
 # class DocumentSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Document
