@@ -6,7 +6,7 @@ class ChapterSerializer(serializers.ModelSerializer):
     document_id = serializers.CharField()
     class Meta:
         model = Chapter
-        fields = ['chapter_id', 'chapter_name', 'content', 'code', 'document_id']
+        fields = ['chapter_id', 'chapter_name', 'content', 'code', 'quizz_id', 'document_id']
 
 
 class ChapterNameAndIDSerializer(serializers.ModelSerializer):
