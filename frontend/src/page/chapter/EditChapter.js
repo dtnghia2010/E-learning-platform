@@ -3,30 +3,35 @@ import {Divider, Table, TableBody, TableCell, TableRow} from "@mui/material";
 
 import {
     getChapter,
-    getDocumentDetails,
-    updateDocument
+    updateChapter
 } from "../../util/ApiFunction";
+
 
 
 
 const EditChapter = (chapterId) => {
 
-    const [chapter, setDocument]=useState({
-        course_id:"",
-        document_name:"",
-        description:""
+    const [chapter, setChapter]=useState({
+        code:"",
+        chapter_name:"",
+        content:""
     })
 
     const handleChange=(e)=>{
         const {name, value}=e.target;
-        setDocument({...document,[name]:value})
-
+        setChapter({...chapter, [name]:value})
     }
 
     const handleGetDocument=async ()=>{
         try{
             const data= await getChapter(27);
-            console.log(data.documents)
+            const fetchedChapter= {
+                code:data.code,
+                chapter_name:data.chapter_name,
+                content:data.content
+            }
+
+            setChapter(fetchedChapter)
 
         }catch (e) {
             console.log(e)
@@ -35,10 +40,12 @@ const EditChapter = (chapterId) => {
 
     const handleUpdateDocuent= async ()=>{
 
-        console.log(document)
-        const updatedResponse=await  updateDocument(chapterId,document);
-        console.log(updatedResponse)
+        console.log(chapter)
+        const updatedResponse=await  updateChapter(27,chapter);
+        window.location.reload()
     }
+
+
     useEffect(()=>{
         handleGetDocument();
     },[])
@@ -55,13 +62,27 @@ const EditChapter = (chapterId) => {
 
                     <TableRow>
                         <TableCell component="th" scope="row" sx={{padding: '2px', width: '50px'}}>
-                            <label className="mr-2 font-semibold" htmlFor="document_name">Title</label>
+                            <label className="mr-2 font-semibold" htmlFor="document_name">Code</label>
                         </TableCell>
                         <TableCell align="left" sx={{paddingY: '8px',}}>
                             <input
                                 type="text"
-                                name="document_name"
-                                defaultValue={document.document_name}
+                                name="code"
+                                defaultValue={chapter.code}
+                                onChange={handleChange}
+                                className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[30px] mx-3"
+                            />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th" scope="row" sx={{padding: '2px', width: '50px'}}>
+                            <label className="mr-2 font-semibold" htmlFor="document_name">Name</label>
+                        </TableCell>
+                        <TableCell align="left" sx={{paddingY: '8px',}}>
+                            <input
+                                type="text"
+                                name="chapter_name"
+                                defaultValue={chapter.chapter_name}
                                 onChange={handleChange}
                                 className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[30px] mx-3"
                             />
@@ -71,13 +92,13 @@ const EditChapter = (chapterId) => {
                     <TableRow>
                         <TableCell component="th" scope="row"
                                    sx={{paddingX: '2px', paddingY: "8px", display: 'flex', alignItems: 'flex-start'}}>
-                            <label className="mr-2 font-semibold" htmlFor="description">Description</label>
+                            <label className="mr-2 font-semibold" htmlFor="description">Content</label>
                         </TableCell>
                         <TableCell align="left" sx={{paddingY: '8px',}}>
                             <input
                                 type="text"
-                                name="description"
-                                defaultValue={document.description}
+                                name="content"
+                                defaultValue={chapter.content}
                                 onChange={handleChange}
                                 className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[100px] lg:h-[300px] mx-3"
                             />

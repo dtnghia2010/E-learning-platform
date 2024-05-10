@@ -134,7 +134,7 @@ export  const getChapter= async (chapterId)=>{
         const response= await apiFunction.get(`/chapter/${chapterId}/`,{
             headers:getHeaders()
         })
-        console.log(response)
+        // console.log(response)
         return response.data
 
     }catch (e){
@@ -179,7 +179,7 @@ export async function deleteDocument(documentId){
 }
 export  async function updateChapter(chapterId, updatedChapter){
     try{
-        const response= await apiFunction.delete(`/updateChapter/${chapterId}/`,updatedChapter,{
+        const response= await apiFunction.put(`/updateChapter/${chapterId}/`,updatedChapter,{
             headers:getHeaders()
         })
         return response.data;
