@@ -3,11 +3,12 @@ import StepperControl from "../../component/common/StepperControl";
 import {useState} from "react";
 import EditDocument from "../../component/document/EditDocument";
 import {UpdateDone} from "./UpdateDone";
+import {useParams} from "react-router-dom";
 
 
 
-const UpdateDocument = (documentId) => {
-
+const UpdateDocument = () => {
+    const {documentId} = useParams();
     const [currentStep, setCurrentStep] = useState(1);
 
 

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: delete and get document by user">
-      <change afterPath="$PROJECT_DIR$/src/component/Quiz/AnswerCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/E-learning-platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/E-learning-platform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: context Document">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/DocumentContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/DocumentContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/UpdateDocument/UpdateDocument'.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/UpdateDocument/UpdateDocument'.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <workItem from="1714883414590" duration="219000" />
       <workItem from="1715261955119" duration="4663000" />
       <workItem from="1715324017448" duration="5886000" />
-      <workItem from="1715433529253" duration="323000" />
+      <workItem from="1715433529253" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -332,7 +329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715267086982</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: context Document">
+      <option name="closed" value="true" />
+      <created>1715433928356</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715433928356</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +356,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Router for Course" />
     <MESSAGE value="feat: Footer" />
     <MESSAGE value="mod: Footer" />
     <MESSAGE value="[FE]feat: Chapter detail" />
@@ -376,6 +380,7 @@
     <MESSAGE value="feat: create document done" />
     <MESSAGE value="fix: a little adjust from stepper" />
     <MESSAGE value="feat: delete and get document by user" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: delete and get document by user" />
+    <MESSAGE value="fix: context Document" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: context Document" />
   </component>
 </project>

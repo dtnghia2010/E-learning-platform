@@ -1,17 +1,13 @@
-import {useContext, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import {Divider, Table, TableBody, TableCell, TableRow} from "@mui/material";
-import Selector from "../common/Selector";
 import {
-    createCourse,
-    getAllCategory,
-    getCourseByCategory,
     getDocumentDetails,
     updateDocument
 } from "../../util/ApiFunction";
 
 
 
-const AddDocument = (documentId) => {
+const AddDocument = ({documentId}) => {
 
     const [document, setDocument]=useState({
         course_id:"",

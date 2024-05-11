@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReading} from 'react-icons/fc';
-import Navbar from "../component/Navbar";
 import {deleteDocument, getDocumentByUser} from "../util/ApiFunction";
-import Header from "../component/layout/Header";
 import {Alert, CircularProgress, MenuItem} from "@mui/material";
 import useDocumentContext from "../hook/useDocumentContext";
+import { useNavigate } from 'react-router-dom'; // import useHistory
+
 
 const Profile = () => {
     const {documents, dispatch} = useDocumentContext();
 
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchDocument = async () => {
@@ -42,6 +44,7 @@ const Profile = () => {
 
     const handleUpdate = async (documentId) => {
         //switch to update document page
+        navigate(`/update_document/${documentId}`);
     }
 
     return (

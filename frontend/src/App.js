@@ -40,7 +40,7 @@ function App() {
 
             <Route exact path="/lecture" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>
-            <Route exact path="/update_document" element={<UpdateDocument />}/>
+            <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
             <Route exact path="/update_chapter" element={<UpdateChapter />}/>
 
 
