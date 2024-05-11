@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: a little adjust from stepper" />
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: context Document">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/UpdateDocument/UpdateDocument'.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/UpdateDocument/UpdateDocument'.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +52,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Course__Page&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WebStorm/E - Learning Platform/E-learning-platform/frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebStorm&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -94,6 +99,11 @@
       <workItem from="1714803055739" duration="8075000" />
       <workItem from="1714821016818" duration="741000" />
       <workItem from="1714833830115" duration="2781000" />
+      <workItem from="1714880249962" duration="900000" />
+      <workItem from="1714883414590" duration="219000" />
+      <workItem from="1715261955119" duration="4663000" />
+      <workItem from="1715324017448" duration="5886000" />
+      <workItem from="1715433529253" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -303,16 +313,49 @@
       <option name="project" value="LOCAL" />
       <updated>1714837205636</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: delete and get document by user">
+      <option name="closed" value="true" />
+      <created>1715265094007</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715265094008</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: delete and get document by user">
+      <option name="closed" value="true" />
+      <created>1715267086982</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715267086982</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix: context Document">
+      <option name="closed" value="true" />
+      <created>1715433928356</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715433928356</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: get All course" />
-    <MESSAGE value="feat: Router for Course" />
     <MESSAGE value="feat: Footer" />
     <MESSAGE value="mod: Footer" />
     <MESSAGE value="[FE]feat: Chapter detail" />
@@ -336,6 +379,8 @@
     <MESSAGE value="fix: done with newDocument context" />
     <MESSAGE value="feat: create document done" />
     <MESSAGE value="fix: a little adjust from stepper" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: a little adjust from stepper" />
+    <MESSAGE value="feat: delete and get document by user" />
+    <MESSAGE value="fix: context Document" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: context Document" />
   </component>
 </project>
