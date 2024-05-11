@@ -31,16 +31,12 @@ const Profile = () => {
     },[])
 
     const handleDelete = async (documentId) => {
-        setLoading(true)
         try{
              await deleteDocument(documentId);
             dispatch({type: "DELETE_DOCUMENT",payload: documentId});
-
-            setLoading(false);
             setError(false);
         }catch (e){
-            setError(e.message)
-            setLoading(false)
+            setError(e)
         }
     }
 

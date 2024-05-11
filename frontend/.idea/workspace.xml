@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: a little adjust from stepper">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: delete and get document by user">
+      <change afterPath="$PROJECT_DIR$/src/component/Quiz/AnswerCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/E-learning-platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/E-learning-platform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/DocumentContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/DocumentContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ApiFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ApiFunction.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,9 @@
       <workItem from="1714833830115" duration="2781000" />
       <workItem from="1714880249962" duration="900000" />
       <workItem from="1714883414590" duration="219000" />
-      <workItem from="1715261955119" duration="2533000" />
+      <workItem from="1715261955119" duration="4663000" />
+      <workItem from="1715324017448" duration="5886000" />
+      <workItem from="1715433529253" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -314,15 +316,41 @@
       <option name="project" value="LOCAL" />
       <updated>1714837205636</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: delete and get document by user">
+      <option name="closed" value="true" />
+      <created>1715265094007</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715265094008</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: delete and get document by user">
+      <option name="closed" value="true" />
+      <created>1715267086982</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715267086982</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: get All course" />
     <MESSAGE value="feat: Router for Course" />
     <MESSAGE value="feat: Footer" />
     <MESSAGE value="mod: Footer" />
@@ -347,6 +375,7 @@
     <MESSAGE value="fix: done with newDocument context" />
     <MESSAGE value="feat: create document done" />
     <MESSAGE value="fix: a little adjust from stepper" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: a little adjust from stepper" />
+    <MESSAGE value="feat: delete and get document by user" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: delete and get document by user" />
   </component>
 </project>

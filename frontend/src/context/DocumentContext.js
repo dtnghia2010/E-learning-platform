@@ -17,7 +17,7 @@ export const documentReducer = (state, action) => {
         case 'DELETE_DOCUMENT':
             return {
                 ...state,
-                documents: state.documents.filter(document => document._id !== action.payload)
+                documents: state.documents.filter(document => document.document_id !== action.payload)
             }
         default:
             return state;
