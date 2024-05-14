@@ -11,6 +11,19 @@ from rest_framework import status
 
 class ChapterView(APIView):
     def get(self, request, chapter_id=None):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
         if chapter_id:
             chapter = Chapter.objects.get(chapter_id=chapter_id)
             serializer = ChapterSerializer(chapter)
@@ -131,3 +144,28 @@ class UpdateChapter(APIView):
     #             "success": "Chapter '{}' updated successfully".format(save_chapter.chapter_name)
     #         })
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class DeleteChapter(APIView):
+    def delete(self, request, chapter_id):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        user_id = payload['id']
+
+        try:
+            chapter = Chapter.objects.get(chapter_id=chapter_id)
+            chapter.delete()
+            return Response({"message": "Chapter '{}' deleted successfully".format(chapter.chapter_name)}, status=status.HTTP_204_NO_CONTENT)
+        except Chapter.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
