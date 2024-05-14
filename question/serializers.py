@@ -19,26 +19,37 @@ class ResultsSerializer(serializers.ModelSerializer):
         model = Question
         fields = ['question_id', 'question', 'answer']
 
-class QuestionandAnswerCreateSerializer(serializers.ModelSerializer):
-    quizz_id = serializers.CharField()
+# class QuestionAnswerListSerializer(serializers.ModelSerializer):
+#     answers = AnswerListSerializer(source='answerlist_set', many=True, read_only=True)
+#     class Meta:
+#         model = Question
+#         fields = ['question_id', 'question', 'answer', 'answers']
+#
+#     def validate_answer(self, value):
+#         if not value.endswith("&True"):
+#             raise serializers.ValidationError("The correct answer must end with '&True'")
+#         return value
+
+
+class QuestionAnswerListSerializer(serializers.ModelSerializer):
+    answer1 = serializers.CharField(write_only=True)
+    answer2 = serializers.CharField(write_only=True)
+    answer3 = serializers.CharField(write_only=True)
+
     class Meta:
         model = Question
-        fields = ['question_id', 'question', 'answer', 'quizz_id']
+        fields = ['question', 'answer1', 'answer2', 'answer3']
 
     def create(self, validated_data):
-        quizz_id = validated_data.pop('quizz_id')
-        counter = 0
-        for i in range (3):
-            correct_answer = validated_data.pop('correct_answer'+str(i+1))
-            if correct_answer:
-                counter = i+1
-                break
-        if counter == 1:
-            answer = validated_data.pop('answer1')
-        elif counter == 2:
-            answer = validated_data.pop('answer2')
-        else:
-            answer = validated_data.pop('answer3')
-        instance = self.Meta.model(quizz_id=quizz_id, answer=answer, **validated_data)
-        instance.save()
-        return instance
+        quizz_id = self.context.get('quizz')
+        quizz = Quizz.objects.get(quizz_id=quizz_id)
+        answer1 = validated_data.pop('answer1')
+        answer2 = validated_data.pop('answer2')
+        answer3 = validated_data.pop('answer3')
+
+        correct_answer = answer1 if "&True" in answer1 else answer2 if "&True" in answer2 else answer3
+        question = Question.objects.create(quizz=quizz, answer=correct_answer, **validated_data)
+
+        # Create the associated AnswerList instance
+        # AnswerList.objects.create(question_id=question, answer1=answer1, answer2=answer2, answer3=answer3)
+        return question
