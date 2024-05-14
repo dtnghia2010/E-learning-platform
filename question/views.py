@@ -56,7 +56,20 @@ class ResultsByQuizz(APIView):
 
 class QuestionAndAnswerListCreate(APIView):
     def post(self, request, quizz_id):
-        data = request.data.copy()
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
         question_serializer = QuestionAnswerListSerializer(data=request.data, context={'quizz': quizz_id})
         if question_serializer.is_valid():
             question = question_serializer.save()
