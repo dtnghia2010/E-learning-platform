@@ -1,15 +1,16 @@
-const AnswerCard = ({answers}) => {
-    const colors = ['rgba(66, 133, 244, 0.32)', 'rgba(234, 67, 53, 0.32)', 'rgba(52, 168, 83, 0.32)', 'rgba(247, 88, 202, 0.32)']
+// AnswerCard.js
+const AnswerCard = ({answer, color, selectedAnswer, onAnswerClick}) => {
+    const isSelected = answer === selectedAnswer;
+    const backgroundColor = isSelected ? 'rgba(128, 128, 128, 0.7)' : `${color}`;
+    const shadow = isSelected ? '' : 'shadow-xl';
 
     return (
-        <div className='flex'>
-            {Object.keys(answers).map((key, index) => (
-                <div key={index} style={{backgroundColor: colors[index], width: '25%', height: '237px'}}>
-                    <p>{answers[key]}</p>
-                </div>
-            ))}
-
-        </div>
+        <button className={`flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
+        w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`} style={{backgroundColor: backgroundColor}}
+             onClick={isSelected ? null : () => onAnswerClick(answer)}
+        >
+            {answer}
+        </button>
     );
 };
 
