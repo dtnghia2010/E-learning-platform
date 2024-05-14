@@ -27,9 +27,18 @@ class QuestionandAnswerCreateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         quizz_id = validated_data.pop('quizz_id')
-        quizz = Quizz.objects.get(quizz_id=quizz_id)
-        question = validated_data.get('question')
-        answer = validated_data.get('answer')
-        instance = self.Meta.model(quizz_id=quizz_id, question=question, answer=answer)
+        counter = 0
+        for i in range (3):
+            correct_answer = validated_data.pop('correct_answer'+str(i+1))
+            if correct_answer:
+                counter = i+1
+                break
+        if counter == 1:
+            answer = validated_data.pop('answer1')
+        elif counter == 2:
+            answer = validated_data.pop('answer2')
+        else:
+            answer = validated_data.pop('answer3')
+        instance = self.Meta.model(quizz_id=quizz_id, answer=answer, **validated_data)
         instance.save()
         return instance

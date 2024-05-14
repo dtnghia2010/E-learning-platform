@@ -54,19 +54,19 @@ class ResultsByQuizz(APIView):
 
 class CreateQuestionAndAnswer(APIView):
     def post(self, request, quizz_id):
-        auth_header = request.META.get('HTTP_AUTHORIZATION')
-        if not auth_header or not auth_header.startswith('Bearer '):
-            print(auth_header)
-            raise AuthenticationFailed('Unauthenticated!')
-
-        token = auth_header.split(' ')[1]
-
-        try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Authentication token expired!')
-        except jwt.InvalidTokenError:
-            raise AuthenticationFailed('Invalid authentication token!')
+        # auth_header = request.META.get('HTTP_AUTHORIZATION')
+        # if not auth_header or not auth_header.startswith('Bearer '):
+        #     print(auth_header)
+        #     raise AuthenticationFailed('Unauthenticated!')
+        #
+        # token = auth_header.split(' ')[1]
+        #
+        # try:
+        #     payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        # except jwt.ExpiredSignatureError:
+        #     raise AuthenticationFailed('Authentication token expired!')
+        # except jwt.InvalidTokenError:
+        #     raise AuthenticationFailed('Invalid authentication token!')
 
         data = request.data.copy()
         data['quizz_id'] = quizz_id
