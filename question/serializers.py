@@ -9,9 +9,10 @@ class AnswerListSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     answers = AnswerListSerializer(source='answerlist_set', many=True, read_only=True)
+    quizz_name = serializers.CharField(source='quizz_id.quizz_name', read_only=True)
     class Meta:
         model = Question
-        fields = ['question_id', 'question', 'answers']
+        fields = ['question_id', 'question', 'answers', 'quizz_name']
 
 class ResultsSerializer(serializers.ModelSerializer):
     class Meta:
