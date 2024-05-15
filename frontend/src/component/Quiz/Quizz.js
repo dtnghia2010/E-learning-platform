@@ -67,14 +67,15 @@ const Quizz = () => {
 
                 {/*    Display component */}
                 <div className="flex">
-                    {displayStep(currentStep)}
+                    {displayStep(currentStep - 1)}
                 </div>
                 {/*    Stepper Controller   */}
                 <div className="pt-20">
                     <StepperControl
                         handleClick={handleClick}
                         currentStep={currentStep}
-                        steps={quizz.length}
+                        steps={quizz}
+                        isQuiz={true}
                     />
                 </div>
 

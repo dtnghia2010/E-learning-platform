@@ -21,7 +21,7 @@ const QuizzDetail = ({step}) => {
     };
 
     const renderAnswers = () => {
-        return quizz[step - 1].answers.map((answer, index) => {
+        return quizz[step].answers.map((answer, index) => {
             return <AnswerCard
                 key={index}
                 answer={answer}
@@ -37,13 +37,13 @@ const QuizzDetail = ({step}) => {
     <div className="flex flex-col justify-center items-center max-w-7xl">
     {/*    Display Question     */}
         <div className="flex justify-center font-semibold text-5xl p-20">
-            {quizz[step - 1].question}
+            {quizz[step] && quizz[step].question}
         </div>
 
     {/*    Display Answer card */}
 
         <div className="flex justify-between items-center pd-5 " style={{width: '60vw'}}>
-            {renderAnswers()}
+            {quizz[step] &&renderAnswers()}
         </div>
     </div>
     );

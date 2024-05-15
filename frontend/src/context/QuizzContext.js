@@ -14,7 +14,7 @@ export const quizzReducer = (state, action) => {
             return{
                 ...state,
                 quizz: state.quizz.map((question, index) => {
-                    if (index === action.payload.step - 1) {
+                    if (index === action.payload.step) {
                         return {
                             ...question,
                             choose_answer: action.payload.answer
