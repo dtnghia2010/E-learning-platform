@@ -1,4 +1,5 @@
 from .models import Quizz
+from authentication.models import User
 from rest_framework import serializers
 
 class QuizzSerializer(serializers.ModelSerializer):

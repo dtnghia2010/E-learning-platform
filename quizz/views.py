@@ -40,6 +40,8 @@ class GetAllQuizzesByUser(APIView):
 
         user = User.objects.filter(id=payload['id']).first()
 
+        if user is None:
+            raise AuthenticationFailed('User not found!')
         print(request.data)
         quizz = Quizz.objects.filter(user_id=user.id)
         serializer = QuizzesViewByUserSerializer(quizz, many=True)
