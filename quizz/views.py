@@ -19,8 +19,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Quizz
 from rest_framework.exceptions import AuthenticationFailed
+from authentication.models import User
 
-User = get_user_model()
 
 class GetAllQuizzesByUser(APIView):
     def get(self, request, user_id=None):
