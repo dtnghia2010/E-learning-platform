@@ -126,4 +126,4 @@ class QuestionAndAnswerListUpdate(APIView):
         else:
             return Response(answer_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(question_serializer.data, status=status.HTTP_200_OK)
+        return Response({"message": "Question and answers with question id '{}' updated successfully!".format(question.question_id)}, status=status.HTTP_200_OK)
