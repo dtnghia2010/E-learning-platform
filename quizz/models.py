@@ -10,10 +10,9 @@ class Quizz(models.Model):
     quizz_name = models.CharField(max_length=255)
     code = models.CharField(max_length=6, unique=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, default=1)
+    user_id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE)
     def __str__(self):
         return self.quizz_name
-
 
 
 
