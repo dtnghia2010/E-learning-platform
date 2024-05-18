@@ -1,8 +1,9 @@
 from django.urls import path
-# from quizz.models import Quizz
-from .views import QuestionListByQuizz, ResultsByQuizz
+from .views import QuestionListByQuizz, ResultsByQuizz, QuestionAndAnswerListCreate, QuestionAndAnswerListUpdate
+
 urlpatterns = [
     path('quizz/<int:quizz_id>/questions/', QuestionListByQuizz.as_view()),
-    path('quizz/<int:quizz_id>/results/', ResultsByQuizz.as_view())
-    # path('quizz/<int:quizz_id>/questions/<int:question_id>', )
+    path('quizz/<int:quizz_id>/results/', ResultsByQuizz.as_view()),
+    path('quizz/<int:quizz_id>/createQuestion/', QuestionAndAnswerListCreate.as_view()),
+    path('quizz/<int:quizz_id>/updateQuestion/<int:question_id>/', QuestionAndAnswerListUpdate.as_view()),
 ]

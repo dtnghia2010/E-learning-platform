@@ -11,3 +11,6 @@ class Chapter(models.Model):
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE, related_name='chapters')
     def __str__(self):
         return self.chapter_name
+
+
+

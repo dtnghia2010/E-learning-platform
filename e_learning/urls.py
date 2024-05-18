@@ -25,4 +25,7 @@ urlpatterns = [
     path('', include('Course.urls')),
     path('', include('category.urls')),
     path('', include('question.urls')),
+    path('', include('quizz.urls')),
+    path('', include('answerlist.urls')),
+    path('', include('question.urls')),
 ]

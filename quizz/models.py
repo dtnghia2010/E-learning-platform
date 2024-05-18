@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import Category
+from Course.models import Course
 from authentication.models import User
 
 
