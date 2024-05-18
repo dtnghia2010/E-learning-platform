@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 const QuizzDetail = ({step}) => {
     const {quizz, dispatch} = useQuizzContext();
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-
+    console.log(quizz)
     const colors = ['rgba(66, 133, 244, 0.32)', 'rgba(234, 67, 53, 0.32)', 'rgba(52, 168, 83, 0.32)']
 
     const handleAnswerClick = (answer) => {

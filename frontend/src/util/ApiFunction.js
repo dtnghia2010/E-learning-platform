@@ -200,3 +200,15 @@ export async function getQuizzById(quizzId){
         throw new Error('Error fetching quizz');
     }
 }
+export async function createQuizz(form){
+    try{
+        const res= await  apiFunction.post("/createQuizz/",form,{
+            headers:getHeaders()
+        })
+        return res.data
+
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}

@@ -12,35 +12,38 @@ const Quizz = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const {quizz, dispatch} = useQuizzContext();
 
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const {id} = useParams()
 
-    useEffect(() => {
-        const fetchQuizz = async () =>{
-            setLoading(true);
-            try {
+    const fetchQuizz = async () =>{
 
-                const resData = await getQuizzById(id)
-                const quizzData = resData.map(question => ({
-                    ...question,
-                    choose_answer: '',
-                    answers: [].concat(...question.answers.map(answerObj => {
-                        return [answerObj.answer1, answerObj.answer2, answerObj.answer3];
-                    }))
-                }));
-                dispatch({ type: 'GET_QUIZZ', payload: quizzData }); // Dispatch the action here
-                setError(null);
-                setLoading(false);
-            }catch (error){
-                setError(error);
-                setLoading(false);
-            }
+        try {
+
+            const resData = await getQuizzById(id)
+            console.log(resData)
+            const quizzData = resData.map(question => ({
+                ...question,
+                choose_answer: '',
+                answers: [].concat(...question.answers.map(answerObj => {
+                    return [answerObj.answer1, answerObj.answer2, answerObj.answer3];
+                }))
+            }));
+            console.log(quizzData)
+            dispatch({ type: 'GET_QUIZZ', payload: quizzData });
+            console.log(quizz)
+            setError(null);
+            // setLoading(false);
+        }catch (error){
+            setError(error);
+
         }
-        fetchQuizz();
-    },[id])
+    }
 
+    useEffect(() => {
+        fetchQuizz()
+    },[id])
     const displayStep = (step) => {
     //     the page quizz detail
         return <QuizzDetail step={step} />;

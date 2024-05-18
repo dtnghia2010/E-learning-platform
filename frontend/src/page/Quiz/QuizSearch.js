@@ -13,7 +13,7 @@ const QuizSearch= ()=>{
             alert("Do not have code ?")
             return;
         }
-        navigator("/quizz/:id", {state: code});
+        navigator(`/quizz/${code}`);
     }
 
     return(

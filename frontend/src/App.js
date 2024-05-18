@@ -1,8 +1,8 @@
 import './App.css';
 import {
-  BrowserRouter,
-  Routes,
-  Route,
+    BrowserRouter,
+    Routes,
+    Route, useLocation,
 } from "react-router-dom";
 
 import Login from "./page/Login";
@@ -18,6 +18,10 @@ import DocumentList from "./component/document/DocumentList";
 import CreateDocument from "./page/CreateDocument";
 import UpdateDocument from "./page/UpdateDocument/UpdateDocument\'";
 import UpdateChapter from "./page/chapter/UpdateChapter";
+import QuizSearch from "./page/Quiz/QuizSearch";
+import Quizz from "./component/Quiz/Quizz";
+import CreateQuizz from "./page/Quiz/CreateQuizz";
+import CreateQuestion from "./page/Quiz/CreateQuestion";
 
 
 function App() {
@@ -53,12 +57,16 @@ function MainRoutes() {
             <Route exact path="/profile" element={<Profile />}/>
             <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
             <Route exact path="/update_chapter" element={<UpdateChapter />}/>
+                    <Route path="/create_question/:id" element={<CreateQuestion/>}   />
             <Route path="/search_quiz" element={<QuizSearch/>}/>
 
                         <Route path="/quizz/:id" element={
                                 <Quizz />
                         } />
+             <Route path="/create_quizz" element={<CreateQuizz/>} />
                 </Routes>
+
+
             </main>
         </>
     );
