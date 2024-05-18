@@ -18,21 +18,31 @@ import DocumentList from "./component/document/DocumentList";
 import CreateDocument from "./page/CreateDocument";
 import UpdateDocument from "./page/UpdateDocument/UpdateDocument\'";
 import UpdateChapter from "./page/chapter/UpdateChapter";
-import QuizSearch from "./page/Quiz/QuizSearch";
 
 
 function App() {
 
   return (
       <div className="bg-gray-tone flex flex-col min-h-screen">
+          <BrowserRouter>
+              <MainRoutes/>
+          </BrowserRouter>
+          <Footer/>
+      </div>
+  )
+}
 
-      <BrowserRouter>
-          <Header />
-          <main className="flex-grow">
-        <Routes>
-          <Route path="/login" element={<Login style={{ position: 'relative', zIndex: 5 }} />} />
-            <Route path="/register" element={<Register />} />
-            <Route exact path="/" element={<HomePage />}/>
+function MainRoutes() {
+    const location = useLocation();
+
+    return (
+        <>
+            {!location.pathname.startsWith("/quizz") && <Header />}
+            <main className="flex-grow">
+                <Routes>
+                    <Route path="/login" element={<Login style={{ position: 'relative', zIndex: 5 }} />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route exact path="/" element={<HomePage />}/>
 
             <Route path="/course/:category_id" element={<CourseList />} />
 
@@ -45,18 +55,13 @@ function App() {
             <Route exact path="/update_chapter" element={<UpdateChapter />}/>
             <Route path="/search_quiz" element={<QuizSearch/>}/>
 
-
-
-
-
-
-
-        </Routes>
-              </main>
-      </BrowserRouter>
-          <Footer/>
-      </div>
-  )
+                        <Route path="/quizz/:id" element={
+                                <Quizz />
+                        } />
+                </Routes>
+            </main>
+        </>
+    );
 }
 
 export default App;

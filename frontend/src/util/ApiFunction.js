@@ -187,3 +187,16 @@ export  async function updateChapter(chapterId, updatedChapter){
         console.log(e)
     }
 }
+
+export async function getQuizzById(quizzId){
+    try {
+        const response = await apiFunction.get(`/quizz/${quizzId}/questions/`, {
+            headers: getHeaders()
+        });
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching quizz');
+    }
+}

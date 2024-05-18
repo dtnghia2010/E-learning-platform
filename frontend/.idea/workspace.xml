@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: context Document">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="feat: view question">
+      <change beforePath="$PROJECT_DIR$/../.idea/E-learning-platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/E-learning-platform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/UpdateDocument/UpdateDocument'.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/UpdateDocument/UpdateDocument'.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Quiz/QuizzDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Quiz/QuizzDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/StepperControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/StepperControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/QuizzContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/QuizzContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +106,11 @@
       <workItem from="1714883414590" duration="219000" />
       <workItem from="1715261955119" duration="4663000" />
       <workItem from="1715324017448" duration="5886000" />
-      <workItem from="1715433529253" duration="1672000" />
+      <workItem from="1715433529253" duration="2039000" />
+      <workItem from="1715436322409" duration="96000" />
+      <workItem from="1715667856613" duration="11628000" />
+      <workItem from="1715688661075" duration="15341000" />
+      <workItem from="1715741077778" duration="1820000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -337,7 +344,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715433928356</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix: connect Update and profile">
+      <option name="closed" value="true" />
+      <created>1715436143389</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1715436143389</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat: view question">
+      <option name="closed" value="true" />
+      <created>1715704025194</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715704025194</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,8 +379,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Footer" />
-    <MESSAGE value="mod: Footer" />
     <MESSAGE value="[FE]feat: Chapter detail" />
     <MESSAGE value="?" />
     <MESSAGE value="[FE]feat: Category dropdown" />
@@ -381,6 +402,8 @@
     <MESSAGE value="fix: a little adjust from stepper" />
     <MESSAGE value="feat: delete and get document by user" />
     <MESSAGE value="fix: context Document" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: context Document" />
+    <MESSAGE value="fix: connect Update and profile" />
+    <MESSAGE value="feat: view question" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: view question" />
   </component>
 </project>
