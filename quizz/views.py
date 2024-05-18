@@ -6,7 +6,7 @@ import jwt
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-
+from .serializers import QuizzSerializer, QuizzCreateSerializer
 class QuizzByCode(APIView):
     def get(self, request, quizz_code):
         auth_header = request.META.get('HTTP_AUTHORIZATION')
@@ -56,7 +56,31 @@ class GetAllQuizzesByUser(APIView):
         serializer = QuizzesViewByUserSerializer(quizz, many=True)
         return Response(serializer.data)
 
+class CreateQuizz(APIView):
+    def post (self, request):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
 
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        user_id = payload['id']
+
+        data = request.data.copy()
+        data['user_id'] = user_id
+        print(f"User1: {user_id}")
+        serializer = QuizzCreateSerializer(data=data, context={'request': data, 'view': self})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 # class GetAllQuizzesByUser(APIView):
 #     def get(self, request, user_id=None):
 #         auth_header = request.META.get('HTTP_AUTHORIZATION')

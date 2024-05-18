@@ -16,7 +16,6 @@ class Quizz(models.Model):
 
 
 
-
 # class QuizzList(models.Model):
 #     quizz_id = models.ForeignKey(Quizz, on_delete=models.CASCADE)
 #     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
