@@ -18,6 +18,7 @@ import DocumentList from "./component/document/DocumentList";
 import CreateDocument from "./page/CreateDocument";
 import UpdateDocument from "./page/UpdateDocument/UpdateDocument\'";
 import UpdateChapter from "./page/chapter/UpdateChapter";
+import QuizSearch from "./page/Quiz/QuizSearch";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="/profile" element={<Profile />}/>
             <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
             <Route exact path="/update_chapter" element={<UpdateChapter />}/>
+            <Route path="/search_quiz" element={<QuizSearch/>}/>
 
 
 
