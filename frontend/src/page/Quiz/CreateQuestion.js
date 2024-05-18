@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import {useNavigate, useParams} from "react-router-dom";
+import {createQuestion} from "../../util/ApiFunction";
 
 
 function CreateQuestion() {
-    const [quizz, setQuizz]= useState({
-
-    })
+    const quizzId= useParams().id;
+    const navigator= useNavigate();
     const [question, setQuestion]=useState({
         question:"",
         answer1:"",
@@ -17,8 +18,15 @@ function CreateQuestion() {
 
         setQuestion({...question, [name]:value })
     }
-    const handleSubmit=()=>{
-        console.log(question)
+    const handleSubmit=async ()=>{
+        try{
+            const data= await createQuestion(quizzId,question);
+            console.log(data);
+            handleReset()
+        }catch (e) {
+            console.log(e)
+            throw  e
+        }
     }
     const handleReset=()=>{
         setQuestion({
@@ -28,6 +36,7 @@ function CreateQuestion() {
             answer3:"",
         })
     }
+
     const shadow =  'shadow-xl';
 
     return (
@@ -67,24 +76,31 @@ function CreateQuestion() {
             </div>
 
             <div className="flex justify-center align-center size-1/2 space-x-2.5 w-full h-full mt-20">
-            <button
+                <button
 
-                className={`bg-white text-slate-500 uppercase py-2 px-4
+                    className={`bg-white text-slate-500 uppercase py-2 px-4
             rounded-xl font-semibold cursor-pointer border-2 border-slate-300
             hover:bg-slate-700 hover:text-white transition duration-2 ease-in-out `} onClick={handleReset}>
-                Reset
-            </button>
+                    Reset
+                </button>
 
 
-            <button
+                <button
 
-                className={`bg-[#6DB9D2] text-white uppercase py-2 px-4
+                    className={`bg-[#6DB9D2] text-white uppercase py-2 px-4
             rounded-xl font-semibold cursor-pointer
             hover:bg-slate-700 hover:text-white transition duration-2 ease-in-out`} onClick={handleSubmit}>
-                Save Question
-            </button>
+                    Save Question
+                </button>
+                <button
+
+                    className={`bg-[#6DB9D2] text-white uppercase py-2 px-4
+            rounded-xl font-semibold cursor-pointer
+            hover:bg-slate-700 hover:text-white transition duration-2 ease-in-out`} onClick={()=>{navigator("/search_quiz")}}>
+                    Finish
+                </button>
             </div>
-            </div>
+        </div>
         </>
     );
 }

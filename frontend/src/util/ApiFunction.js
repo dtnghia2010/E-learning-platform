@@ -212,3 +212,14 @@ export async function createQuizz(form){
         throw  e
     }
 }
+export async function createQuestion(quizzId, form){
+    try{
+        const res= await  apiFunction.post(`/quizz/${quizzId}/createQuestion/`,form,{
+            headers:getHeaders()
+        })
+        return res.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}

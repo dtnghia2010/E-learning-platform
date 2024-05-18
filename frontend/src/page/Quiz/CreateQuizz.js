@@ -1,6 +1,7 @@
 import {Divider, Table, TableBody, TableCell, TableRow} from "@mui/material";
 import {useEffect, useState} from "react";
 import {createQuizz, getAllCategory} from "../../util/ApiFunction";
+import {useNavigate} from "react-router-dom";
 
 
 const CreateQuizz=()=>{
@@ -10,6 +11,7 @@ const CreateQuizz=()=>{
         quizz_name:"",
         code:""
     })
+    const navigator= useNavigate();
 
     const handleGetAllCategories= async ()=>{
         try{
@@ -35,6 +37,7 @@ const CreateQuizz=()=>{
         try{
             const response= await createQuizz(quizz);
             console.log(response)
+            navigator(`/create_question/${response.quizz_id}`)
         }catch (e) {
             console.log(e)
             throw e
