@@ -22,8 +22,7 @@ const Quizz = () => {
         try {
 
             const resData = await getQuizzById(id)
-            console.log(resData)
-            const quizzData = resData.map(question => ({
+            const quizzData = resData.questions.map(question => ({
                 ...question,
                 choose_answer: '',
                 answers: [].concat(...question.answers.map(answerObj => {
@@ -31,8 +30,8 @@ const Quizz = () => {
                 }))
             }));
             console.log(quizzData)
+
             dispatch({ type: 'GET_QUIZZ', payload: quizzData });
-            console.log(quizz)
             setError(null);
             // setLoading(false);
         }catch (error){
@@ -81,9 +80,6 @@ const Quizz = () => {
                         isQuiz={true}
                     />
                 </div>
-
-
-
 
             </div>
 

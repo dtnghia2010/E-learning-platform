@@ -2,11 +2,6 @@ import {useContext} from "react";
 import {StepperContext} from "../../context/StepperContext";
 
 const StepperControl = ({handleClick, currentStep, steps, isQuiz}) => {
-    console.log("currentStep", currentStep)
-    console .log("steps", steps.length)
-
-
-
     return (
         <div className="container flex justify-around mt-4 mb-8">
             {/*back button*/}
