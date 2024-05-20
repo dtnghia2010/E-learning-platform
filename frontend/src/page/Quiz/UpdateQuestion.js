@@ -11,7 +11,9 @@ function UpdateQuestion() {
     const {quizz, dispatch} = useQuizzContext();
     const [currentStep, setCurrentStep] = useState(1);
 
-    const [question, setQuestion]=useState({})
+    const [question, setQuestion]=useState({question: "",
+        answers: ["", "", ""]
+    })
 
     const [error, setError] = useState(null);
 
@@ -22,13 +24,26 @@ function UpdateQuestion() {
         try {
 
             const resData = await getQuizzById(quizzId)
-            const quizzData = resData.questions.map(question => ({
-                ...question,
-                choose_answer: '',
-                answers: [].concat(...question.answers.map(answerObj => {
+
+            const quizzData = resData.questions.map(question => {
+                let answers = question.answers.map(answerObj => {
                     return [answerObj.answer1, answerObj.answer2, answerObj.answer3];
-                }))
-            }));
+                });
+
+                // Flatten the array
+                answers = [].concat(...answers);
+
+                // If the answers array is empty, replace it with an array of three empty strings
+                if (answers.length === 0) {
+                    answers = ["", "", ""];
+                }
+
+                return {
+                    ...question,
+                    choose_answer: answers.length === 0 ? "" : question.choose_answer,
+                    answers: answers
+                };
+            });
 
             dispatch({type: 'GET_QUIZZ', payload: quizzData});
 
@@ -55,16 +70,17 @@ function UpdateQuestion() {
 
     const handleChange= (event)=>{
         const {name, value}= event.target
+        const answerIndex = parseInt(name.replace("answer", "")) - 1;
 
         setQuestion(prevQuestion => ({
             ...prevQuestion,
-            [name]: value
+            answers: prevQuestion.answers.map((answer, index) => index === answerIndex ? value : answer)
         }));
         console.log(question)
     }
     const handleSubmit=async ()=>{
         try{
-            const data= await updateQuestion(quizzId, quizz.question_id, question);
+            const data= await updateQuestion(quizzId, quizz[currentStep - 1].question_id, question);
             console.log(data);
             handleClick("next");
 
@@ -100,30 +116,17 @@ function UpdateQuestion() {
                 <div className="flex justify-center align-center size-1/2 space-x-2.5 w-full h-full mt-20">
 
                     <div className="flex justify-between items-center  mt-5 ml-3 " style={{width: '60vw'}}>
-                        {question && question.answers && question.answers.map((answer, index) => (
-                            answer !== null && answer !== undefined ? (
-                                <input
-                                    key={index}
-                                    className="flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
-            w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:shadow-xl"
-                                    style={{backgroundColor: ["#BB0E00", "#0053DB", "#00751F"][index % 3]}}
-                                    name={`answer${index + 1}`}
-                                    onChange={handleChange}
-                                    value={answer}
-                                    placeholder="Please enter the answer"
-                                />
-                            ) : (
-                                <input
-                                    key={index}
-                                    className="flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
-            w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:shadow-xl"
-                                    style={{backgroundColor: ["#BB0E00", "#0053DB", "#00751F"][index % 3]}}
-                                    name={`answer${index + 1}`}
-                                    onChange={handleChange}
-                                    value=""
-                                    placeholder="Please enter the answer"
-                                />
-                            )
+                        {question.answers.map((answer, index) => (
+                            <input
+                                key={index}
+                                className="flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
+                                w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:shadow-xl"
+                                style={{backgroundColor: ["#BB0E00", "#0053DB", "#00751F"][index % 3]}}
+                                name={`answer${index + 1}`}
+                                onChange={handleChange}
+                                value={answer}
+                                placeholder="Please enter the answer"
+                            />
                         ))}
                     </div>
                 </div>
