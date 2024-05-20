@@ -223,3 +223,27 @@ export async function createQuestion(quizzId, form){
         throw  e
     }
 }
+
+export async function updateQuestion(quizzId, questionId, form){
+    try{
+        const res= await  apiFunction.put(`/quizz/${quizzId}/updateQuestion/${questionId}/`,form,{
+            headers:getHeaders()
+        })
+        return res.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+
+export async function getQuizzByUser(){
+    try {
+        const response = await apiFunction.get('/getAllQuizzesByUser/', {
+            headers: getHeaders()
+        });
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching user quizz');
+    }
+}

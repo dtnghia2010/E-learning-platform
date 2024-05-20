@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: Fuck Changing API leak to not reading the fuck response">
+      <change afterPath="$PROJECT_DIR$/src/page/Quiz/UpdateQuestion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ApiFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ApiFunction.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

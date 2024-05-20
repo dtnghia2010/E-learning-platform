@@ -22,6 +22,7 @@ import QuizSearch from "./page/Quiz/QuizSearch";
 import Quizz from "./component/Quiz/Quizz";
 import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
+import UpdateQuestion from "./page/Quiz/UpdateQuestion";
 
 
 function App() {
@@ -48,23 +49,24 @@ function MainRoutes() {
                     <Route path="/register" element={<Register />} />
                     <Route exact path="/" element={<HomePage />}/>
 
-            <Route path="/course/:category_id" element={<CourseList />} />
+                    <Route path="/course/:category_id" element={<CourseList />} />
 
-            <Route path="/document/:course_id" element={<DocumentList/>} />
-            <Route path="/addDocument" element={<CreateDocument/>} />
+                    <Route path="/document/:course_id" element={<DocumentList/>} />
+                    <Route path="/addDocument" element={<CreateDocument/>} />
 
-            <Route exact path="/lecture" element={<Lecture />}/>
-            <Route exact path="/profile" element={<Profile />}/>
-            <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
-            <Route exact path="/update_chapter" element={<UpdateChapter />}/>
+                    <Route exact path="/lecture" element={<Lecture />}/>
+                    <Route exact path="/profile" element={<Profile />}/>
+                    <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
+                    <Route exact path="/update_chapter" element={<UpdateChapter />}/>
+
+
                     <Route path="/create_question/:id" element={<CreateQuestion/>}   />
-            <Route path="/search_quiz" element={<QuizSearch/>}/>
+                    <Route path="/search_quiz" element={<QuizSearch/>}/>
+                    <Route path="/quizz/:id" element={<Quizz />} />
+                     <Route path="/create_quizz" element={<CreateQuizz/>} />
+                    <Route path="/update_quizz/:id" element={<UpdateQuestion/>} />
 
-                        <Route path="/quizz/:id" element={
-                                <Quizz />
-                        } />
-             <Route path="/create_quizz" element={<CreateQuizz/>} />
-                </Routes>
+            </Routes>
 
 
             </main>
