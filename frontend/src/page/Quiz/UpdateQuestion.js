@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getQuizzById, updateQuestion} from "../../util/ApiFunction";
 import useQuizzContext from "../../hook/useQuizzContext";
 import QuizzHeader from "../../component/Quiz/QuizzHeader";
@@ -17,7 +17,7 @@ function UpdateQuestion() {
 
     const [error, setError] = useState(null);
 
-    const colors = ["#BB0E00", "#00751F", "#0053DB"]
+    const navigate= useNavigate();
 
 
     const fetchQuizz = async () => {
@@ -90,15 +90,23 @@ function UpdateQuestion() {
         }
     }
 
+    const handleConfirm = () => {
+        navigate(`/quizz/${quizzId}`)
+    }
+
+
     const handleClick = (direction) => {
         let newStep = currentStep;
         direction === "next" ? newStep++ : newStep--;
 
         //check steps are in bounded or not
         newStep > 0 && newStep <= quizz.length && setCurrentStep(newStep);
-    }
 
-    const shadow =  'shadow-xl';
+        // If it's the last step, navigate to the quiz page
+        if (newStep > quizz.length) {
+            handleConfirm();
+        }
+    }
 
     return (
         <>
