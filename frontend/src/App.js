@@ -22,6 +22,7 @@ import QuizSearch from "./page/Quiz/QuizSearch";
 import Quizz from "./component/Quiz/Quizz";
 import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
+import {FinalResult} from "./page/Quiz/FinalResult";
 
 
 function App() {
@@ -64,6 +65,7 @@ function MainRoutes() {
                                 <Quizz />
                         } />
              <Route path="/create_quizz" element={<CreateQuizz/>} />
+             <Route path="/result/:id" element={<FinalResult/>}/>
                 </Routes>
 
 
