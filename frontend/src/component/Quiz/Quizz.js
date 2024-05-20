@@ -12,41 +12,40 @@ const Quizz = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const {quizz, dispatch} = useQuizzContext();
 
-    // const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const {id} = useParams()
 
-    const fetchQuizz = async () =>{
+        const fetchQuizz = async () => {
+            setLoading(true);
+            try {
 
-        try {
+                const resData = await getQuizzById(id)
+                const quizzData = resData.questions.map(question => ({
+                    ...question,
+                    choose_answer: '',
+                    answers: [].concat(...question.answers.map(answerObj => {
+                        return [answerObj.answer1, answerObj.answer2, answerObj.answer3];
+                    }))
+                }));
 
-            const resData = await getQuizzById(id)
-            const quizzData = resData.questions.map(question => ({
-                ...question,
-                choose_answer: '',
-                answers: [].concat(...question.answers.map(answerObj => {
-                    return [answerObj.answer1, answerObj.answer2, answerObj.answer3];
-                }))
-            }));
-            console.log(quizzData)
+                dispatch({type: 'GET_QUIZZ', payload: quizzData});
+                setError(null);
+                // setLoading(false);
+            } catch (error) {
+                setError(error);
 
-            dispatch({ type: 'GET_QUIZZ', payload: quizzData });
-            setError(null);
-            // setLoading(false);
-        }catch (error){
-            setError(error);
-
+            }
         }
-    }
 
-    useEffect(() => {
-        fetchQuizz()
-    },[id])
-    const displayStep = (step) => {
-    //     the page quizz detail
-        return <QuizzDetail step={step} />;
-    }
+        useEffect(() => {
+            fetchQuizz()
+        }, [id])
+        const displayStep = (step) => {
+            //     the page quizz detail
+            return <QuizzDetail step={step}/>;
+        }
 
     const handleClick = (direction) => {
         let newStep = currentStep;
@@ -57,29 +56,30 @@ const Quizz = () => {
     }
 
 
-
-
-    return (
-        <div>
-            {/*    The header of quizz  */}
+        return (
             <div>
-                <QuizzHeader currentStep={currentStep} numberQuestion={quizz.length}/>
-            </div>
-            <div className="flex flex-col justify-center items-center pd-4">
+                {/*    The header of quizz  */}
+                <div>
+                    <QuizzHeader currentStep={currentStep} numberQuestion={quizz.length}/>
+                </div>
+                <div className="flex flex-col justify-center items-center pd-4">
 
-                {/*    Display component */}
-                <div className="flex">
-                    {displayStep(currentStep - 1)}
-                </div>
-                {/*    Stepper Controller   */}
-                <div className="pt-20">
-                    <StepperControl
-                        handleClick={handleClick}
-                        currentStep={currentStep}
-                        steps={quizz}
-                        isQuiz={true}
-                    />
-                </div>
+                    {/*    Display component */}
+                    <div className="flex">
+                        {displayStep(currentStep - 1)}
+                    </div>
+                    {/*    Stepper Controller   */}
+                    <div className="pt-20">
+                        <StepperControl
+                            handleClick={handleClick}
+                            currentStep={currentStep}
+                            steps={quizz}
+                            isQuiz={true}
+                        />
+                    </div>
+
+
+
 
             </div>
 
