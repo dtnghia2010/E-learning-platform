@@ -45,6 +45,7 @@ export const FinalResult=()=>{
             const answerList =resData.map((answer)=>{
                 return answer.answer;
             })
+            console.log(resData)
             if(answerList.length>0) {
                 setRightAnswer(answerList)
                 handleCalculate(answerList)
