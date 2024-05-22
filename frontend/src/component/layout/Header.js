@@ -2,6 +2,8 @@ import useAuthContext from "../../hook/useAuthContext";
 import CategoryContent from "../common/CategoryContent";
 import {Link} from "react-router-dom";
 import FlyoutLink from "../common/FlyoutLink";
+import Profile from "../../page/Profile";
+import ProfileFlyout from "../common/ProfileFlyout";
 
 
 export default function Header(){
@@ -27,25 +29,31 @@ export default function Header(){
                     <FlyoutLink children="Quizz" href="/quizz"/>
                 </div>
                 <div className="flex justify-end">
-                    {user && <div>
+                    {user ? (
+                        <div className="flex justify-center items-center">
+                        <div>
                         <i className="fa-solid fa-magnifying-glass"></i>
                         <input
                             className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                             placeholder="Search..." type="text" name="search"/>
-                    </div> }
-                    {!user &&<div>
+                    </div>
+
+                         <FlyoutLink children="Profile" FlyoutContent={<ProfileFlyout/>}/>
+
+                        </div>
+
+
+                        ) :
+                    (<div>
                         <Link to={"/register"}>
                             <button className="text-black px-4 py-2 rounded font-medium">Sign Up</button>
                         </Link>
-
-
                         <Link to={"/login"}>
                             <button
                                 className="bg-blue-light text-blue-500 border border-blue-500 px-4 py-2 rounded font-medium">Login
                             </button>
                         </Link>
-
-                    </div> }
+                    </div> )}
                 </div>
             </nav>
         </div>

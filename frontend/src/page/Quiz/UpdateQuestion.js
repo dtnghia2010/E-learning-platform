@@ -121,6 +121,7 @@ function UpdateQuestion() {
                            placeholder="Enter question name" name="question" value={question.question}
                            onChange={handleChange}/>
                 </div>
+
                 <div className="flex justify-center align-center size-1/2 space-x-2.5 w-full h-full mt-20">
 
                     <div className="flex justify-between items-center  mt-5 ml-3 " style={{width: '60vw'}}>

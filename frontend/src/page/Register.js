@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import useAuthContext from "../hook/useAuthContext";
 
 
 export default  function Register(){
@@ -11,6 +12,8 @@ export default  function Register(){
     const [confirmPassword, setConfirmPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
     const navigator= useNavigate();
+
+    const { dispatch } = useAuthContext();
 
     const  handleInputEmail= (e)=>{
         setEmail(e.target.value);
@@ -43,8 +46,10 @@ export default  function Register(){
                 }
                 const response= await axios.post("http://127.0.0.1:8000/register/",user)
                 console.log(response.data)
+                dispatch({type: 'LOGIN', payload: response.data.userId});
                 // submit api hear with axios
                 navigator("/login")
+
 
             } else {
                 alert("Pass word do not match")
