@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
@@ -43,7 +43,6 @@ export default  function Register(){
                 }
                 const response= await axios.post("http://127.0.0.1:8000/register/",user)
                 console.log(response.data)
-                // submit api hear with axios
                 navigator("/login")
 
             } else {
@@ -59,7 +58,7 @@ export default  function Register(){
 
         //remove Header custom
         <div>
-       <div className="flex items-center justify-center  w-full h-screen  bg-gray-100">
+       <div className="flex items-center justify-center  w-full h-screen">
         <div className="bg-gray-tone  rounded-lg  px-4 py-10 max-w-sm mx-auto w-full h-screen ">
             <h1 className="text-5xl font-bold text-center mb-6">Sign up</h1>
             <p className="font-semibold text-center text-black mt-4 mb-10">Create an account to unlock exclusive features</p>

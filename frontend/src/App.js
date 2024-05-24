@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
-  BrowserRouter,
-  Routes,
-  Route,
+    BrowserRouter,
+    Routes,
+    Route, useLocation,
 } from "react-router-dom";
-import Header from "./component/Header";
+
 import Login from "./page/Login";
 import Register from "./page/Register";
 import HomePage from "./page/HomePage";
@@ -24,6 +24,7 @@ import Quizz from "./component/Quiz/Quizz";
 import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
 import {FinalResult} from "./page/Quiz/FinalResult";
+import Chapter from "./page/chapter/Chapter";
 
 
 function App() {
@@ -55,8 +56,9 @@ function MainRoutes() {
             <Route path="/document/:course_id" element={<DocumentList/>} />
             <Route path="/addDocument" element={<CreateDocument/>} />
 
-            <Route exact path="/lecture" element={<Lecture />}/>
+            <Route exact path="/lecture/:id" element={<Lecture />}/>
             <Route exact path="/profile" element={<Profile />}/>
+                    <Route exact path="/chapter/:id" element={<Chapter/>}/>
             <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
             <Route exact path="/update_chapter" element={<UpdateChapter />}/>
                     <Route path="/create_question/:id" element={<CreateQuestion/>}   />

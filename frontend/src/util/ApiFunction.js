@@ -78,10 +78,10 @@ export async function deleteBookmark(courseId){
 
 export  async function  getDocumentDetails(documentId){
     try{
-        console.log(getHeaders())
         const response= await apiFunction.get(`/document/documentdetail_id=${documentId}/`,{
             headers:getHeaders()
         })
+        console.log(response)
         return response.data
 
     }catch (e){
