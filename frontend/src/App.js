@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import {
     BrowserRouter,
@@ -25,6 +24,7 @@ import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
 import {FinalResult} from "./page/Quiz/FinalResult";
 import Chapter from "./page/chapter/Chapter";
+import UpdateQuestion from "./page/Quiz/UpdateQuestion";
 
 
 function App() {

@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import Header from "../component/layout/Header";
 import axios from "axios";
 import{useNavigate} from "react-router-dom";
+import useAuthContext from "../hook/useAuthContext";
 
 const Login = () => {
     const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
     const navigator= useNavigate();
+
+    const {dispatch}= useAuthContext();
 
 
     const handleInputUsername=  (e)=>{
@@ -29,6 +32,7 @@ const Login = () => {
                 console.log(response.data)
                 localStorage.setItem('access_token',response.data.jwt); // set user in local storage
                 localStorage.setItem('userId', response.data.userId);
+                dispatch({type: 'LOGIN', payload: response.data.userId});
                 navigator("/")
             }
     }

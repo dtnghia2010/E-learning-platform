@@ -78,6 +78,7 @@ export async function deleteBookmark(courseId){
 
 export  async function  getDocumentDetails(documentId){
     try{
+        console.log(getHeaders())
         const response= await apiFunction.get(`/document/documentdetail_id=${documentId}/`,{
             headers:getHeaders()
         })
@@ -202,11 +203,9 @@ export async function getQuizzById(quizzId){
 }
 export async function createQuizz(form){
     try{
-        console.log(form)
         const res= await  apiFunction.post("/createQuizz/",form,{
             headers:getHeaders()
         })
-        console.log(res)
         return res.data
 
     }catch (e) {
@@ -223,16 +222,5 @@ export async function createQuestion(quizzId, form){
     }catch (e) {
         console.log(e)
         throw  e
-    }
-}
-export  async  function getAllResult(quizzId) {
-    try{
-        const res= await apiFunction.get(`/quizz/${quizzId}/results/`,{
-            headers: getHeaders()
-        })
-        return res.data
-    }catch (e) {
-        console.log(e)
-        throw e
     }
 }

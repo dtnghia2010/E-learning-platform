@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="fix: Fuck Changing API leak to not reading the fuck response">
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="Feat: UpdateQuestion.js">
+      <change afterPath="$PROJECT_DIR$/src/component/common/ProfileFlyout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Quiz/Quizz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/CategoryContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/CategoryContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Quiz/UpdateQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Quiz/UpdateQuestion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +115,10 @@
       <workItem from="1716101366031" duration="5000" />
       <workItem from="1716109139484" duration="4315000" />
       <workItem from="1716114626978" duration="13000" />
+      <workItem from="1716193338107" duration="833000" />
+      <workItem from="1716208784526" duration="5473000" />
+      <workItem from="1716214318846" duration="212000" />
+      <workItem from="1716292657193" duration="87000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -367,7 +376,31 @@
       <option name="project" value="LOCAL" />
       <updated>1716112855719</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Feat:Update Quizz">
+      <option name="closed" value="true" />
+      <created>1716193578034</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716193578034</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Feat: UpdateQuestion.js">
+      <option name="closed" value="true" />
+      <created>1716210681697</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716210681697</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Feat: UpdateQuestion.js">
+      <option name="closed" value="true" />
+      <created>1716211136321</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1716211136321</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,8 +419,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="?" />
-    <MESSAGE value="[FE]feat: Category dropdown" />
     <MESSAGE value="config" />
     <MESSAGE value="fix: cookies handle" />
     <MESSAGE value="fix: opacity dropdown" />
@@ -411,6 +442,8 @@
     <MESSAGE value="fix: connect Update and profile" />
     <MESSAGE value="feat: view question" />
     <MESSAGE value="fix: Fuck Changing API leak to not reading the fuck response" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Fuck Changing API leak to not reading the fuck response" />
+    <MESSAGE value="Feat:Update Quizz" />
+    <MESSAGE value="Feat: UpdateQuestion.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: UpdateQuestion.js" />
   </component>
 </project>

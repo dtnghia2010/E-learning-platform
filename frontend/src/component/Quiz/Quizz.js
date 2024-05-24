@@ -89,7 +89,6 @@ const Quizz = () => {
 
 
             </div>
-
         </div>
     );
 };
