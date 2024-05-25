@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="Feat: UpdateQuestion.js">
-      <change afterPath="$PROJECT_DIR$/src/component/common/ProfileFlyout.js" afterDir="false" />
+    <list default="true" id="03c559f2-577a-4671-be37-d048be49b124" name="Changes" comment="Feat: Profile">
+      <change afterPath="$PROJECT_DIR$/src/component/common/BackDropCreate.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/common/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/common/CategoryContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/CategoryContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Quiz/UpdateQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Quiz/UpdateQuestion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/ProfileFlyout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/ProfileFlyout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JSX File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -47,25 +47,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Course__Page&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WebStorm/E - Learning Platform/E-learning-platform2/frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Course__Page",
+    "last_opened_file_path": "D:/WebStorm/E - Learning Platform/E-learning-platform2/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WebStorm\E - Learning Platform\E-learning-platform\frontend\src\component\MultipleFormDocument" />
@@ -119,6 +119,7 @@
       <workItem from="1716208784526" duration="5473000" />
       <workItem from="1716214318846" duration="212000" />
       <workItem from="1716292657193" duration="87000" />
+      <workItem from="1716354544970" duration="3880000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add course card">
       <option name="closed" value="true" />
@@ -400,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716211136321</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Feat: Profile">
+      <option name="closed" value="true" />
+      <created>1716354581314</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716354581314</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="config" />
     <MESSAGE value="fix: cookies handle" />
     <MESSAGE value="fix: opacity dropdown" />
     <MESSAGE value="fix: finish touch for function Category dropdown" />
@@ -444,6 +452,7 @@
     <MESSAGE value="fix: Fuck Changing API leak to not reading the fuck response" />
     <MESSAGE value="Feat:Update Quizz" />
     <MESSAGE value="Feat: UpdateQuestion.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: UpdateQuestion.js" />
+    <MESSAGE value="Feat: Profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: Profile" />
   </component>
 </project>

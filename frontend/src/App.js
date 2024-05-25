@@ -23,21 +23,35 @@ import Quizz from "./component/Quiz/Quizz";
 import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
 import UpdateQuestion from "./page/Quiz/UpdateQuestion";
+import Modal from "./component/common/Modal";
+import {AnimatePresence} from "framer-motion";
+import {useState} from "react";
+import ProfileFlyout from "./component/common/ProfileFlyout";
 
 
 function App() {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const toggleModal = (value) => {
+        setModalOpen(value);
+    };
 
   return (
       <div className="bg-gray-tone flex flex-col min-h-screen">
           <BrowserRouter>
-              <MainRoutes/>
+              <MainRoutes toggleModal={toggleModal}/>
           </BrowserRouter>
           <Footer/>
+          <AnimatePresence
+              initial={false}
+          >
+              {modalOpen && <Modal modalOpen={modalOpen} handleClose={toggleModal}/>}
+          </AnimatePresence>
       </div>
   )
 }
 
-function MainRoutes() {
+function MainRoutes({toggleModal}) {
     const location = useLocation();
 
     return (
@@ -65,6 +79,8 @@ function MainRoutes() {
                     <Route path="/quizz/:id" element={<Quizz />} />
                      <Route path="/create_quizz" element={<CreateQuizz/>} />
                     <Route path="/update_quizz/:id" element={<UpdateQuestion/>} />
+                    <Route path="/profileFlyout" element={<ProfileFlyout toggleModal={toggleModal} />}/>
+
 
             </Routes>
 

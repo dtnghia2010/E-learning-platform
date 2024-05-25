@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import useAuthContext from "../../hook/useAuthContext";
 import Paper from "@mui/material/Paper";
 import MenuList from "@mui/material/MenuList";
+import {motion, AnimatePresence} from "framer-motion";
+import Modal from "./Modal";
 
-const ProfileFlyout = () => {
+const ProfileFlyout = ({toggleModal}) => {
     const {dispatch} = useAuthContext();
+    const [ modalOpen, setModalOpen] = useState(false);
+
 
     const handleLogout = () => {
         localStorage.removeItem('user');
@@ -19,7 +23,14 @@ const ProfileFlyout = () => {
         <Paper elevation={3}>
             <MenuList dense>
                 <MenuItem>
-                    Create
+                    <motion.button
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        className="create"
+                        onClick={() => toggleModal(!modalOpen)}
+                    >
+                        Create
+                    </motion.button>
                 </MenuItem>
             <Link to={"/profile"}>
                 <MenuItem>Profile</MenuItem>
