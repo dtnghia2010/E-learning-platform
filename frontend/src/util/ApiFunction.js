@@ -187,3 +187,52 @@ export  async function updateChapter(chapterId, updatedChapter){
         console.log(e)
     }
 }
+
+export async function getQuizzById(quizzId){
+    try {
+        const response = await apiFunction.get(`/quizz/${quizzId}/questions/`, {
+            headers: getHeaders()
+        });
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching quizz');
+    }
+}
+export async function createQuizz(form){
+    try{
+        console.log(form)
+        const res= await  apiFunction.post("/createQuizz/",form,{
+            headers:getHeaders()
+        })
+        console.log(res)
+        return res.data
+
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+export async function createQuestion(quizzId, form){
+    try{
+        const res= await  apiFunction.post(`/quizz/${quizzId}/createQuestion/`,form,{
+            headers:getHeaders()
+        })
+        return res.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+export  async  function getAllResult(quizzId) {
+    try{
+        const res= await apiFunction.get(`/quizz/${quizzId}/results/`,{
+            headers: getHeaders()
+        })
+        return res.data
+    }catch (e) {
+        console.log(e)
+        throw e
+    }
+}

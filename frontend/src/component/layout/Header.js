@@ -24,7 +24,7 @@ export default function Header(){
 
                     <FlyoutLink children="Course" FlyoutContent={<CategoryContent/>}/>
 
-                    <FlyoutLink children="Quizz" href="/quizz"/>
+                    <FlyoutLink children="Quizz" href="/search_quiz"/>
                 </div>
                 <div className="flex justify-end">
                     {user && <div>
