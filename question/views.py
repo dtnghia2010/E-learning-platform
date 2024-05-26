@@ -12,28 +12,23 @@ import jwt
 
 class QuestionListByQuizz(APIView):
     def get(self, request, quizz_id=None):
-        # auth_header = request.META.get('HTTP_AUTHORIZATION')
-        # if not auth_header or not auth_header.startswith('Bearer '):
-        #     print(auth_header)
-        #
-        #     raise AuthenticationFailed('Unauthenticated!')
-        # token = auth_header.split(' ')[1]
-        #
-        # try:
-        #     payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-        # except jwt.ExpiredSignatureError:
-        #     raise AuthenticationFailed('Authentication token expired!')
-        # except jwt.InvalidTokenError:
-        #     raise AuthenticationFailed('Invalid authentication token!')
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
         if quizz_id:
             questions = Question.objects.filter(quizz_id=quizz_id)
             serializer = QuestionSerializer(questions, many=True)
             quizz_name = questions.first().quizz.quizz_name if questions else ''
-            # # Post-processing step to remove "&True" from the end of answer1, answer2, or answer3
-            # for question in serializer.data:
-            #     for answer_key in ['answer1', 'answer2', 'answer3']:
-            #         if question[answer_key].endswith("&True"):
-            #             question[answer_key] = question[answer_key][:-5]
 
         return Response({
             'quizz_name': quizz_name,
