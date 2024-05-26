@@ -7,11 +7,6 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .serializers import QuizzSerializer, QuizzCreateSerializer
-class QuizzByCode(APIView):
-    def get(self, request, quizz_code):
-        auth_header = request.META.get('HTTP_AUTHORIZATION')
-        if not auth_header or not auth_header.startswith('Bearer '):
-            print(auth_header)
 from rest_framework import status
 # Create your views here.
 # class QuizView(APIView):
@@ -30,6 +25,26 @@ from .models import Quizz
 from rest_framework.exceptions import AuthenticationFailed
 from authentication.models import User
 
+class QuizzByCode(APIView):
+    def get(self, request, quizz_code):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            print(auth_header)
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        try:
+            quizz = Quizz.objects.get(code=quizz_code)
+            return Response({'quizz_id': quizz.quizz_id})
+        except Quizz.DoesNotExist:
+            raise Http404
 
 class GetAllQuizzesByUser(APIView):
     def get(self, request, user_id=None):

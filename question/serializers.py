@@ -7,6 +7,12 @@ class AnswerListSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnswerList
         fields = ['answer1', 'answer2', 'answer3']
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        for answer_key in ['answer1', 'answer2', 'answer3']:
+            if representation[answer_key].endswith("&True"):
+                representation[answer_key] = representation[answer_key][:-5]
+        return representation
 
 class QuestionSerializer(serializers.ModelSerializer):
     answers = AnswerListSerializer(source='answerlist_set', many=True, read_only=True)
@@ -14,7 +20,7 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ['question_id', 'question', 'answers', 'quizz_name']
-
+        # fields = ['question_id', 'question', 'answer1', 'answer2', 'answer3', 'quizz_name']
 class ResultsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
