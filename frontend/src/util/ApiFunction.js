@@ -28,7 +28,7 @@ export async function getAllCategory(){
 export async function getCourseByCategory(categoryId){
     try{
         const response = await apiFunction.get('/allcoursesbycategory_id='+categoryId+'/', {
-          headers: getHeaders()
+            headers: getHeaders()
         })
         console.log(response.data);
         return response.data;
@@ -82,7 +82,6 @@ export  async function  getDocumentDetails(documentId){
         const response= await apiFunction.get(`/document/documentdetail_id=${documentId}/`,{
             headers:getHeaders()
         })
-        console.log(response)
         return response.data
 
     }catch (e){
@@ -219,6 +218,42 @@ export async function createQuestion(quizzId, form){
             headers:getHeaders()
         })
         return res.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+
+export async function updateQuestion(quizzId, questionId, form){
+    try{
+        const res= await  apiFunction.put(`/quizz/${quizzId}/updateQuestion/${questionId}/`,form,{
+            headers:getHeaders()
+        })
+        return res.data
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+
+export async function getQuizzByUser(){
+    try {
+        const response = await apiFunction.get('/getAllQuizzesByUser/', {
+            headers: getHeaders()
+        });
+        return response.data;
+    }catch (error){
+        console.error(error);
+        throw new Error('Error fetching user quizz');
+    }
+}
+export async  function getAllResult(quizzId){
+    try{
+        const res= await  apiFunction.get(`/quizz/${quizzId}/results/`,{
+            headers: getHeaders()
+        })
+        return res.data
+
     }catch (e) {
         console.log(e)
         throw  e
