@@ -20,31 +20,37 @@ const ProfileFlyout = ({toggleModal}) => {
 
 
     return (
-        <Paper elevation={3}>
-            <MenuList dense>
-                <MenuItem>
-                    <motion.button
-                        whileHover={{scale: 1.1}}
-                        whileTap={{scale: 0.9}}
-                        className="create"
-                        onClick={() => toggleModal(!modalOpen)}
-                    >
-                        Create
-                    </motion.button>
-                </MenuItem>
-            <Link to={"/profile"}>
-                <MenuItem>Profile</MenuItem>
-            </Link>
+        <>
+            <Paper elevation={3}>
+                <MenuList dense>
+                    <MenuItem>
+                        <motion.button
+                            whileHover={{scale: 1.1}}
+                            whileTap={{scale: 0.9}}
+                            className="create"
+                            onClick={() => setModalOpen(!modalOpen)}
+                        >
+                            Create
+                        </motion.button>
+                    </MenuItem>
+                <Link to={"/profile"}>
+                    <MenuItem>Profile</MenuItem>
+                </Link>
 
-            <Link to={"/"}>
-                <MenuItem>Setting</MenuItem>
-            </Link>
+                <Link to={"/"}>
+                    <MenuItem>Setting</MenuItem>
+                </Link>
 
-            <Link to={"/login"}>
-                <MenuItem onlick={handleLogout}>Logout</MenuItem>
-            </Link>
-            </MenuList>
-        </Paper>
+                <Link to={"/login"}>
+                    <MenuItem onlick={handleLogout}>Logout</MenuItem>
+                </Link>
+                </MenuList>
+            </Paper>
+            <AnimatePresence>
+            {modalOpen && <Modal modalOpen={modalOpen} handleClose={() => setModalOpen(false)} />}
+            </AnimatePresence>
+        </>
+
     );
 };
 

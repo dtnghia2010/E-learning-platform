@@ -1,6 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {motion} from "framer-motion";
 import BackDropCreate from "./BackDropCreate";
+import {Link} from "react-router-dom";
 
 const dropIn = {
     hidden: {
@@ -22,21 +24,36 @@ const dropIn = {
     }
 }
 
-const Modal = ({handleClose, text}) => {
-    return (
+const Modal = ({handleClose}) => {
+    return ReactDOM.createPortal((
         <BackDropCreate onclick={handleClose}>
             <motion.div
                 onClick={(e) => e.stopPropagation()}
-                className="modal bg-blue-200"
+                className="modal bg-blue-200 flex flex-col justify-center items-center"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
             >
-                <button onClick={handleClose}>Close</button>
+                <Link to="/create_quizz">
+                    <motion.button
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                    >Create Quiz</motion.button>
 
+                </Link>
+                <Link to="/addDocument">
+                    <motion.button
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                    >Create Document</motion.button>
+
+
+                </Link>
+                <button onClick={handleClose}>Close</button>
             </motion.div>
-        </BackDropCreate>
+        </BackDropCreate>),
+        document.getElementById('modal-root') // Render into this element
     );
 };
 
