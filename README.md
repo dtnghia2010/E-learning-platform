@@ -1,7 +1,7 @@
 # ELEARNING PLATFORM
 Course: Software Engineering
 
-![elearning_platform.jpg](https://github.com/dtnghia2010/E-learning-platform)
+![elearning_platform.jpg](https://github.com/dtnghia2010/E-learning-platform/blob/main/elearning_platform.jpg)
 
 
 
@@ -99,11 +99,11 @@ The platform is an online tool designed to help educators and students create an
 
 To run this application, you need to have Node.js installed on your system.
 
-1. Visit the official Node.js website: [https://nodejs.org/](https://nodejs.org/downloads/)
-2. Download the recommended version for your operating system.
-3. Follow the installation instructions provided on the website.
+- Visit the official Node.js website: [https://nodejs.org/](https://nodejs.org/downloads/)
+- Download the recommended version for your operating system.
+- Follow the installation instructions provided on the website.
 
-## Verify Installation
+2. Verify Installation
 
 After installation, open a terminal or command prompt and run the following commands to verify that Node.js and npm (Node Package Manager) are installed:
 
@@ -112,11 +112,11 @@ node --version
 npm --version
  ```
 
-2. Install neccessary Dependencies
+3. Install neccessary Dependencies
    ```sh
    npm install
    ```
-3. Run client browser
+4. Run client browser
     ```sh
    npm run start
    ```
@@ -146,7 +146,6 @@ npm --version
 ### :art:Front-end:
   - Language: [JavaScript](https://www.javascript.com/)
   - Framework: [Node.js](https://nodejs.org/)
-  - Web Dev: [HTML](https://www.w3schools.com/html/), [CSS](https://www.w3schools.com/css/), [Bootstrap](https://getbootstrap.com/)
   - Compiler: [WebStorm](https://www.jetbrains.com/webstorm/)
 
     
@@ -158,34 +157,27 @@ npm --version
 
 
 ## 3. Entity Relationship Diagram <a name="ERD"></a>:
- ![ERD](path/to/ERD.png)
+ ![ERD](https://github.com/dtnghia2010/E-learning-platform/blob/main/ERD.png)
 
 # 4. Interface <a name="Interface"></a>:
 
 ### Login Interface:
-<p align="center">
-  <img src="path/to/login.jpg" alt="Login" width="300"/>
-</p>
+
+<img src="https://github.com/dtnghia2010/E-learning-platform/blob/main/create_document.png" alt="Login"/>
 
 ### Create Document Interface:
-<p align="center">
-  <img src="path/to/create_document.png" alt="Create Document" width="300"/>
-</p>
+  <img src="https://github.com/dtnghia2010/E-learning-platform/blob/main/create_document.png" alt="Create Document"/>
 
 ### Create Quiz Interface:
-<p align="center">
-  <img src="path/to/create_quiz.png" alt="Create Quiz" width="300"/>
-</p>
+  <img src="https://github.com/dtnghia2010/E-learning-platform/blob/main/create_quiz.png" alt="Create Quiz" />
+
 
 ### View Course Interface:
-<p align="center">
-  <img src="path/to/view_course.png" alt="View Course" width="300"/>
-</p>
+  <img src="https://github.com/dtnghia2010/E-learning-platform/blob/main/view_course.png" alt="View Course"/>
 
-### View Taking Quiz Interface:
-<p align="center">
-  <img src="path/to/view_taking_quiz.png" alt="Taking Quiz" width="300"/>
-</p>
+
+### Taking Quiz Interface:
+  <img src="https://github.com/dtnghia2010/E-learning-platform/blob/main/view_taking_quiz.png" alt="Taking Quiz"/>
 <br />
 
 
