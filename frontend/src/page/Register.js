@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import useAuthContext from "../hook/useAuthContext";
 
 
 export default  function Register(){
@@ -11,6 +12,8 @@ export default  function Register(){
     const [confirmPassword, setConfirmPassword]= useState("");
     const regex = /[^\s@]+@[^\s@]+\.[^\s@]+/gi
     const navigator= useNavigate();
+
+    const { dispatch } = useAuthContext();
 
     const  handleInputEmail= (e)=>{
         setEmail(e.target.value);

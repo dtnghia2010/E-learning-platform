@@ -36,7 +36,6 @@ const CategoryContent = () => {
     }, []);
 
     return (
-
             <Paper elevation={3}>
                 <MenuList dense>
                     {error && (<MenuItem>

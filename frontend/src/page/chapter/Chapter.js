@@ -1,6 +1,8 @@
 
 import Button from "@mui/material/Button";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getChapter} from "../../util/ApiFunction";
 
 const CustomDivider = () => {
     return (
@@ -14,19 +16,41 @@ const CustomDivider = () => {
     );
 };
 
-const Chapter = ({chapter}) => {
+const Chapter = () => {
+    const [chapter, setChapter]= useState({
+        chapter_id:"",
+        chapter_name:"",
+        content:"",
+        code:"",
+        quizz_id:"",
+        document_id:""
+    })
+    const id= useParams().id;
+
+    const handleGetChapter=async ()=>{
+        try{
+            const data= await getChapter(id);
+            console.log(data)
+            setChapter(data)
+        }catch (e) {
+            console.log(e)
+            throw  e
+        }
+    }
+
+    useEffect(()=>{
+        handleGetChapter()
+    },[])
     return (
         <div>
             <header className="flex-row justify-center items-center">
-                <Button component={Link} to="/chapter_list">Back to content</Button>
                 <div className="text-2xl font-bold">
-                    Lecture {chapter.chapterID}: {chapter.chapterName}
+                    Lecture {chapter.chapter_id}: {chapter.chapter_name}
                 </div>
-                <Button component={Link} to="/chapter_list">Next chapter</Button>
             </header>
             <CustomDivider/>
             <div className="chapter-content">
-                {chapter.Content}
+                {chapter.content}
             </div>
         </div>
 
