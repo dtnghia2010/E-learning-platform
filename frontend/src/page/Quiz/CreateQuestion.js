@@ -22,14 +22,14 @@ function CreateQuestion() {
     }
     const handleSubmit=async ()=>{
         console.log(question)
-        try{
-            const data= await createQuestion(quizzId,question);
-            console.log(data);
-            handleReset()
-        }catch (e) {
-            console.log(e)
-            throw  e
-        }
+        // try{
+        //     const data= await createQuestion(quizzId,question);
+        //     console.log(data);
+        //     handleReset()
+        // }catch (e) {
+        //     console.log(e)
+        //     throw  e
+        // }
     }
     const handleReset=()=>{
         setQuestion({
@@ -42,11 +42,23 @@ function CreateQuestion() {
     const handleChoose=(index)=>{
         const tempQuestion= question
         if(index===1){
-            tempQuestion.answer1=tempQuestion.answer1+"&True";
+            if(tempQuestion.answer1.includes("&True")){
+                tempQuestion.answer1=tempQuestion.answer1.split("&")[0]
+            }else {
+                tempQuestion.answer1=tempQuestion.answer1+"&True";
+            }
         }else if(index===2){
-            tempQuestion.answer2=tempQuestion.answer2+"&True";
+            if(tempQuestion.answer2.includes("&True")){
+                tempQuestion.answer2=tempQuestion.answer2.split("&")[0]
+            }else {
+                tempQuestion.answer2=tempQuestion.answer2+"&True";
+            }
         }else {
-            tempQuestion.answer3=tempQuestion.answer3+"&True";
+            if(tempQuestion.answer3.includes("&True")){
+                tempQuestion.answer3=tempQuestion.answer3.split("&")[0]
+            }else {
+                tempQuestion.answer3=tempQuestion.answer3+"&True";
+            }
         }
         setQuestion(tempQuestion)
 
@@ -67,7 +79,7 @@ function CreateQuestion() {
                     <div className="flex relative ">
                         <FiCheckCircle onClick={()=>{
                             handleChoose(1)
-                        }} className="absolute ml-52 mt-3 text-lg hover:text-white" />
+                        }} className="absolute ml-52 mt-3 text-lg hover:text-white cursor-pointer" />
 
                         <input className={`text-white text-xl sm:text-4xl font-semibold
         w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`}
@@ -80,7 +92,7 @@ function CreateQuestion() {
                     <div className="flex relative ">
                         <FiCheckCircle onClick={()=>{
                             handleChoose(2)
-                        }} className="absolute ml-52 mt-3 text-lg hover:text-white"/>
+                        }} className="absolute ml-52 mt-3 text-lg hover:text-white cursor-pointer"/>
                         <input className={` flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
         w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`}
                                style={{backgroundColor: "#0053DB"}}
@@ -93,7 +105,7 @@ function CreateQuestion() {
                     <div className="flex relative ">
                         <FiCheckCircle onClick={()=>{
                             handleChoose(3)
-                        }} className="absolute ml-52 mt-3 text-lg hover:text-white"/>
+                        }} className="absolute ml-52 mt-3 text-lg hover:text-white cursor-pointer"/>
 
                         <input className={`flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
         w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`}
