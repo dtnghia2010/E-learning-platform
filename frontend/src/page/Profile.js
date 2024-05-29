@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReading} from 'react-icons/fc';
-import {deleteDocument, getDocumentByUser} from "../util/ApiFunction";
+import {deleteDocument, getDocumentByUser, getQuizzByUser} from "../util/ApiFunction";
 import {Alert, CircularProgress, MenuItem} from "@mui/material";
 import useDocumentContext from "../hook/useDocumentContext";
 import { useNavigate } from 'react-router-dom'; // import useHistory
@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom'; // import useHistory
 
 const Profile = () => {
     const {documents, dispatch} = useDocumentContext();
+
+    const [quizzes, setQuizzes] = useState([]);
 
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
@@ -29,7 +31,22 @@ const Profile = () => {
             }
         }
 
+        const fetchQuizz = async () => {
+            setLoading(true);
+            try{
+                const resData = await getQuizzByUser();
+                setQuizzes(resData);
+                setLoading(false);
+                setError(false);
+
+            }catch (e){
+                setError(e);
+                setLoading(false);
+            }
+        }
+
         fetchDocument();
+        fetchQuizz();
     },[])
 
     const handleDelete = async (documentId) => {
@@ -45,6 +62,11 @@ const Profile = () => {
     const handleUpdate = async (documentId) => {
         //switch to update document page
         navigate(`/update_document/${documentId}`);
+    }
+
+    const handleUpdateQuizz = async (quizzId) => {
+        //switch to update document page
+        navigate(`/update_quizz/${quizzId}`);
     }
 
     return (
@@ -88,15 +110,22 @@ const Profile = () => {
                     <div className="space-y-1 mt-2">
                         <h2 className="text-xl font-bold mb-1">Quizzes of taylor123</h2>
                         <h4 className=" mb-1">Name</h4>
-                        {["Chemistry Mock Test", "Mathematics Mock Test"].map((quiz, index) => (
-                            <div key={index} className="flex justify-between items-center">
-                                <a href="" className="text-gray-700">{quiz}</a>
+                        {error && (
+                            <Alert severity="error">{error.message}</Alert>
+                        )}
+                        {loading ? (
+                                <div className="flex justify-center items-center"><CircularProgress /></div>
+                            ):
+                            (quizzes.map((quiz) => (
+                            <div key={quiz.quizz_id} className="flex justify-between items-center">
+                                <a href="" className="text-gray-700">{quiz.quizz_name}</a>
                                 <div className="flex items-center space-x-1">
-                                    <FcEditImage className="cursor-pointer"/>
+                                    <FcEditImage className="cursor-pointer" onClick={() => handleUpdateQuizz(quiz.quizz_id)}/>
                                     <FcFullTrash className="cursor-pointer"/>
                                 </div>
                             </div>
-                        ))}
+                            ))
+                            )}
                     </div>
                 </div>
             </div>
