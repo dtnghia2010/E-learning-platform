@@ -23,35 +23,21 @@ import Quizz from "./component/Quiz/Quizz";
 import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
 import UpdateQuestion from "./page/Quiz/UpdateQuestion";
-import Modal from "./component/common/Modal";
-import {AnimatePresence} from "framer-motion";
-import {useState} from "react";
-import ProfileFlyout from "./component/common/ProfileFlyout";
 
 
 function App() {
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const toggleModal = (value) => {
-        setModalOpen(value);
-    };
 
   return (
       <div className="bg-gray-tone flex flex-col min-h-screen">
           <BrowserRouter>
-              <MainRoutes toggleModal={toggleModal}/>
+              <MainRoutes/>
           </BrowserRouter>
           <Footer/>
-          <AnimatePresence
-              initial={false}
-          >
-              {modalOpen && <Modal modalOpen={modalOpen} handleClose={toggleModal}/>}
-          </AnimatePresence>
       </div>
   )
 }
 
-function MainRoutes({toggleModal}) {
+function MainRoutes() {
     const location = useLocation();
 
     return (
@@ -68,21 +54,20 @@ function MainRoutes({toggleModal}) {
                     <Route path="/document/:course_id" element={<DocumentList/>} />
                     <Route path="/addDocument" element={<CreateDocument/>} />
 
-                    <Route exact path="/lecture" element={<Lecture />}/>
-                    <Route exact path="/profile" element={<Profile />}/>
-                    <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
-                    <Route exact path="/update_chapter" element={<UpdateChapter />}/>
-
-
+            <Route exact path="/lecture/:id" element={<Lecture />}/>
+            <Route exact path="/profile" element={<Profile />}/>
+                    <Route exact path="/chapter/:id" element={<Chapter/>}/>
+            <Route path="/update_document/:documentId" element={<UpdateDocument />}/>
+            <Route exact path="/update_chapter" element={<UpdateChapter />}/>
                     <Route path="/create_question/:id" element={<CreateQuestion/>}   />
-                    <Route path="/search_quiz" element={<QuizSearch/>}/>
-                    <Route path="/quizz/:id" element={<Quizz />} />
-                     <Route path="/create_quizz" element={<CreateQuizz/>} />
-                    <Route path="/update_quizz/:id" element={<UpdateQuestion/>} />
-                    <Route path="/profileFlyout" element={<ProfileFlyout toggleModal={toggleModal} />}/>
+            <Route path="/search_quiz" element={<QuizSearch/>}/>
 
-
-            </Routes>
+                        <Route path="/quizz/:id" element={
+                                <Quizz />
+                        } />
+             <Route path="/create_quizz" element={<CreateQuizz/>} />
+             <Route path="/result/:id" element={<FinalResult/>}/>
+                </Routes>
 
 
             </main>

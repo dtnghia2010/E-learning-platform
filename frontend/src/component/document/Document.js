@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getCourseByCategory, getDocumentsbyCourse} from "../../util/ApiFunction";
 import {Alert, CircularProgress, Pagination} from "@mui/material";
 import CourseCard from "../course/CourseCard";
@@ -18,6 +18,7 @@ const Document = () => {
     const [success, setSuccess] = useState("");
 
     const {course_id} = useParams();
+    const navigator= useNavigate();
 
     useEffect(() => {
         const fetchCourse = async () => {
@@ -52,6 +53,7 @@ const Document = () => {
     }
 
     const totalPages = Math.ceil(documents.length / coursePerPage);
+
 
     const renderDocuments = () => {
         const startIndex = (currentPage - 1) * coursePerPage;

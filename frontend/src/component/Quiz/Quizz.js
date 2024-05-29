@@ -6,9 +6,10 @@ import useQuizzContext from "../../hook/useQuizzContext";
 import QuizzHeader from "./QuizzHeader";
 import QuizzDetail from "./QuizzDetail";
 import {getQuizzById} from "../../util/ApiFunction";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 const Quizz = () => {
+    const navigator= useNavigate();
     const [currentStep, setCurrentStep] = useState(1);
     const {quizz, dispatch} = useQuizzContext();
 
@@ -43,18 +44,26 @@ const Quizz = () => {
             fetchQuizz()
         }, [id])
         const displayStep = (step) => {
+            console.log("step: "+ step)
             //     the page quizz detail
-            return <QuizzDetail step={step}/>;
+
+                return <QuizzDetail step={step}/>;
+
         }
+
+
 
     const handleClick = (direction) => {
         let newStep = currentStep;
         direction === "next" ? newStep++ : newStep--;
-
+        console.log(newStep)
+        console.log(quizz)
+        if( newStep>quizz.length){
+            navigator(`/result/${id}`, { state: { quizResults: quizz } });
+        }
         //check steps are in bounded or not
         newStep > 0 && newStep <= quizz.length && setCurrentStep(newStep);
     }
-
 
         return (
             <div>
@@ -77,8 +86,6 @@ const Quizz = () => {
                             isQuiz={true}
                         />
                     </div>
-
-
 
 
             </div>

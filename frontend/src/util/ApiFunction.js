@@ -28,7 +28,7 @@ export async function getAllCategory(){
 export async function getCourseByCategory(categoryId){
     try{
         const response = await apiFunction.get('/allcoursesbycategory_id='+categoryId+'/', {
-          headers: getHeaders()
+            headers: getHeaders()
         })
         console.log(response.data);
         return response.data;
@@ -245,5 +245,17 @@ export async function getQuizzByUser(){
     }catch (error){
         console.error(error);
         throw new Error('Error fetching user quizz');
+    }
+}
+export async  function getAllResult(quizzId){
+    try{
+        const res= await  apiFunction.get(`/quizz/${quizzId}/results/`,{
+            headers: getHeaders()
+        })
+        return res.data
+
+    }catch (e) {
+        console.log(e)
+        throw  e
     }
 }
