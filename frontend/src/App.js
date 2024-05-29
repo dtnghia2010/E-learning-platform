@@ -23,6 +23,8 @@ import Quizz from "./component/Quiz/Quizz";
 import CreateQuizz from "./page/Quiz/CreateQuizz";
 import CreateQuestion from "./page/Quiz/CreateQuestion";
 import UpdateQuestion from "./page/Quiz/UpdateQuestion";
+import FinalResult from "./page/Quiz/FinalResult";
+import Chapter from "./page/chapter/Chapter";
 
 
 function App() {

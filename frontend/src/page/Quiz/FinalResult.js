@@ -5,7 +5,7 @@ import {getAllResult, getQuizzById} from "../../util/ApiFunction";
 import Button from "@mui/material/Button";
 
 
-export const FinalResult=()=>{
+const FinalResult=()=>{
     const location = useLocation(); // Get the location object
     const navigator= useNavigate()
     const id= useParams().id;
@@ -103,3 +103,5 @@ export const FinalResult=()=>{
         </>
     )
 }
+
+export default FinalResult;
