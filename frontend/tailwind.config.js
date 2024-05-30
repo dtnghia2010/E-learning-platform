@@ -24,6 +24,7 @@ module.exports = {
       'myBlue':'#6DB9D2',
       'myLightYellow':'#F6F3CC',
       'myWhite':'#FFFFFF',
+      'myGray':'#D9D9D9',
       'answerBlue':'#7BA8F2',
       'answerRed':'#ED7C70',
       'answerGreen':'#71C084',
@@ -80,6 +81,11 @@ module.exports = {
         '900': '#2A4365',
       },
     },
+  },
+  extend: {
+    boxShadow:{
+      blue: "0 0 5px theme('colors.blue.200'), 0 0 20px theme('colors.blue.700')",
+    }
   },
   plugins: [],
 }

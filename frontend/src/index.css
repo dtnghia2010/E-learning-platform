@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100..900&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -71,12 +72,48 @@ code {
 }
 
 .modal{
-  width: clamp(50%,700px, 90%);
-  height: min(50%, 300px);
-
+  /* width: 350px;
+  height: 150px; */
   margin: auto;
   padding: 0 2rem;
   border-radius: 12px;
   flex-direction: column;
   align-items: center;
+}
+/* .menuItemCategory{
+  @apply bg-blue-500 !important;
+} */
+.create-quiz-button,
+.create-document-button{
+  font-size: 25px;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 10px 0;
+  @apply bg-myYellow;
+}
+.create-quiz-button{
+  margin-top: 20px;
+}
+.create-document-button{
+  margin-bottom: 20px;
+}
+.document-intro-box{
+  margin-left: 250px;
+  margin-top: 30px;
+  width: 500px;
+  margin-bottom: 30px;
+}
+.document-description-box{
+  margin-right: 200px;
+  padding: 20px;
+  width: 600px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  @apply shadow-lg;
+}
+.document-content-box{
+  margin-left: 250px;
+}
+.document-content-box1{
+  width: 1072px;
 }

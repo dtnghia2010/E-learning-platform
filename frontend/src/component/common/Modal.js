@@ -39,18 +39,23 @@ const Modal = ({handleClose}) => {
                     <motion.button
                         whileHover={{scale: 1.1}}
                         whileTap={{scale: 0.9}}
-                    >Create Quiz</motion.button>
+                        onClick={handleClose}
+                        className='create-quiz-button'
+                    >
+                        Create a Quiz
+                    </motion.button>
 
                 </Link>
                 <Link to="/addDocument">
                     <motion.button
                         whileHover={{scale: 1.1}}
                         whileTap={{scale: 0.9}}
-                    >Create Document</motion.button>
-
-
+                        onClick={handleClose}
+                        className='create-document-button'
+                    >Create a Document</motion.button>
                 </Link>
-                <button onClick={handleClose}>Close</button>
+                {/* <button onClick={handleClose} 
+                className='close-button'>Close</button> */}
             </motion.div>
         </BackDropCreate>),
         document.getElementById('modal-root') // Render into this element

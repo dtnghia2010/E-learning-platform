@@ -9,6 +9,7 @@ import {useParams} from "react-router-dom";
 //css cho t
 const CoursePage = () => {
     const id= useParams().id;
+    const [clicked, setClicked] = useState(false);
     const [chapter, setChapter]=useState({
         author_name: "",
         chapters_info: [],
@@ -28,7 +29,7 @@ const CoursePage = () => {
                     course_id: data.documents.course_id,
                     course_name: data.documents.course_name,
                     description: data.documents.description,
-                    document_name: data.documents.document_name
+                    document_name: data.documents.document_name,
                 })
             }
         }catch (e) {
@@ -41,61 +42,87 @@ const CoursePage = () => {
     }, []);
     return (
         <div>
-        <div className="bg-blue-light p-2 flex justify-center">
+        {/* <div className="bg-blue-light p-2 flex justify-center">
             <div className="container mx-auto flex justify-center items-center font-semibold text-lg">
                 <div className="text-sm text-gray-600 text-center flex ">
                     Free Courses, Get it now! →
                 </div>
 
             </div>
-        </div>
+        </div> */}
         <div className=" mx-auto w-screen h-screen">
-        <div className="flex w-screen bg-blue-light justify-between ">
-                <div className=" ml-4 w-1/2 bg-blue-100 space-y-2 p-8 rounded-md">
-                    <h1 className="text-4xl font-bold text-blue-900">{chapter.document_name}</h1>
-                    <p className="text-blue-800">Created by {chapter.author_name}</p>
-                    <button className="bg-yellow-light   hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded inline-flex items-center">
-                        <FcBookmark className="mr-2"/> Bookmark
+        <div className="flex w-screen bg-myBlue justify-between relative ">
+                <div className=" document-intro-box ">
+                    <h3 className="text-2xl font-bold text-blue-900 mb-2" >Course > {chapter.course_name}</h3>
+                    <h1 className="text-4xl font-bold text-blue-900 mb-2">{chapter.document_name}</h1>
+                    <p className="text-xl text-blue-900 mb-2 mt-3">Created by {chapter.author_name}</p>
+                    <button onClick={() => setClicked(!clicked)} className="mt-3 text-xl bg-myYellow hover:bg-myLightYellow text-black text-blue-900 py-2 px-4 rounded-2xl inline-flex items-center">
+                        <span className="mr-4 ">Bookmark</span>
+                        <span>
+                            {clicked ? (
+                                <i class="fa-solid fa-bookmark"></i>
+                            ) : (
+                                <i className="fa-regular fa-bookmark"></i>
+                            )
+                            }
+                        </span>
                     </button>
                 </div>
-            <div className="w-1/3 h-100 bg-white p-8 mt-5 mr-6 flex rounded-md items-start">
+            <div className=" h-100 bg-myGray document-description-box flex items-start absolute -bottom-20 right-5">
                 <div>
                     <h2 className="text-3xl font-bold text-gray-800">What you'll learn</h2>
                     <ul className="mt-4 space-y-2">
                         <li className="flex items-center text-gray-600">
-                            <FcOk className="mr-2"/> {chapter.description}
+                            
+                            <p>
+                            {chapter.description.split('\n').map((line, index) => (
+                                <React.Fragment key={index}>
+                                <span>
+                                    <i class="fa-solid fa-check"> </i>
+                                </span>
+                                <span>{line}</span>
+                                <br />
+                                </React.Fragment>
+                            ))}
+                            </p>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
             <div className="bg-gray-tone mt-5">
-                <section className="flex flex-col justify-center items-center w-screen rounded-md ">
-                    <div className="w-1/2 bg-blue-100 p-8 rounded-md">
-                        <h1 className="text-4xl font-bold text-blue-900">Course Content</h1>
+                <section className="flex flex-col w-screen rounded-md document-content-box ">
+                    <div className="mt-20 mb-5 ">
+                        <h1 className="text-4xl font-bold text-blue-900  ">Document Content</h1>
                     </div>
-                    <div className="w-1/2 p-8">
-                        <div className="list-none space-y-4">
-                            <li>
-                                <div className=" flex items-center bg-yellow-light border border-blue-900 rounded p-4">
-                                    <FaAngleDown className="mr-2" /> <h2 className="text-3xl font-bold text-blue-900">Chapter</h2>
-                                </div>
-                                {chapter.chapters_info.length > 0 && (
-                                    <div className="border border-blue-900 rounded p-4">
+                    <div >
+                        <div className="list-none ">
+                            {chapter.chapters_info.length > 0 && (
+                                <li>
                                         {chapter.chapters_info.map((chapter, index) => (
-                                            <div key={index} className="mb-2">
-                                                <div className="flex items-center">
-                                                    <IoBookOutline className="mr-2 text-2xl" />
-                                                    <a href={`/chapter/${chapter.chapter_id}`} className="text-blue-800 text-2xl">
+                                            <div key={index} className='document-content-box1' >
+                                                <div className=" flex items-center bg-yellow-light border border-blue-900 p-4">
+                                                    <FaAngleDown className="mr-2" /> <h2 className="text-3xl font-bold text-blue-900">Lecture {index+1} </h2>
+                                                </div>
+                                                <div className="border border-blue-900 py-4 px-10 ">
+                                                    <div className='flex items-center'>
+                                                    <i class="fa-solid fa-book-open text-2xl mr-4"></i>
+                                                    <a href={`/chapter/${chapter.chapter_id}`} className="text-2xl ">
                                                         {chapter.chapter_name}
                                                     </a>
+                                                    </div>
+                                                    <div className='flex items-center mt-5'>
+                                                    <i class="fa-solid fa-pencil text-2xl mr-4"></i>
+                                                    <a href={`/quizz/${chapter.quizz_id}`} className="text-2xl">
+                                                        Test
+                                                    </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))}
-                                    </div>
-                                )}
-
-                            </li>
+                                    {/* </div> */}
+                                 </li>
+                            )}
                         </div>
                     </div>
                 </section>
