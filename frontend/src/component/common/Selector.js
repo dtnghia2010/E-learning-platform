@@ -79,7 +79,7 @@ const Selector = ({handleObjectInputChange, newObject = "", data, input, loading
                             )}
                             {loading ? (
                                 <MenuItem>
-                                    <CircularProgress />
+                                    <div className="flex justify-center items-center"><CircularProgress /></div>
                                 </MenuItem>
                             ) : (
                                 data && data.length > 0 && objectName.map((type,index) => (

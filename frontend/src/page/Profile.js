@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReading} from 'react-icons/fc';
+import { FiEdit } from "react-icons/fi";
+import { FaTrash } from "react-icons/fa";
 import {deleteDocument, getDocumentByUser, getQuizzByUser} from "../util/ApiFunction";
 import {Alert, CircularProgress, MenuItem} from "@mui/material";
 import useDocumentContext from "../hook/useDocumentContext";
@@ -72,11 +74,11 @@ const Profile = () => {
     return (
         <div>
             <div className=" flex justify-around w-screen bg-blue-light  items-center p-8">
-                <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex items-center space-x-4 bg-myBeige p-4 rounded-lg shadow-lg border-2 border-secondary-400">
                     <FcBusinessman className="text-4xl"/>
                     <span className="text-xl font-bold">taylor123</span>
                 </div>
-                <div className="flex flex-col items-center ml-8 p-4 rounded-lg bg-white shadow-lg">
+                <div className="flex flex-col items-center ml-8 p-4 rounded-lg bg-myBeige shadow-lg border-2 border-secondary-400">
                     <div className="flex items-center mb-2">
                         <FcDocument className="text-2xl"/>
                         <span className="ml-2 text-xl font-bold">Your Documents</span>
@@ -86,11 +88,14 @@ const Profile = () => {
                 </div>
             </div>
 
-            <div className="  flex-col items-center justify-center w-screen bg-white p-6">
+            <div className="  flex-col items-center justify-center w-screen bg-myBeige p-6">
                 <div className="mb-4 flex-col-reverse justify-center items-center ">
                     <div className="space-y-1">
-                        <h2 className="text-xl font-bold mb-1">Lectures of taylor123</h2>
-                        <h4 className="  mb-1">Name</h4>
+                        <h2 className="text-xl font-bold mb-1">Documents of taylor123</h2>
+                        <div className="flex justify-between">
+                            <h4 className="mb-1 text-left">Name</h4>
+                            <h4 className="mb-1 text-right">Edits</h4>
+                        </div>
                         {error && (
                             <Alert severity="error">{error.message}</Alert>
                         )}
@@ -100,8 +105,8 @@ const Profile = () => {
                         <div key={document.document_id} className="flex justify-between items-center">
                             <a href="" className="text-gray-700">{document.document_name}</a>
                             <div className="flex items-center space-x-1">
-                                <FcEditImage onClick={() =>handleUpdate(document.document_id)} className="cursor-pointer"/>
-                                <FcFullTrash onClick={() => handleDelete(document.document_id)} className="cursor-pointer"/>
+                                <FiEdit onClick={() =>handleUpdate(document.document_id)} className="cursor-pointer"/>
+                                <FaTrash onClick={() => handleDelete(document.document_id)} className="cursor-pointer"/>
                             </div>
                         </div>
                         ))
@@ -109,19 +114,22 @@ const Profile = () => {
                     </div>
                     <div className="space-y-1 mt-2">
                         <h2 className="text-xl font-bold mb-1">Quizzes of taylor123</h2>
-                        <h4 className=" mb-1">Name</h4>
+                        <div className="flex justify-between">
+                            <h4 className="mb-1 text-left">Name</h4>
+                            <h4 className="mb-1 text-right">Edits</h4>
+                        </div>
                         {error && (
                             <Alert severity="error">{error.message}</Alert>
                         )}
                         {loading ? (
-                                <div className="flex justify-center items-center"><CircularProgress /></div>
+                                <div className="flex justify-center items-center"></div>
                             ):
                             (quizzes.map((quiz) => (
                             <div key={quiz.quizz_id} className="flex justify-between items-center">
                                 <a href="" className="text-gray-700">{quiz.quizz_name}</a>
                                 <div className="flex items-center space-x-1">
-                                    <FcEditImage className="cursor-pointer" onClick={() => handleUpdateQuizz(quiz.quizz_id)}/>
-                                    <FcFullTrash className="cursor-pointer"/>
+                                    <FiEdit className="cursor-pointer" onClick={() => handleUpdateQuizz(quiz.quizz_id)}/>
+                                    <FaTrash className="cursor-pointer"/>
                                 </div>
                             </div>
                             ))
