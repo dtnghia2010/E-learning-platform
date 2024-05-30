@@ -6,7 +6,7 @@ import { LuFileEdit } from "react-icons/lu";
 import { FaAngleDown } from "react-icons/fa";
 import {getDocumentDetails} from "../../util/ApiFunction";
 import {useParams} from "react-router-dom";
-
+//css cho t
 const CoursePage = () => {
     const id= useParams().id;
     const [chapter, setChapter]=useState({

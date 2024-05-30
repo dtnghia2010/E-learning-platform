@@ -1,7 +1,7 @@
 import {useContext, useEffect, useRef, useState} from "react";
 import { motion } from "framer-motion";
 import {StepperContext} from "../../context/StepperContext";
-
+//cac buoc trong create document
 const Stepper = ({steps, currentStep}) => {
     const [newStep, setNewStep] = useState([]);
     const stepRef = useRef()
@@ -64,7 +64,7 @@ const Stepper = ({steps, currentStep}) => {
 
 
 
-    const displaySteps = newStep.map((step, index) => {
+    const displaySteps = newStep.map((step, index) => { //step trong create document, chỉnh lại
         return( (
 
         <div key={index} className={index !== newStep.length ? "mx-8 flex justify-center items-center" : ""}>

@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import {StepperContext} from "../../context/StepperContext";
-
+//back button với confirm button và next button, cần css
 const StepperControl = ({handleClick, currentStep, steps, isQuiz}) => {
     return (
         <div className="container flex justify-around mt-4 mb-8">

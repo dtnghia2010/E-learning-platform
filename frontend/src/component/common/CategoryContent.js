@@ -12,7 +12,7 @@ import {useEffect, useRef, useState} from "react";
 import {getAllCategory} from "../../util/ApiFunction";
 import {Link} from "react-router-dom";
 import {Alert, CircularProgress} from "@mui/material";
-
+//co xai
 const CategoryContent = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -48,7 +48,7 @@ const CategoryContent = () => {
                     ): (
                         categories.map((category) => (
                             <Link key={category.category_id} to={`/course/${category.category_id}`} >
-                                <MenuItem key={category.category_id} value={category.category_name}>{category.category_name}</MenuItem>
+                                <MenuItem key={category.category_id} value={category.category_name} className='menuItemCategory' >{category.category_name} </MenuItem>
                             </Link>
                         ))
                     )}

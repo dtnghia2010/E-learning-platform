@@ -18,6 +18,15 @@ module.exports = {
       "blue-light":'#6DB9D2',
       "gray-tone":'#e5e7eb',
       "yellow-light":'#FFFF8F',
+      //Xài cái dưới này nha bà
+      'myBeige':'#F3F2EC', //mau background
+      'myYellow':'#F9F59A',
+      'myBlue':'#6DB9D2',
+      'myLightYellow':'#F6F3CC',
+      'myWhite':'#FFFFFF',
+      'answerBlue':'#7BA8F2',
+      'answerRed':'#ED7C70',
+      'answerGreen':'#71C084',
       secondary: {
         100: '#E2E2D5',
         200: '#888883',

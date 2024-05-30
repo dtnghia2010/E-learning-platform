@@ -1,3 +1,4 @@
+//ko xai
 const Hero = () => {
     return (
         <div className='text-black'>

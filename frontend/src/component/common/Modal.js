@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {motion} from "framer-motion";
 import BackDropCreate from "./BackDropCreate";
 import {Link} from "react-router-dom";
-
+//co xai
 const dropIn = {
     hidden: {
         y: '-100vh',
@@ -29,7 +29,7 @@ const Modal = ({handleClose}) => {
         <BackDropCreate onclick={handleClose}>
             <motion.div
                 onClick={(e) => e.stopPropagation()}
-                className="modal bg-blue-200 flex flex-col justify-center items-center"
+                className="modal bg-myBeige flex flex-col justify-center items-center"//css cho khung show create quiz and document
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import Select from "@mui/material/Select";
 import {StepperContext} from "../../context/StepperContext";
-
+//chỉnh css cho add new của category và document
 const Selector = ({handleObjectInputChange, newObject = "", data, input, loading, error, handleSubmit}) => {
     // the new object will be the newobject.categoryname/documentname
     const   {newDocument, setNewDocument} = useContext(StepperContext);

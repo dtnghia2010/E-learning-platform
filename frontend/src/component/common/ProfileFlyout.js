@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import MenuList from "@mui/material/MenuList";
 import {motion, AnimatePresence} from "framer-motion";
 import Modal from "./Modal";
-
+//Sửa menu bar của profile
 const ProfileFlyout = ({toggleModal}) => {
     const {dispatch} = useAuthContext();
     const [ modalOpen, setModalOpen] = useState(false);
