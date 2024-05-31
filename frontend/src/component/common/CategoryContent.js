@@ -36,7 +36,7 @@ const CategoryContent = () => {
     }, []);
 
     return (
-            <Paper elevation={3}>
+            <Paper elevation={3} className='category-menu-bar'>
                 <MenuList dense>
                     {error && (<MenuItem>
                         <Alert severity={"error"}>{error}</Alert>

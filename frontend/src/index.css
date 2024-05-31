@@ -14,7 +14,6 @@ body {
 }
 *{
   font-family: 'Be Vietnam Pro', sans-serif;
-
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -30,7 +29,7 @@ code {
 }
 
 .card{
-  @apply h-32 sm:h-40 w-40 sm:w-52 bg-[length:170px_170px] bg-[#6DB9D2]/45 rounded-lg shadow-md flex flex-col p-4 hover:shadow-xl hover:-mt-0.5 relative
+  @apply h-32 sm:h-40 w-40 sm:w-52 bg-[length:170px_170px] bg-[#6DB9D2]/45 rounded-3xl shadow-md flex flex-col p-4 hover:shadow-xl hover:-mt-0.5 relative
 }
 
 .badge{
@@ -130,6 +129,12 @@ code {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important; 
   /* @apply shadow-outline w-40 !important; */
 }
+.category-menu-bar{
+  background: #F3F2EC !important;
+}
+.profile-flyout{
+  top: 96px !important;
+}
 .profile-menu{
   font-size: 20px !important;
   padding: 10px!important;
@@ -214,7 +219,10 @@ code {
 }
 .back-to-content,
 .next-lecture{
-  top: 136px;
+  top: 160px;
   width: 174px;
   box-shadow: 0 2px 5px #726f6f;
+}
+.avatar{
+
 }
