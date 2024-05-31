@@ -78,7 +78,7 @@ const CoursePage = () => {
                             {chapter.description.split('\n').map((line, index) => (
                                 <React.Fragment key={index}>
                                 <span>
-                                    <i class="fa-solid fa-check"> </i>
+                                    <i class="fa-solid fa-check mr-2"> </i>
                                 </span>
                                 <span>{line}</span>
                                 <br />

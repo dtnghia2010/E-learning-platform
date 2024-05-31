@@ -34,7 +34,7 @@ code {
 }
 
 .badge{
-  @apply absolute bottom-4 ml-1 p-1 mr-7 bg-auto uppercase rounded-full
+  @apply absolute bottom-4 p-1 mr-7 bg-auto rounded-full bg-myBlue px-3
 }
 
 .card-title{
@@ -125,6 +125,8 @@ code {
 .profile-menu-bar{
   background: #F3F2EC !important;
   width: 190px !important;
+  /* margin-top: 40px !important; */
+  /* @apply absolute top-10 right-2 !important; */
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important; 
   /* @apply shadow-outline w-40 !important; */
 }
@@ -158,7 +160,10 @@ code {
   right: 130px;
 }
 .next-finish-button{
-  margin-left: 1064px;
+  margin-left: 700px;
+}
+.next-finish-button1{
+  margin-left: 1070px;
 }
 .save-button{
   top: 15px;
