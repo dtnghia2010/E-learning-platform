@@ -12,7 +12,7 @@ class ChapterSerializer(serializers.ModelSerializer):
 class ChapterNameAndIDSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chapter
-        fields = ['chapter_id','chapter_name']
+        fields = ['chapter_id','chapter_name', 'quizz_id']
 
 
 class ChapterCreateSerializer(serializers.ModelSerializer):
