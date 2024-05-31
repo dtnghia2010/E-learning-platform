@@ -28,6 +28,7 @@ module.exports = {
       'answerBlue':'#7BA8F2',
       'answerRed':'#ED7C70',
       'answerGreen':'#71C084',
+      'myBlack':'#000000',
       secondary: {
         100: '#E2E2D5',
         200: '#888883',

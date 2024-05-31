@@ -66,7 +66,7 @@ const AddDocument = ({documentId}) => {
                                 name="document_name"
                                 defaultValue={document.document_name}
                                 onChange={handleChange}
-                                className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[30px] mx-3"
+                                className="border border-slate-500 bg-[#ffffff] rounded w-[200px] lg:w-[700px]  h-[30px] mx-3 p-3"
                             />
                         </TableCell>
                     </TableRow>
@@ -77,12 +77,12 @@ const AddDocument = ({documentId}) => {
                             <label className="mr-2 font-semibold" htmlFor="description">Description</label>
                         </TableCell>
                         <TableCell align="left" sx={{paddingY: '8px',}}>
-                            <input
+                            <textarea
                                 type="text"
                                 name="description"
                                 defaultValue={document.description}
                                 onChange={handleChange}
-                                className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[100px] lg:h-[300px] mx-3"
+                                className="border border-slate-500 bg-[#ffffff] rounded w-[200px] lg:w-[700px]  h-[100px] lg:h-[300px] mx-3 p-3"
                             />
                         </TableCell>
                     </TableRow>

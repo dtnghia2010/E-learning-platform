@@ -69,7 +69,7 @@ const Selector = ({handleObjectInputChange, newObject = "", data, input, loading
                                 }
                             }}
 
-                            sx={{width: { sm: '200px', md: '400px' }, height: 30, backgroundColor: "#EBF8FF",  }}
+                            sx={{width: { sm: '200px', md: '700px' }, height: 30, backgroundColor: "#ffffff",  }}
                         >
                             <MenuItem value="" disabled>Select {input}...</MenuItem>
                             {error && (

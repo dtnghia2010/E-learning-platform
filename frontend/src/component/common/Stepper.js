@@ -72,8 +72,8 @@ const Stepper = ({steps, currentStep}) => {
                 <div className="flex justify-center items-center text-teal-600">
                     <div
                         className={`rounded-full text-xl font-bold transition duration-500 ease-in-out 
-                    border-2 border-gray-300 h-10 w-10 flex justify-center items-center py-2 ${step.selected ?
-                            "text-slate-900 font-bold border border-green-600 bg-blue-light" : "text-gray-300 bg-blue-200"}`}>
+                    border-2 border-myBlue h-10 w-10 flex justify-center items-center py-2 ${step.selected ?
+                            "text-slate-900 font-bold border border-green-600 bg-myBlue" : "text-gray-300 bg-blue-200"}`}>
                         {/*    Display number   */}
 
                         {step.completed ? (

@@ -43,7 +43,11 @@ const UpdateDocument = () => {
     return (
 
             <div className="flex-col mx-8 justify-center pb-4">
-                <h1>Share your documents to every one</h1>
+                 <h1 className="flex justify-center items-center font-bold text-2xl  w-full share-document ">
+                    Share your&nbsp;
+                    <span className="text-myBlue">documents</span>
+                    &nbsp;to everyone
+                </h1>
                 <div className="container mt-5">
                     <Stepper
                         steps = {steps}
@@ -57,12 +61,12 @@ const UpdateDocument = () => {
 
 
                 </div>
-
+                {currentStep !== 2 &&
                 <StepperControl
                     handleClick = {handleClick}
                     currentStep = {currentStep}
                     steps = {steps}
-                />
+                />}
             </div>
     );
 };

@@ -12,7 +12,10 @@ body {
 
 
 }
+*{
+  font-family: 'Be Vietnam Pro', sans-serif;
 
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -79,6 +82,8 @@ code {
   border-radius: 12px;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 25px 50px -12px rgba(255, 252, 252, 0.25); 
+
 }
 /* .menuItemCategory{
   @apply bg-blue-500 !important;
@@ -116,4 +121,89 @@ code {
 }
 .document-content-box1{
   width: 1072px;
+}
+.profile-menu-bar{
+  background: #F3F2EC !important;
+  width: 190px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important; 
+  /* @apply shadow-outline w-40 !important; */
+}
+.profile-menu{
+  font-size: 20px !important;
+  padding: 10px!important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.create-menu{
+  background: #6DB9D2 !important;
+  margin: 15px 20px 10px 20px !important;
+  border-radius: 10px !important;
+}
+.share-document{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  /* position: absolute;
+  top: -115px; */
+}
+.button{
+  @apply py-2 px-6 rounded-3xl cursor-pointer;
+  box-shadow:  0 2px 5px #726f6f;
+}
+
+.modified-button-create-document{
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 130px;
+}
+.next-finish-button{
+  margin-left: 1064px;
+}
+.save-button{
+  top: 15px;
+  right:230px;
+  z-index: 52;
+  font-size: 16px;
+}
+.add-chapter{
+  margin: 0;
+  font-family: "Be Vietnam Pro", sans-serif;
+  outline: none;
+  border: none;
+  height: 700px;
+}
+.chapter-name{
+  margin-top: 80px;
+  padding: 20px;
+  font-size: 30px;
+}
+.chapter-name:focus {
+  outline: none;
+}
+.chapter-code{
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+  padding-right: 130px;
+}
+.chapter-code:focus {
+  outline: none;
+}
+.chapter-text{
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding-left: 150px;
+  padding-right: 120px;
+  vertical-align: text-top;
+  height: 500px;
+}
+.chapter-text:focus {
+  outline: none;
+}
+.done-document{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

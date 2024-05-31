@@ -114,15 +114,15 @@ const AddDocument = () => {
 
     return (
         <div className="border border-gray-800 rounded-md flex flex-col mx-40 m-5">
-            <img src="/images/Tài%20liệu.png" alt="hình" className="w-8 h-8"/>
+            <img src="/images/Tài%20liệu.png" alt="hình" className="w-10 h-10"/>
 
             <Divider style={{backgroundColor: '#171717',margin:'5px'}}/>
 
-            <Table className="sm:w-fit md:w-1/2 m-2 flex-1" sx={{ border: 'none' }}>
+            <Table className="sm:w-fit md:w-1/2 m-2 flex-1 ml-5 " sx={{ border: 'none' }}>
                 <TableBody>
                     <TableRow>
                         <TableCell component="th" scope="row" sx={{ padding: '2px', width: '50px' }}>
-                            <label className="mr-2 font-semibold" htmlFor="category_name">Category</label>
+                            <label className="mr-2 text-lg" htmlFor="category_name">Category</label>
                         </TableCell>
                         <TableCell align="left" sx={{ paddingY: '8px', }}>
                             <Selector
@@ -138,8 +138,8 @@ const AddDocument = () => {
                     <TableRow>
                         <TableCell component="th" scope="row" sx={{ padding: '2px'}}>
                             <div className="flex">
-                                <img src="/images/folderImg.png" alt="folder" className="w-4 h-4 mt-3"/>
-                                <label className=" m-3 font-semibold" htmlFor="course_name">Course</label>
+                                <i class="fa-solid fa-folder text-lg mt-3"></i>
+                                <label className=" m-3 text-lg" htmlFor="course_name">Course</label>
                             </div>
 
                         </TableCell>
@@ -152,13 +152,14 @@ const AddDocument = () => {
                                 loading={loadingCourse}
                                 error={errorCourse}
                                 handleSubmit={handleAddCourse}
+                                className="fixed-create-document"
                             />
                         </TableCell>
                     </TableRow>
 
                     <TableRow>
                         <TableCell component="th" scope="row" sx={{ padding: '2px', width: '50px'}}>
-                            <label className="mr-2 font-semibold" htmlFor="document_name">Title</label>
+                            <label className="mr-2 text-lg" htmlFor="document_name">Title</label>
                         </TableCell>
                         <TableCell align="left" sx={{ paddingY: '8px', }}>
                             <input
@@ -166,22 +167,23 @@ const AddDocument = () => {
                                 name="document_name"
                                 value={newDocument.document_name}
                                 onChange={handleChange}
-                                className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[30px] mx-3"
+                                className="border border-slate-500 bg-[#ffffff] rounded w-[200px] lg:w-[700px]  h-[30px] mx-3 px-3 py-2"
                             />
                         </TableCell>
                     </TableRow>
 
                     <TableRow>
                         <TableCell component="th" scope="row" sx={{ paddingX: '2px', paddingY: "8px", display: 'flex', alignItems: 'flex-start'}}>
-                            <label className="mr-2 font-semibold" htmlFor="description">Description</label>
+                            <label className="mr-2 text-lg" htmlFor="description">Description</label>
                         </TableCell>
                         <TableCell align="left" sx={{ paddingY: '8px', }}>
-                            <input
+                            <textarea
                                 type="text"
                                 name="description"
                                 value={newDocument.description}
                                 onChange={handleChange}
-                                className="border border-slate-500 bg-[#EBF8FF] rounded w-[200px] lg:w-[400px]  h-[100px] lg:h-[300px] mx-3"
+                                placeholder="Please give as much information as possible"
+                                className="border text-base border-slate-500 bg-[#ffffff] rounded w-[200px] lg:w-[700px]  h-[100px] lg:h-[300px] mx-3 px-3 py-2"
                             />
                         </TableCell>
                     </TableRow>

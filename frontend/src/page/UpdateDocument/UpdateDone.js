@@ -16,8 +16,8 @@ export   const UpdateDone = () => {
                     </p>
                     <div className="flex justify-center mt-8">
                         <button
-                            onClick={()=>{navigator("/homepage")}}
-                            className="ml-4 px-4 py-2 rounded-md border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300">
+                            onClick={()=>{navigator("/")}}
+                            className="ml-4 px-4 py-2 bg-myBlue rounded-md border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 button">
                             Go back to Homepage
                         </button>
                     </div>

@@ -1,14 +1,17 @@
 import useAuthContext from "../../hook/useAuthContext";
 import CategoryContent from "../common/CategoryContent";
+import { useLocation } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import FlyoutLink from "../common/FlyoutLink";
 import Profile from "../../page/Profile";
 import ProfileFlyout from "../common/ProfileFlyout";
+import React from 'react';
 
 
 export default function Header(){
     const {user} = useAuthContext();
-
+    const location = useLocation();
+    
     return (
 
         <div>
@@ -20,7 +23,8 @@ export default function Header(){
 
                 </div>
             </div>
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+            <nav className={`${location.pathname === '/addDocument' ? 'bg-myLightYellow' : ''}`} aria-label="Global">
+                <div className="mx-auto max-w-7xl flex  items-center justify-between p-4 lg:px-8">
                 <div className="flex justify-between items-center p-4 ">
                     <FlyoutLink children="Home" href="/"/>
 
@@ -32,10 +36,15 @@ export default function Header(){
                     {user ? (
                         <div className="flex justify-center items-center">
                         <div>
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                        <input
-                            className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                            placeholder="Search..." type="text" name="search"/>
+                        <div className="relative">
+                            <input 
+                                className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm ml-2"
+                                placeholder="Search..." 
+                                type="text" 
+                                name="search"
+                            />
+                            <i className="fa-solid fa-magnifying-glass absolute left-2 top-1/2 transform -translate-y-1/2 ml-3 text-slate-400"></i>
+                        </div>
                     </div>
 
                          <FlyoutLink children="Profile" FlyoutContent={<ProfileFlyout/>}/>
@@ -54,6 +63,7 @@ export default function Header(){
                             </button>
                         </Link>
                     </div> )}
+                </div>
                 </div>
             </nav>
         </div>

@@ -93,8 +93,12 @@ const CreateDocument = () => {
             newDocument,
             setNewDocument
         }}>
-        <div className="flex-col mx-8 justify-center pb-4">
-            <h1>Share your documents to every one</h1>
+        <div className="relative flex-col  justify-center pb-4 relative">
+            <h1 className="flex justify-center items-center font-bold text-2xl bg-myLightYellow w-full share-document z-0">
+            Share your&nbsp;
+            <span className="text-myBlue">documents</span>
+            &nbsp;to everyone
+                </h1>
             <div className="container mt-5">
                 <Stepper
                     steps = {steps}
@@ -108,15 +112,19 @@ const CreateDocument = () => {
 
 
             </div>
-
-            <StepperControl
-                handleClick = {handleClick}
-                currentStep = {currentStep}
-                steps = {steps}
-            />
+            <div className={currentStep === 2 ? 'modified-button-create-document' : ''}>
+            
+            {currentStep !== 3 && 
+                <StepperControl
+                    handleClick = {handleClick}
+                    currentStep = {currentStep}
+                    steps = {steps}
+                />
+            }
+            
+            </div>
         </div>
         </StepperContext.Provider>
     );
 };
-
 export default CreateDocument;
