@@ -207,3 +207,9 @@ code {
   justify-content: center;
   align-items: center;
 }
+.back-to-content,
+.next-lecture{
+  top: 136px;
+  width: 174px;
+  box-shadow: 0 2px 5px #726f6f;
+}
