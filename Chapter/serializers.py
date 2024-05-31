@@ -3,7 +3,6 @@ from .models import Chapter
 from Document.models import Document
 from quizz.models import Quizz
 class ChapterSerializer(serializers.ModelSerializer):
-    document_id = serializers.CharField()
     class Meta:
         model = Chapter
         fields = ['chapter_id', 'chapter_name', 'content', 'code', 'quizz_id', 'document_id']
