@@ -13,7 +13,8 @@ const ProfileFlyout = ({toggleModal}) => {
 
 
     const handleLogout = () => {
-        localStorage.removeItem('user');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('access_token');
         window.location.reload();
         dispatch({type: 'LOGOUT'});
     }
@@ -53,7 +54,7 @@ const ProfileFlyout = ({toggleModal}) => {
                 </Link>
 
                 <Link to={"/login"}>
-                    <MenuItem className='profile-menu' onlick={handleLogout}>
+                    <MenuItem className='profile-menu' onClick={handleLogout}>
                     <i class="fa-solid fa-arrow-right-from-bracket mr-4"></i>
                         Logout</MenuItem>
                 </Link>

@@ -218,3 +218,7 @@ code {
   width: 174px;
   box-shadow: 0 2px 5px #726f6f;
 }
+
+.profile-flyout {
+  top: 96px !important;
+}

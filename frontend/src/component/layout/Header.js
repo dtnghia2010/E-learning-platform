@@ -48,8 +48,9 @@ export default function Header(){
                     </div>
 
                         <FlyoutLink 
-                        children={<img src="images\Png.png" alt="Profile" style={{ width: '76px', height: '76px', marginBottom: '10px' }} />} 
+                        children={<img src="images\Png.png" alt="Profile" style={{ width: '76px', height: '76px', marginBottom: '10px' }} className="relative" />}
                         FlyoutContent={<ProfileFlyout/>}
+                        isProfile={true}
                         />
 
                     </div>
