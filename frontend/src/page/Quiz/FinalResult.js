@@ -67,24 +67,23 @@ const FinalResult=()=>{
 
     },[])
     return(
-        <>
-            <div className="">
+            <div className="bg-myBlue p-10">
                 <div className=" flex justify-center align-center">
-                    <h1 className="text-3xl font-bold">Congratulations on finishing your quiz!! Here is your result <span className="text-bubble-gum ">{res}</span> scores!!</h1>
+                    <h1 className="text-3xl font-bold">Congratulations on finishing your quiz!! Here is your result <span className="text-myWhite ">{res}</span> scores!!</h1>
                 </div>
                 <div className="flex items-center justify-center">
-                <div className=" mt-5 border-4 border-gray-800 flex-col items-center p-4 rounded-md bg-blue-300 size-1/2" >
-                    {resShow.length>0 ?resShow.map((answer)=>{
+                <div className="justify-center mt-5 border-2 border-gray-800 w-[1200px] items-center p-4 rounded-lg bg-myBeige size-1/2" >
+                    {resShow.length>0 ?resShow.map((answer, index)=>{
 
                         return (
 
-                            <div className="">
-                                <h3 className="text-3xl font-bold">Question: {answer.question}</h3>
+                            <div className="" key={index}>
+                                <h3 className="text-3xl font-bold">Question {index + 1}: {answer.question}</h3>
                                 <p
                                     style={{
                                         color: answer.answer.includes("wrong") ? "red" : "green"
                                     }}
-                                    className="text-2xl"
+                                    className="text-2xl font-medium"
                                 >
                                     Answer: {answer.answer.split("&")[0]}
                                 </p>
@@ -95,12 +94,11 @@ const FinalResult=()=>{
                     }) : null}
                 </div>
                 </div>
-                <div className="flex justify-center items-center space-x-10 mt-5">
-                    <Button variant="contained" onClick={handleDoAgain} >Do again</Button>
-                    <Button variant="contained" onClick={handleReturn}>Return</Button>
+                <div className="flex justify-center items-center space-x-10 mt-10">
+                    <Button variant="contained" onClick={handleDoAgain} class="bg-myWhite font-semibold p-2 text-center rounded-md shadow-md hover:bg-gray-600 hover:text-myWhite">DO AGAIN</Button>
+                    <Button variant="contained" onClick={handleReturn} class="bg-myYellow font-semibold p-2 text-center rounded-md shadow-md hover:bg-gray-600 hover:text-myWhite">RETURN</Button>
                 </div>
             </div>
-        </>
     )
 }
 
