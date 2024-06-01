@@ -46,12 +46,13 @@ export default function Header(){
                             <i className="fa-solid fa-magnifying-glass absolute left-2 top-1/2 transform -translate-y-1/2 ml-3 text-slate-400"></i>
                         </div>
                     </div>
-                        <div className="">
+
                         <FlyoutLink 
-                        children={<img src="images/avatar.JPG" alt="Profile" style={{ width: '76px', height: '76px', marginBottom: '10px',  border: '4px solid', borderColor: '#6DB9D2', borderRadius: '50%' }} />} 
+                        children={<img src="images\Png.png" alt="Profile" style={{ width: '76px', height: '76px', marginBottom: '10px' }} className="relative" />}
                         FlyoutContent={<ProfileFlyout/>}
+                        isProfile={true}
                         />
-                        </div>
+
                     </div>
 
 
