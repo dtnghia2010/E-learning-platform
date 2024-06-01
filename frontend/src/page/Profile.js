@@ -3,7 +3,6 @@ import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReadin
 import { FiEdit } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import {deleteDocument, getDocumentByUser, getQuizzByUser} from "../util/ApiFunction";
 import {deleteDocument, getDocumentByUser, getQuizzByUser, getUserInfo} from "../util/ApiFunction";
 import {Alert, CircularProgress, MenuItem} from "@mui/material";
 import useDocumentContext from "../hook/useDocumentContext";
@@ -21,10 +20,10 @@ function ConfirmModal({ isOpen, onClose, onConfirm }) {
                     <div className="bg-myBeige px-4 pt-5 pb-4 sm:p-6 sm:pb-4 rounded-2xl text-center">
                         <div className="justify-center">
                             <div className=" text-center sm:mt-0">
-
+                                
                                 <div className="mt-2">
                                     <p className="font-bold text-gray-900 text-xl">
-                                        Do you really want to delete it?
+                                        Do you really want to delete it? 
                                     </p>
                                 </div>
                             </div>
@@ -137,7 +136,7 @@ const Profile = () => {
     const handleClickOpen = () => {
         setOpen(true);
     };
-
+    
     const handleClose = () => {
         setOpen(false);
     };
