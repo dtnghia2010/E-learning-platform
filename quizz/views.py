@@ -7,11 +7,6 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .serializers import QuizzSerializer, QuizzCreateSerializer
-class QuizzByCode(APIView):
-    def get(self, request, quizz_code):
-        auth_header = request.META.get('HTTP_AUTHORIZATION')
-        if not auth_header or not auth_header.startswith('Bearer '):
-            print(auth_header)
 from rest_framework import status
 # Create your views here.
 # class QuizView(APIView):
