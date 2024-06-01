@@ -7,6 +7,8 @@ import QuizzHeader from "./QuizzHeader";
 import QuizzDetail from "./QuizzDetail";
 import {getQuizzById} from "../../util/ApiFunction";
 import {useNavigate, useParams} from "react-router-dom";
+import {Alert, CircularProgress} from "@mui/material";
+
 
 const Quizz = () => {
     const navigator= useNavigate();
@@ -33,10 +35,10 @@ const Quizz = () => {
 
                 dispatch({type: 'GET_QUIZZ', payload: quizzData});
                 setError(null);
-                // setLoading(false);
+                setLoading(false);
             } catch (error) {
                 setError(error);
-
+                setLoading(false);
             }
         }
 
@@ -64,7 +66,13 @@ const Quizz = () => {
         //check steps are in bounded or not
         newStep > 0 && newStep <= quizz.length && setCurrentStep(newStep);
     }
-
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <CircularProgress />
+            </div>
+        );
+    }
         return (
             <div>
                 {/*    The header of quizz  */}

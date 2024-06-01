@@ -1,6 +1,6 @@
 from answerlist.models import AnswerList
 from .models import Question
-from .serializers import QuestionSerializer, ResultsSerializer, QuestionAnswerListSerializer
+from .serializers import QuestionSerializer, ResultsSerializer, QuestionAnswerListSerializer, AnswerListSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed

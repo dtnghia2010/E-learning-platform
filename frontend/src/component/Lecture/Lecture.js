@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { FaAngleDown } from "react-icons/fa";
 import {getDocumentDetails} from "../../util/ApiFunction";
 import {useParams} from "react-router-dom";
+import {Alert, CircularProgress, MenuItem} from "@mui/material";
+
 //css cho t
 const CoursePage = () => {
     const id= useParams().id;
     const [clicked, setClicked] = useState(false);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true); // Add loading state
     const [chapter, setChapter]=useState({
         author_name: "",
         chapters_info: [],
@@ -29,9 +33,12 @@ const CoursePage = () => {
                     description: data.documents.description,
                     document_name: data.documents.document_name,
                 })
+                setLoading(false);
+                setError(false)
             }
         }catch (e) {
-            console.log(e)
+            setLoading(false);
+            setError(false)
         }
     }
 
@@ -39,15 +46,13 @@ const CoursePage = () => {
         handleGetData()
     }, []);
     return (
-        <div>
-        {/* <div className="bg-blue-light p-2 flex justify-center">
-            <div className="container mx-auto flex justify-center items-center font-semibold text-lg">
-                <div className="text-sm text-gray-600 text-center flex ">
-                    Free Courses, Get it now! →
-                </div>
 
-            </div>
-        </div> */}
+        <div>
+            {loading ? (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <CircularProgress />
+                </div>
+            ) : (
         <div className=" mx-auto w-screen h-screen">
         <div className="flex w-screen bg-myBlue justify-between relative ">
                 <div className=" document-intro-box ">
@@ -125,7 +130,7 @@ const CoursePage = () => {
                     </div>
                 </section>
             </div>
-        </div>
+        </div>)}
         </div>
     );
 };

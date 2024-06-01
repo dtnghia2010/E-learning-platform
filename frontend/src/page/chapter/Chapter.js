@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getChapter} from "../../util/ApiFunction";
 import {useNavigate} from "react-router-dom";
+import {Alert, CircularProgress} from "@mui/material";
 
 const CustomDivider = () => {
     return (
@@ -18,6 +19,7 @@ const CustomDivider = () => {
 };
 
 const Chapter = () => {
+    const [loading, setLoading] = useState(true); // Add loading state
     const [chapter, setChapter]= useState({
         chapter_id:"",
         chapter_name:"",
@@ -33,8 +35,10 @@ const Chapter = () => {
             const data= await getChapter(id);
             console.log(data)
             setChapter(data)
+            setLoading(false);
         }catch (e) {
             console.log(e)
+            setLoading(false);
             throw  e
         }
     }
@@ -42,6 +46,14 @@ const Chapter = () => {
     useEffect(()=>{
         handleGetChapter()
     },[])
+    
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <CircularProgress />
+            </div>
+        );
+    }
     return (
         <div>
             <header className="flex-row justify-center items-center">

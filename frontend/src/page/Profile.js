@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaTrash } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import {deleteDocument, getDocumentByUser, getQuizzByUser, getUserInfo} from "../util/ApiFunction";
-import {Alert, CircularProgress, MenuItem} from "@mui/material";
+import {Alert, CircularProgress} from "@mui/material";
 import useDocumentContext from "../hook/useDocumentContext";
 import { useNavigate } from 'react-router-dom'; // import useHistory
 
@@ -55,7 +55,7 @@ function ConfirmModal({ isOpen, onClose, onConfirm }) {
 const Profile = () => {
     const [open, setOpen] = React.useState(false);
     const {documents, dispatch} = useDocumentContext();
-
+    const [copyMessage, setCopyMessage] = useState('');
     const [quizzes, setQuizzes] = useState([]);
 
     const [loading, setLoading] = useState('');
@@ -141,7 +141,23 @@ const Profile = () => {
     const handleClose = () => {
         setOpen(false);
     };
+    const handleCopyQuizzCode = async (quizzCode) => {
+        try {
+            await navigator.clipboard.writeText(quizzCode);
+            setCopyMessage('Copied');
+            setTimeout(() => setCopyMessage(''), 1000); // Clear the message after 2 seconds
 
+        } catch (err) {
+            console.log('Failed to copy text: ', err);
+        }
+    }
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <CircularProgress />
+            </div>
+        );
+    }
     return (
         <div>
             <div className=" flex justify-around w-screen bg-blue-light  items-center p-8">
@@ -170,9 +186,7 @@ const Profile = () => {
                         {error && (
                             <Alert severity="error">{error.message}</Alert>
                         )}
-                        {loading ? (
-                            <div className="flex justify-center items-center "><CircularProgress /></div>
-                        ): (documents.map((document) => (
+                        {documents.map((document) => (
                         <div key={document.document_id} className="flex justify-between items-center">
                             <Link to={`/lecture/${document.document_id}`} className="text-gray-700 mt-3">
                                 <span><i className="fa-regular fa-file-lines mr-3"></i></span>
@@ -190,10 +204,11 @@ const Profile = () => {
                                     onClose={handleClose}
                                     onConfirm={() => { handleDelete(document.document_id); handleClose(); }}
                                 />
+                                
                             </div>
                         </div>
                         ))
-                        )}
+                        }
                     </div>
                     <div className="space-y-1 mt-2">
                         <h2 className="text-2xl font-bold mb-1">Quizzes of {user.username}</h2>
@@ -204,10 +219,7 @@ const Profile = () => {
                         {error && (
                             <Alert severity="error">{error.message}</Alert>
                         )}
-                        {loading ? (
-                                <div className="flex justify-center items-center"></div>
-                            ):
-                            (quizzes.map((quiz) => (
+                        {quizzes.map((quiz) => (
                             <div key={quiz.quizz_id} className="flex justify-between items-center">
                                 <Link to={`/quizz/${quiz.quizz_id}`} className="text-gray-700 pt-4">
                                     <span><i class="fa-regular fa-file-lines mr-3"></i></span>
@@ -216,10 +228,11 @@ const Profile = () => {
                                 <div className="flex items-center space-x-4">
                                     <FiEdit className="cursor-pointer" onClick={() => handleUpdateQuizz(quiz.quizz_id)}/>
                                     <FaTrash className="cursor-pointer"/>
+                                    <i class="fa-regular fa-copy cursor-pointer" onClick={() => handleCopyQuizzCode(quiz.code)}></i>
                                 </div>
                             </div>
                             ))
-                            )}
+                        }
                     </div>
                 </div>
             </div>
