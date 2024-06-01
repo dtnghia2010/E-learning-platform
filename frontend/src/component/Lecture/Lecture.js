@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {useEffect} from "react";
-import {FcBookmark, FcOk} from 'react-icons/fc';
-import { IoBookOutline } from "react-icons/io5";
-import { LuFileEdit } from "react-icons/lu";
+import { Link } from 'react-router-dom';
 import { FaAngleDown } from "react-icons/fa";
 import {getDocumentDetails} from "../../util/ApiFunction";
 import {useParams} from "react-router-dom";
@@ -107,15 +105,15 @@ const CoursePage = () => {
                                                 <div className="border border-blue-900 py-4 px-10 ">
                                                     <div className='flex items-center'>
                                                     <i class="fa-solid fa-book-open text-2xl mr-4"></i>
-                                                    <a href={`/chapter/${chapter.chapter_id}`} className="text-2xl ">
+                                                    <Link to={`/chapter/${chapter.chapter_id}`} className="text-2xl ">
                                                         {chapter.chapter_name}
-                                                    </a>
+                                                    </Link>
                                                     </div>
                                                     <div className='flex items-center mt-5'>
                                                     <i class="fa-solid fa-pencil text-2xl mr-4"></i>
-                                                    <a href={`/quizz/${chapter.quizz_id}`} className="text-2xl">
+                                                    <Link to={`/quizz/${chapter.quizz_id}`} className="text-2xl">
                                                         Test
-                                                    </a>
+                                                    </Link>
                                                     </div>
                                                 </div>
                                             </div>

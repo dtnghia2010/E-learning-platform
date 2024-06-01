@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FcBusinessman, FcDocument, FcEditImage, FcFullTrash, FcManager, FcReading} from 'react-icons/fc';
 import { FiEdit } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 import { FaTrash } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import {deleteDocument, getDocumentByUser, getQuizzByUser, getUserInfo} from "../util/ApiFunction";
@@ -173,10 +174,10 @@ const Profile = () => {
                             <div className="flex justify-center items-center "><CircularProgress /></div>
                         ): (documents.map((document) => (
                         <div key={document.document_id} className="flex justify-between items-center">
-                            <a href={`/lecture/${document.document_id}`} className="text-gray-700">
-                                <span><i class="fa-regular fa-file-lines mr-3"></i></span>
+                            <Link to={`/lecture/${document.document_id}`} className="text-gray-700 mt-3">
+                                <span><i className="fa-regular fa-file-lines mr-3"></i></span>
                                 <span>{document.document_name}</span>
-                            </a>
+                            </Link>
                             <div className="flex items-center space-x-4">
                                 <FiEdit onClick={() =>handleUpdate(document.document_id)} className="cursor-pointer"/>
                                 <FaTrash
@@ -208,10 +209,10 @@ const Profile = () => {
                             ):
                             (quizzes.map((quiz) => (
                             <div key={quiz.quizz_id} className="flex justify-between items-center">
-                                <a href={`/quizz/${quiz.quizz_id}`} className="text-gray-700 pt-4">
+                                <Link to={`/quizz/${quiz.quizz_id}`} className="text-gray-700 pt-4">
                                     <span><i class="fa-regular fa-file-lines mr-3"></i></span>
                                     <span>{quiz.quizz_name}</span>
-                                    </a>
+                                </Link>
                                 <div className="flex items-center space-x-4">
                                     <FiEdit className="cursor-pointer" onClick={() => handleUpdateQuizz(quiz.quizz_id)}/>
                                     <FaTrash className="cursor-pointer"/>
