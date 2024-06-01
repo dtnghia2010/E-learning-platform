@@ -29,6 +29,7 @@ class QuestionListByQuizz(APIView):
             questions = Question.objects.filter(quizz_id=quizz_id)
             serializer = QuestionSerializer(questions, many=True)
             quizz_name = questions.first().quizz.quizz_name if questions else ''
+
         return Response({
             'quizz_name': quizz_name,
             'number_of_questions': questions.count(),
