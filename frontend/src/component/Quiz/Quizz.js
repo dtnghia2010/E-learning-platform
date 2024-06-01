@@ -68,7 +68,7 @@ const Quizz = () => {
         return (
             <div>
                 {/*    The header of quizz  */}
-                <div>
+                <div className="justify-center items-center">
                     <QuizzHeader currentStep={currentStep} numberQuestion={quizz.length}/>
                 </div>
                 <div className="flex flex-col justify-center items-center pd-4">

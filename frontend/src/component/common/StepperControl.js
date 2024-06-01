@@ -11,8 +11,8 @@ const StepperControl = ({handleClick, currentStep, steps, isQuiz}) => {
             {/*back button*/}
             <button
                 onClick={() => handleClick("back")}
-                className={`bg-myWhite 
-            hover:bg-slate-700 hover:text-white transition duration-2 ease-in-out button ${currentStep ===1 ? 
+                className={`bg-myWhite
+            hover:bg-slate-700 hover:text-white transition duration-2 ease-in-out button ${currentStep ===1 ?
                     "opacity-50 cursor-not-allowed " : ""}`}>
                 Back
             </button>
@@ -20,7 +20,7 @@ const StepperControl = ({handleClick, currentStep, steps, isQuiz}) => {
             {/*next button*/}
             <button
                 onClick={() => handleClick("next")}
-                className={`bg-myBlue  
+                className={`bg-myBlue
             hover:bg-slate-700 hover:text-white transition duration-2 ease-in-out button ${isAddDocumentAndStep2 ? 'next-finish-button1' : 'next-finish-button'}`}>
                 {isQuiz ? (currentStep === steps.length ? "Finish" : "Next") : (currentStep === steps.length - 1 ? "Finish" : "Next")}
             </button>

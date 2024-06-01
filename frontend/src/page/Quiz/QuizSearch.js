@@ -17,12 +17,12 @@ const QuizSearch= ()=>{
     }
 
     return(
-        <div className=" flex justify-center align-center size-1/2 space-x-2.5 w-full h-full mt-20 ">
-            <div className="bg-white rounded-2xl p-10 ">
+        <div className=" flex justify-center align-center size-1/2 space-x-2.5 w-full h-full mt-24 ">
+            <div className="bg-white rounded-2xl p-10 pl-20 pr-20 shadow-md">
 
 
-            <input onChange={handleChangeCode} value={code} placeholder="Enter Quiz Code" className="border-2 border-gray-900 w-50 rounded-md p-4"/>
-            <button onClick={handleJoin} className=" ml-12 bg-yellow-light p-4 rounded-lg ">Join</button>
+            <input onChange={handleChangeCode} value={code} placeholder="Enter a join code" className="border-2 border-gray-500 w-50 rounded-md p-4 pr-40 mr-30"/>
+            <button onClick={handleJoin} className=" ml-12 bg-myYellow p-4 pr-8 pl-8 text-center text-xl rounded-lg font-vietnam-pro font-medium">Join</button>
             </div>
         </div>
     )

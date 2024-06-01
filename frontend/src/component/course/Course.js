@@ -35,7 +35,7 @@ const Course = () => {
     },[category_id])
 
     if (loading) {
-        return <CircularProgress/>
+        return <div className="flex justify-center items-center"><CircularProgress /></div>
     }
 
     if (error) {

@@ -83,10 +83,5 @@ module.exports = {
       },
     },
   },
-  extend: {
-    boxShadow:{
-      blue: "0 0 5px theme('colors.blue.200'), 0 0 20px theme('colors.blue.700')",
-    }
-  },
   plugins: [],
 }

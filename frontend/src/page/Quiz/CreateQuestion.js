@@ -56,52 +56,45 @@ function CreateQuestion() {
     const shadow =  'shadow-xl';
 
     return (
-        <div className="flex items-center justify-center ">
-        <div className="border-4 border-gray-400 size-1/2 p-5 rounded-lg">
-            <div className="flex justify-center  align-center space-x-2.5 size-1/2 w-full h-full mt-20 border-2 border-gray-300 rounded-md p-4  ">
-                <input className="flex justify-center font-semibold text-5xl p-5 rounded-md" placeholder="Enter question name" name="question" value={question.question} onChange={handleChange}/>
+        <div className="flex items-center justify-center">
+        <div className="p-5 rounded-2xl shadow-inner size-full" style={{backgroundColor: "#D9D9D9"}}>
+            <div className="flex justify-center align-center mt-3">
+                <input className="flex justify-center font-semibold size-full text-xl p-20 border-2 border-gray-400 rounded-2xl text-center" placeholder="Type question here" name="question" value={question.question} onChange={handleChange} style={{backgroundColor: "#D9D9D9"}}/>
             </div>
-            <div className="flex justify-center align-center space-x-3 size-1/2 w-full h-full mt-20">
-
-                <div className="flex justify-between items-center  mt-5 ml-3 " style={{width: '60vw'}}>
+            <div className="flex justify-center align-center space-x-3 size-1/2 w-full h-full">
+                <div className="flex justify-between items-center mt-10 ml-3 " style={{width: '70vw'}}>
                     <div className="flex relative ">
-                        <FiCheckCircle onClick={()=>{
-                            handleChoose(1)
-                        }} className="absolute ml-52 mt-3 text-lg hover:text-white" />
+                        <input type="checkbox" defaultCheck className="checkbox absolute ml-52 mt-3 text-lg hover:text-white "/>
 
-                        <input className={`text-white text-xl sm:text-4xl font-semibold
-        w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`}
-                           style={{backgroundColor: "#BB0E00"}}
+                        <input className={`text-center placeholder-white placeholder-opacity-55 flex justify-center items-center text-white text-xl sm:text-xl font-normal
+        w-[240px] h-[270px] rounded-2xl cursor-pointer hover:${shadow}`}
+                           style={{backgroundColor: "#77A4EE", borderColor: "#0053DB", borderWidth: '1px'}}
                            name="answer1"
                            onChange={handleChange}
                            value={question.answer1}
-                           placeholder="Please enter the answer"/>
+                           placeholder="Type answer option here"/>
                 </div>
                     <div className="flex relative ">
-                        <FiCheckCircle onClick={()=>{
-                            handleChoose(2)
-                        }} className="absolute ml-52 mt-3 text-lg hover:text-white"/>
-                        <input className={` flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
-        w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`}
-                               style={{backgroundColor: "#0053DB"}}
+                        <input type="checkbox" defaultCheck className="checkbox absolute ml-52 mt-3 text-lg hover:text-white "/>
+                        <input className={`text-center placeholder-white placeholder-opacity-55 flex justify-center items-center text-white text-xl sm:text-xl font-normal
+        w-[240px] h-[270px] rounded-2xl cursor-pointer hover:${shadow}`}
+                               style={{backgroundColor: "#EA8179", borderColor: "#BB0E00", borderWidth: '1px'}}
                                name="answer2"
                                onChange={handleChange}
                                value={question.answer2}
-                               placeholder="Please enter the answer"
+                               placeholder="Type answer option here"
                         />
                     </div>
-                    <div className="flex relative ">
-                        <FiCheckCircle onClick={()=>{
-                            handleChoose(3)
-                        }} className="absolute ml-52 mt-3 text-lg hover:text-white"/>
+                    <div className="flex relative  ">
+                        <input type="checkbox" defaultCheck className="checkbox absolute ml-52 mt-3 text-lg hover:text-white "/>
 
-                        <input className={`flex justify-center items-center text-white text-xl sm:text-4xl font-semibold
-        w-[240px] h-[200px] rounded-md border border-secondary-400 cursor-pointer hover:${shadow}`}
-                               style={{backgroundColor: "#00751F"}}
+                        <input className={`text-center placeholder-white placeholder-opacity-55 flex justify-center items-center text-white text-xl sm:text-xl font-normal
+        w-[240px] h-[270px] rounded-2xl cursor-pointer hover:${shadow}`}
+                               style={{backgroundColor: "#6BC483", borderColor: "#00751F", borderWidth: '1px'}}
                                name="answer3"
                                onChange={handleChange}
                                value={question.answer3}
-                               placeholder="Please enter the answer"
+                               placeholder="Type answer option here"
                         />
                     </div>
                 </div>

@@ -43,7 +43,7 @@ const CategoryContent = () => {
                     </MenuItem>)}
                     {loading ?(
                         <MenuItem>
-                            <CircularProgress />
+                            <div className="flex justify-center items-center"><CircularProgress /></div>
                         </MenuItem>
                     ): (
                         categories.map((category) => (
