@@ -23,7 +23,7 @@ module.exports = {
       'myYellow':'#F9F59A',
       'myBlue':'#6DB9D2',
       'myLightYellow':'#F6F3CC',
-      'myWhite':'#FFFFFF',
+      'myWhite':'#F3F2EC',
       'myGray':'#D9D9D9',
       'answerBlue':'#7BA8F2',
       'answerRed':'#ED7C70',

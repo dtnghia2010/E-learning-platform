@@ -259,3 +259,16 @@ export async  function getAllResult(quizzId){
         throw  e
     }
 }
+export async  function getUserInfo(){
+    try{
+        const res= await  apiFunction.get('/userInfo/',{
+            headers: getHeaders()
+        })
+        return res.data
+
+    }catch (e) {
+        console.log(e)
+        throw  e
+    }
+}
+

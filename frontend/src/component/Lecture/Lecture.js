@@ -90,7 +90,7 @@ const CoursePage = () => {
                 </div>
             </div>
         </div>
-            <div className="bg-gray-tone mt-5">
+            <div className="bg-myWhite mt-5">
                 <section className="flex flex-col w-screen rounded-md document-content-box ">
                     <div className="mt-20 mb-5 ">
                         <h1 className="text-4xl font-bold text-blue-900  ">Document Content</h1>

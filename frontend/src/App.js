@@ -30,7 +30,7 @@ import Chapter from "./page/chapter/Chapter";
 function App() {
 
   return (
-      <div className="bg-gray-tone flex flex-col min-h-screen">
+      <div className="bg-myWhite flex flex-col min-h-screen">
           <BrowserRouter>
               <MainRoutes/>
           </BrowserRouter>
