@@ -145,3 +145,24 @@ class UserView(APIView):
 #     return render(request, 'dashboard.html', context)
 
 #
+
+class GetUserInfo(APIView):
+    def get(self, request):
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            raise AuthenticationFailed('Unauthenticated!')
+        token = auth_header.split(' ')[1]
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Authentication token expired!')
+        except jwt.InvalidTokenError:
+            raise AuthenticationFailed('Invalid authentication token!')
+
+        user = User.objects.filter(id=payload['id']).first()
+
+        if user is None:
+            raise AuthenticationFailed('User not found!')
+
+        return Response({'username': user.username, 'user_id': user.id})
