@@ -91,7 +91,7 @@ const Profile = () => {
         <div>
             <div className=" flex justify-around w-screen bg-blue-light  items-center p-8">
                 <div className="flex items-center space-x-4 bg-white p-4 rounded-3xl shadow-lg">
-                <img src="images/PNG.png" alt="Profile" className='avatar' style={{ width: '80px', height: '80px', marginBottom: '10px', borderRadius:'50%'}} />
+                <img src="/images/PNG.png" alt="Profile" className='avatar' style={{ width: '80px', height: '80px', marginBottom: '10px', borderRadius:'50%'}} />
                     <span className="text-xl font-bold">{user.username}</span>
                 </div>
                 <div className="flex flex-col items-center ml-8 p-4 rounded-lg bg-white shadow-lg">

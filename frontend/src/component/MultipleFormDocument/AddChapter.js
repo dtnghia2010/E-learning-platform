@@ -54,7 +54,7 @@ const AddChapter = () => {
                                     value={newChapter.chapter_name}
                                     onChange={handleChange}
                                     placeholder="Title"
-                                    className="rounded w-[200px] lg:w-full h-[30px]  input-chapter chapter-name text-center "
+                                    className="rounded w-[200px] lg:w-full h-[30px] bg-myWhite  input-chapter chapter-name text-center "
                                 />
                                 <label htmlFor="chapter_name"></label>
                                 <Divider style={{backgroundColor: 'transparent', margin: '5px 140px', borderStyle: 'dashed', borderWidth: '2px'}}/>
@@ -64,7 +64,7 @@ const AddChapter = () => {
                                     value={newChapter.code}
                                     onChange={handleChange}
                                     placeholder="Enter Quiz Code"
-                                    className="rounded w-[200px] lg:w-full  h-[30px] input-chapter chapter-code text-right"
+                                    className="rounded w-[200px] lg:w-full  h-[30px] bg-myWhite input-chapter chapter-code text-right"
                                 />
                                 <label htmlFor="code"></label>
                                 <textarea
@@ -73,7 +73,7 @@ const AddChapter = () => {
                                     value={newChapter.content}
                                     onChange={handleChange}
                                     placeholder="Type your text"
-                                    className="rounded w-[200px] lg:w-full input-chapter chapter-text text-left inline-block"
+                                    className="rounded w-[200px] lg:w-full bg-myWhite input-chapter chapter-text text-left inline-block"
                                 />
                                 <label htmlFor="content"></label>
                 <div className="flex justify-center mb-2 mr-6 absolute save-button">
